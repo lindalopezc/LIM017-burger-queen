@@ -1,0 +1,28 @@
+<div>
+  <h1>HAMBURGUESAS</h1>
+  <div *ngFor = "let product of products.hamburguesas">
+      <h3>{{product.name}}</h3>
+      <p>Precio: {{product.price}}</p>
+      <select>
+        <option disabled selected>Tipo</option>
+        <option select [value] = "product.options[0]">Res</option>
+        <option select [value] = "product.options[1]">Pollo</option>
+        <option select [value] = "product.options[2]">Vegetariana</option>
+      </select>
+      <select>
+        <option disabled selected>Extras</option>
+        <option select [value] = "product.extra[0]">Huevo</option>
+        <option select [value] = "product.extra[1]">Queso</option>
+      </select>
+  </div>
+  <h1>ACOMPAÑAMIENTOS</h1>
+  <div *ngFor = "let product of products.acompanamientos">
+    <p>{{product.name}}</p>
+    <p>Precio: {{product.price}}</p>
+  </div>
+  <h1>BEBIDAS</h1>
+  <div *ngFor = "let product of products.bebidas">
+    <p>{{product.name}}</p>
+    <p>Precio: {{product.price}}</p>
+  </div>
+</div>
