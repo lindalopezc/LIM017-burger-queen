@@ -7,15 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-
-  // increase (event:Event, indice: number){
-  //   this.products.hamburguesas[indice].count++;
-
-  // }
-  // descrease (event:Event, indice: number){
-  //   if(this.products.hamburguesas[indice].count>0)
-  //   {this.products.hamburguesas[indice].count--}
-  // }
   title = 'LIM017-burger-queen';
   date = new Date();
   products = {
@@ -114,5 +105,8 @@ export class AppComponent {
     increaseProduct(event:Event, indice: number){
       if(this.products.hamburguesas[indice].count>0)
       {this.products.hamburguesas[indice].count++}
+    }
+    delete(event:Event, indice: number){
+      this.products.hamburguesas[indice].count=0
     }
   }

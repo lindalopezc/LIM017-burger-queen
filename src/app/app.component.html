@@ -69,7 +69,7 @@
     </div>
 
   </div>
-  <div>
+  <div style="width: 30%">
     <h2>Resumen</h2>
     <p>{{date}}</p>
     <p>Mesero: Juan</p>
@@ -77,58 +77,22 @@
     <p>Mesa: 1</p>
 
     <div *ngFor="let product of products.hamburguesas; index as indice" class="d-flex flex-column">
-      <div  *ngIf="product.count>0" class="d-flex">
-        <p style="width: 80%;">{{product.name}}</p>
+      <div  *ngIf="product.count>0" class="d-flex justify-content-around">
+        <p style="width: 60%;">{{product.name}}</p>
           <button  (click)="decreaseProduct($event, indice)"class="btn btn-danger">-</button>
           <p>{{product.count}}</p>
           <button (click)="increaseProduct($event, indice)" class="btn btn-danger">+</button>
+          <p>${{product.price*product.count}}</p>
+          <button (click) = "delete($event, indice)" class = "btn btn-light">🗑️</button>
+      </div>
+      <div *ngIf="product.count>0 && product.huevo>0" class="d-flex">
+        <p>Huevo</p>
+        <p>${{product.huevo}}</p>
+      </div>
+      <div *ngIf="product.count>0 && product.queso>0" class="d-flex">
+        <p>Queso</p>
+        <p>${{product.queso}}</p>
       </div>
     </div>
   </div>
-
-  <!-- <div class="container">
-    <div *ngFor="let hamburguesa of products.hamburguesas; index as indice" class="row">
-      <div class="card col" style="width: 18rem;">
-        <img class="card-img-thumbnail" src={{hamburguesa.url}} alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">S/ {{hamburguesa.name}}</h5>
-          <p class="card-text">{{hamburguesa.price}}</p>
-          <div class="d-flex">
-            <button (click)="descrease($event, indice)" class="btn btn-primary">-</button>
-            <p>{{hamburguesa.count}}</p>
-
-            <button (click)="increase($event, indice)" class="btn btn-primary">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div>
-    <h1>HAMBURGUESAS</h1>
-    <div *ngFor = "let product of products.hamburguesas">
-        <h3>{{product.name}}</h3>
-        <p>Precio: {{product.price}}</p>
-        <select>
-          <option disabled selected>Tipo</option>
-          <option select [value] = "product.options[0]">Res</option>
-          <option select [value] = "product.options[1]">Pollo</option>
-          <option select [value] = "product.options[2]">Vegetariana</option>
-        </select>
-        <select>
-          <option disabled selected>Extras</option>
-          <option select [value] = "product.extra[0]">Huevo</option>
-          <option select [value] = "product.extra[1]">Queso</option>
-        </select>
-    </div>
-    <h1>ACOMPAÑAMIENTOS</h1>
-    <div *ngFor = "let product of products.acompanamientos">
-      <p>{{product.name}}</p>
-      <p>Precio: {{product.price}}</p>
-    </div>
-    <h1>BEBIDAS</h1>
-    <div *ngFor = "let product of products.bebidas">
-      <p>{{product.name}}</p>
-      <p>Precio: {{product.price}}</p>
-    </div>
-  </div> -->
 </main>
