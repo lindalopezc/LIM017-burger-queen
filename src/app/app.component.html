@@ -1,28 +1,134 @@
-<div>
-  <h1>HAMBURGUESAS</h1>
-  <div *ngFor = "let product of products.hamburguesas">
-      <h3>{{product.name}}</h3>
+
+<main >
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4">BURGER - QUEEN</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+          HOME
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white ">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+          PEDIDOS
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white ">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+          PRODUCTOS
+        </a>
+        <ul class="list-unstyled">
+          <li>        <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+           🍔Hamburguesas
+          </a></li>
+          <li>        <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            🍟Acompañamientos
+          </a></li>
+          <li>        <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            🥤Bebidas
+          </a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+          MESAS
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="d-flex">
+      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+      <strong>Juan</strong>
+    </div>
+
+
+  </div>
+  <div class="d-flex flex-column">
+    <div class="d-flex flex-row">
+      <div *ngFor="let product of products.hamburguesas">
+        <app-product *ngIf="product.type === 'simple'" [product]="product"></app-product>
+
+      </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-center">
+      <div *ngFor="let product of products.hamburguesas">
+        <app-product *ngIf="product.type === 'doble'" [product]="product"></app-product>
+    </div>
+    </div>
+
+  </div>
+  <div>
+    <h2>Resumen</h2>
+    <p>{{date}}</p>
+    <p>Mesero: Juan</p>
+    <p>Cliente: Maria</p>
+    <p>Mesa: 1</p>
+
+    <div *ngFor="let product of products.hamburguesas; index as indice" class="d-flex flex-column">
+      <div  *ngIf="product.count>0" class="d-flex">
+        <p style="width: 80%;">{{product.name}}</p>
+          <button  (click)="decreaseProduct($event, indice)"class="btn btn-danger">-</button>
+          <p>{{product.count}}</p>
+          <button (click)="increaseProduct($event, indice)" class="btn btn-danger">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container">
+    <div *ngFor="let hamburguesa of products.hamburguesas; index as indice" class="row">
+      <div class="card col" style="width: 18rem;">
+        <img class="card-img-thumbnail" src={{hamburguesa.url}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">S/ {{hamburguesa.name}}</h5>
+          <p class="card-text">{{hamburguesa.price}}</p>
+          <div class="d-flex">
+            <button (click)="descrease($event, indice)" class="btn btn-primary">-</button>
+            <p>{{hamburguesa.count}}</p>
+
+            <button (click)="increase($event, indice)" class="btn btn-primary">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div>
+    <h1>HAMBURGUESAS</h1>
+    <div *ngFor = "let product of products.hamburguesas">
+        <h3>{{product.name}}</h3>
+        <p>Precio: {{product.price}}</p>
+        <select>
+          <option disabled selected>Tipo</option>
+          <option select [value] = "product.options[0]">Res</option>
+          <option select [value] = "product.options[1]">Pollo</option>
+          <option select [value] = "product.options[2]">Vegetariana</option>
+        </select>
+        <select>
+          <option disabled selected>Extras</option>
+          <option select [value] = "product.extra[0]">Huevo</option>
+          <option select [value] = "product.extra[1]">Queso</option>
+        </select>
+    </div>
+    <h1>ACOMPAÑAMIENTOS</h1>
+    <div *ngFor = "let product of products.acompanamientos">
+      <p>{{product.name}}</p>
       <p>Precio: {{product.price}}</p>
-      <select>
-        <option disabled selected>Tipo</option>
-        <option select [value] = "product.options[0]">Res</option>
-        <option select [value] = "product.options[1]">Pollo</option>
-        <option select [value] = "product.options[2]">Vegetariana</option>
-      </select>
-      <select>
-        <option disabled selected>Extras</option>
-        <option select [value] = "product.extra[0]">Huevo</option>
-        <option select [value] = "product.extra[1]">Queso</option>
-      </select>
-  </div>
-  <h1>ACOMPAÑAMIENTOS</h1>
-  <div *ngFor = "let product of products.acompanamientos">
-    <p>{{product.name}}</p>
-    <p>Precio: {{product.price}}</p>
-  </div>
-  <h1>BEBIDAS</h1>
-  <div *ngFor = "let product of products.bebidas">
-    <p>{{product.name}}</p>
-    <p>Precio: {{product.price}}</p>
-  </div>
-</div>
+    </div>
+    <h1>BEBIDAS</h1>
+    <div *ngFor = "let product of products.bebidas">
+      <p>{{product.name}}</p>
+      <p>Precio: {{product.price}}</p>
+    </div>
+  </div> -->
+</main>
