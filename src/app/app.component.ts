@@ -5,24 +5,76 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
 
+  // increase (event:Event, indice: number){
+  //   this.products.hamburguesas[indice].count++;
+
+  // }
+  // descrease (event:Event, indice: number){
+  //   if(this.products.hamburguesas[indice].count>0)
+  //   {this.products.hamburguesas[indice].count--}
+  // }
   title = 'LIM017-burger-queen';
+  date = new Date();
   products = {
     hamburguesas:
     [
       {
-        name: 'Hamburguesa simple',
+        name: 'Hamburguesa de res',
+        url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
         price: 10,
-        options:['res', 'pollo', 'vegetariana'],
-        extra: ['huevo', 'queso']
+        type: 'simple',
+        huevo: 0,
+        queso: 0,
+        count: 0,
       },
       {
-        name: 'Hamburguesa doble',
-        price: 15,
-        options:['res', 'pollo', 'vegetariana'],
-        extra: ['huevo', 'queso']
+        name: 'Hamburguesa de pollo',
+        url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
+        price: 10,
+        type: 'simple',
+        huevo: 0,
+        queso: 0,
+        count: 0,
       },
+      {
+        name: 'Hamburguesa de vegetariana',
+        url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
+        price: 10,
+        type: 'simple',
+        huevo: 0,
+        queso: 0,
+        count: 0,
+      },
+      {
+        name: 'Hamburguesa res',
+        url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
+        price: 15,
+        type: 'doble',
+        huevo: 0,
+        queso: 0,
+        count: 0,
+      },
+      {
+        name: 'Hamburguesa pollo',
+        url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
+        price: 15,
+        type: 'doble',
+        huevo: 0,
+        queso: 0,
+        count: 0,
+      },
+      {
+        name: 'Hamburguesa vegetariana',
+        url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
+        price: 15,
+        type: 'doble',
+        huevo: 0,
+        queso: 0,
+        count: 0,
+      }
     ],
     acompanamientos:
     [
@@ -55,5 +107,12 @@ export class AppComponent {
       },
     ]
     }
-
+    decreaseProduct(event:Event, indice: number){
+      if(this.products.hamburguesas[indice].count>0)
+      {this.products.hamburguesas[indice].count--}
+    }
+    increaseProduct(event:Event, indice: number){
+      if(this.products.hamburguesas[indice].count>0)
+      {this.products.hamburguesas[indice].count++}
+    }
   }
