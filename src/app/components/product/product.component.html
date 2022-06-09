@@ -8,9 +8,10 @@
         <button (click)="increaseQueso($event)" class="btn btn-primary m-100">Queso</button>
         <button (click)="increaseHuevo($event)" class="btn btn-primary m-8">Huevo</button>
       </div>
-      <button (click)="addProduct($event)" class="btn btn-primary">Agregar</button>
+      <button (click)="addProduct($event)"  class="btn btn-primary">Agregar</button>
 
     </div>
   </div>
 
 </div>
+<app-orden (newOrden)="onAddNewOrden($event)"></app-orden>
