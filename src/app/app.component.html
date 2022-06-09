@@ -51,25 +51,29 @@
       <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong>Juan</strong>
     </div>
-
-
   </div>
-  <div class="d-flex flex-column">
-    <div class="d-flex flex-row">
-      <div *ngFor="let product of products.hamburguesas">
-        <app-product *ngIf="product.type === 'simple'" [product]="product"></app-product>
 
+
+  <div class="d-flex flex-column align-items-center" style="width: 55%"> <!--sección de hamburguesas-->
+    <div class="d-flex flex-column align-items-center">
+      <h1>Simples</h1>
+      <div class="d-flex flex-row">
+        <div *ngFor="let product of products.hamburguesas">
+          <app-product *ngIf="product.type === 'simple'" [product]="product"></app-product>
+       </div>
       </div>
     </div>
-
-    <div class="d-flex flex-row justify-content-center">
-      <div *ngFor="let product of products.hamburguesas">
-        <app-product *ngIf="product.type === 'doble'" [product]="product"></app-product>
+    <div class="d-flex flex-column align-items-center">
+       <h1>Dobles</h1>
+       <div class="d-flex flex-row">
+        <div  *ngFor="let product of products.hamburguesas">
+          <app-product *ngIf="product.type === 'doble'" [product]="product"></app-product>
+      </div>
     </div>
     </div>
-
   </div>
-  <div style="width: 30%">
+
+  <div style="width:100%"> <!--Resumen-->
     <h2>Resumen</h2>
     <p>{{date}}</p>
     <p>Mesero: Juan</p>
@@ -77,22 +81,9 @@
     <p>Mesa: 1</p>
 
     <div *ngFor="let product of products.hamburguesas; index as indice" class="d-flex flex-column">
-      <div  *ngIf="product.count>0" class="d-flex justify-content-around">
-        <p style="width: 60%;">{{product.name}}</p>
-          <button  (click)="decreaseProduct($event, indice)"class="btn btn-danger">-</button>
-          <p>{{product.count}}</p>
-          <button (click)="increaseProduct($event, indice)" class="btn btn-danger">+</button>
-          <p>${{product.price*product.count}}</p>
-          <button (click) = "delete($event, indice)" class = "btn btn-light">🗑️</button>
-      </div>
-      <div *ngIf="product.count>0 && product.huevo>0" class="d-flex">
-        <p>Huevo</p>
-        <p>${{product.huevo}}</p>
-      </div>
-      <div *ngIf="product.count>0 && product.queso>0" class="d-flex">
-        <p>Queso</p>
-        <p>${{product.queso}}</p>
-      </div>
+      <app-orden  *ngIf="product.count>0" [orden]="product"></app-orden>
     </div>
+
   </div>
+
 </main>

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'LIM017-burger-queen';
-  date = new Date();
+  date = Date().substring(0,34);
   products = {
     hamburguesas:
     [
@@ -31,7 +31,7 @@ export class AppComponent {
         count: 0,
       },
       {
-        name: 'Hamburguesa de vegetariana',
+        name: 'Hamburguesa vegetariana',
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
         price: 10,
         type: 'simple',
@@ -40,7 +40,7 @@ export class AppComponent {
         count: 0,
       },
       {
-        name: 'Hamburguesa res',
+        name: 'Hamburguesa de res',
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
         price: 15,
         type: 'doble',
@@ -49,7 +49,7 @@ export class AppComponent {
         count: 0,
       },
       {
-        name: 'Hamburguesa pollo',
+        name: 'Hamburguesa de pollo',
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
         price: 15,
         type: 'doble',

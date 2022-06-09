@@ -7,12 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
   @Input() product = {name:'', url:'', price:0, type:'', count: 0, queso:0, huevo:0};
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  cardColor ={class1 : false};
   addProduct(event:Event){
-    this.product.count++
+    this.product.count++;
+    this.cardColor.class1 = true;
   }
   increaseHuevo (event:Event){
     this.product.huevo++;
@@ -20,7 +18,12 @@ export class ProductComponent implements OnInit {
   }
   increaseQueso (event:Event){
     this.product.queso++;
-
   }
 
+
+
+
+  constructor() { }
+  ngOnInit(): void {
+  }
 }
