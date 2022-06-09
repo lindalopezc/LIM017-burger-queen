@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  nombreCliente = '';
   title = 'LIM017-burger-queen';
   date = Date().substring(0,34);
   products = {
