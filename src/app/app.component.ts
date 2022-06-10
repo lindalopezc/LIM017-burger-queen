@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Product from './interfaces/product';
+import { OrdenService } from './services/orden.service';
 
 @Component({
   selector: 'app-root',
@@ -98,7 +100,9 @@ export class AppComponent {
         price: 10
       },
     ]
+
     }
+    constructor(private ordenService: OrdenService) { }
     decreaseProduct(event:Event, indice: number){
       if(this.products.hamburguesas[indice].count>0)
       {this.products.hamburguesas[indice].count--}
@@ -109,5 +113,10 @@ export class AppComponent {
     }
     delete(event:Event, indice: number){
       this.products.hamburguesas[indice].count=0
+    }
+    createOrden(event: Event, product: Product){
+      const orden: Product = product;
+      console.log(product);
+      this.ordenService.addOrden(orden);
     }
   }

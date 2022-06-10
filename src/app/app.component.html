@@ -84,8 +84,9 @@
 
     <div *ngFor="let product of products.hamburguesas; index as indice" class="d-flex flex-column">
       <app-orden  *ngIf="product.count>0" [orden]="product"></app-orden>
-    </div>
 
+    </div>
+    <button (click)="createOrden($event,products.hamburguesas[0])" class="btn btn-success">Enviar</button>
   </div>
 
 </main>

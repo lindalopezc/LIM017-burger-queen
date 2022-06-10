@@ -107,6 +107,16 @@
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "LIM017-burger-queen:build:production",
+            "firebaseProject": "burger-queen-peru",
+            "firebaseHostingSite": "burger-queen-peru"
+          }
         }
       }
     }
