@@ -7,16 +7,11 @@ import Product from 'src/app/interfaces/product';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  product = {name:'', url:'', price:0, type:'', count: 0, queso:0, huevo:0};
-  ordenes: Product[] = [{name:'', url:'', price:0, type:'', count: 0, queso:0, huevo:0}];
-  @Output() newItemEvent = new EventEmitter<object>();
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() product = {name:'', url:'', price:0, type:'', count: 0, queso:0, huevo:0};
+  cardColor ={class1 : false};
   addProduct(event:Event){
-    this.product.count++
-    this.newItemEvent.emit(this.product);
+    this.product.count++;
+    this.cardColor.class1 = true;
   }
   increaseHuevo (event:Event){
     this.product.huevo++;
@@ -24,10 +19,12 @@ export class ProductComponent implements OnInit {
   }
   increaseQueso (event:Event){
     this.product.queso++;
-
   }
-  onAddNewOrden(orden: Product)
-  { this.ordenes.push(orden);
-    console.log(this.ordenes)
+
+
+
+
+  constructor() { }
+  ngOnInit(): void {
   }
 }
