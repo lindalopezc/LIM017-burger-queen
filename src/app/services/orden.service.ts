@@ -9,9 +9,10 @@ import Product from '../interfaces/product';
 export class OrdenService {
 
   constructor(private firestore: Firestore) { }
-  addOrden(orden: Product)
-  {
+  addOrden(orden: Product[])
+  {const jsonOrden = {...orden};
+  console.log(jsonOrden)
     const ordenRef = collection(this.firestore, 'orden');
-    return addDoc(ordenRef, orden)
+    return addDoc(ordenRef, jsonOrden)
   }
 }

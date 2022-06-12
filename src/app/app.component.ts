@@ -102,6 +102,15 @@ export class AppComponent {
     ]
 
     }
+    Arr = [
+      {
+        name:"string", url:"string", price:34, type:"string", count: 58, queso:58, huevo:58
+      },
+      {
+        name:"string", url:"string", price:58, type:"string", count: 58, queso:58, huevo:58
+      }
+      ]
+
     constructor(private ordenService: OrdenService) { }
     decreaseProduct(event:Event, indice: number){
       if(this.products.hamburguesas[indice].count>0)
@@ -114,9 +123,9 @@ export class AppComponent {
     delete(event:Event, indice: number){
       this.products.hamburguesas[indice].count=0
     }
-    createOrden(event: Event, product: Product){
-      const orden: Product = product;
-      console.log(product);
+    createOrden(event: Event, product: Product[]){
+      const orden: Product[] = product;
+
       this.ordenService.addOrden(orden);
     }
   }

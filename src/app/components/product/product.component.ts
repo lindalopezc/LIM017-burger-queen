@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import beverages from 'src/app/interfaces/beverages';
 import Product from 'src/app/interfaces/product';
 
 @Component({
@@ -9,6 +10,9 @@ import Product from 'src/app/interfaces/product';
 export class ProductComponent implements OnInit {
   @Input() product = {name:'', url:'', price:0, type:'', count: 0, queso:0, huevo:0};
   cardColor ={class1 : false};
+  bedida!: beverages;
+  no!: string;
+
   addProduct(event:Event){
     this.product.count++;
     this.cardColor.class1 = true;
@@ -21,6 +25,10 @@ export class ProductComponent implements OnInit {
     this.product.queso++;
   }
 
+  agregarBebida(bebidas: Product)
+  {
+    this.bedida = bebidas;
+  }
 
 
 

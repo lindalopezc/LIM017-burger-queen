@@ -86,7 +86,8 @@
       <app-orden  *ngIf="product.count>0" [orden]="product"></app-orden>
 
     </div>
-    <button (click)="createOrden($event,products.hamburguesas[0])" class="btn btn-success">Enviar</button>
+    <button (click)="createOrden($event,Arr)" class="btn btn-success">Enviar</button>
   </div>
 
 </main>
+<router-outlet></router-outlet>
