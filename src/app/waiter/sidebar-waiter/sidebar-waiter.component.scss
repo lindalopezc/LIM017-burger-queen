@@ -1,0 +1,12 @@
+// Variable overrides first
+$primary: #900;
+$enable-shadows: true;
+$prefix: "mo-";
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+:host{
+  display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
