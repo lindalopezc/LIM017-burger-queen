@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { collection, Firestore } from '@angular/fire/firestore';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { addDoc } from '@firebase/firestore';
+import { Observable } from 'rxjs';
 import { Orden, Product } from '../interfaces/product';
 
 @Injectable({
@@ -14,6 +15,11 @@ export class firebaseService {
   addOrderToFirebase(orden: Orden){
     const ordenRef = collection(this.firestore, 'ordenes');
     return addDoc(ordenRef, orden)
+  }
+
+  getOrdens(): Observable<any[]>{
+    const ordenRef = collection(this.firestore, 'orden');
+    return collectionData(ordenRef, {idField: 'id'}) as Observable<any[]>;
   }
 }
 
