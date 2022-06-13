@@ -25,4 +25,7 @@ export class OrderService {
   this.orderSummary.push(order);
  }
 
+ increaseProduct(order: Product){
+  order.count++;
+ }
 }

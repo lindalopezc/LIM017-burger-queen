@@ -1,0 +1,12 @@
+.div-tables{
+  width: 100%;
+}
+.d-grid{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 280px);
+  img{
+    width: 220px;
+  }
+}

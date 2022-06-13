@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td class="order-name">{{order.name}}</td>
-      <td><button class="btn btn-danger">-</button>{{order.count}}<button  class="btn btn-danger">+</button></td>
+      <td><button class="btn btn-danger">-</button>{{order.count}}<button (click)="increaseProduct($event, order)" class="btn btn-danger">+</button></td>
       <td class="text-center">${{order.price*order.count}}</td>
       <td><button class = "btn btn-light">🗑️</button></td>
     </tr>
