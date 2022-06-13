@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
-import { collection, Firestore } from '@angular/fire/firestore';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { addDoc } from '@firebase/firestore';
-import Product from '../interfaces/product';
+import { Observable } from 'rxjs';
+import { Orden } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OrdenService {
+export class OrderService {
 
   constructor(private firestore: Firestore) { }
-  addOrden(orden: Product[])
-  {const jsonOrden = {...orden};
-  console.log(jsonOrden)
+  addOrden(orden: Orden)
+  {
+    const ordenRef = collection(this.firestore, 'ordenes');
+    return addDoc(ordenRef, orden)
+  }
+
+  getOrdens(): Observable<any[]>{
     const ordenRef = collection(this.firestore, 'orden');
-    return addDoc(ordenRef, jsonOrden)
+    return collectionData(ordenRef, {idField: 'id'}) as Observable<any[]>;
   }
 }
+

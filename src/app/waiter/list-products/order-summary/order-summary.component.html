@@ -1,0 +1,15 @@
+<div> <!--Resumen-->
+  <h2>Resumen</h2>
+  <p>{{date}}</p>
+  <p>Mesero: Juan</p>
+ <label> Nombre: </label>
+  <input type = "text" [(ngModel)] = "nombreCliente">
+  <p>Cliente: {{nombreCliente}}</p>
+  <p>Mesa: {{mesa}}</p>
+
+  <div *ngFor="let product of products.hamburguesas" class="d-flex flex-column">
+    <app-new-order [orden] = "product"></app-new-order>
+  </div>
+  <button (click)="createOrden($event,products.hamburguesas)" class="btn btn-success" routerLink="/list-orders">Enviar</button>
+</div>
+
