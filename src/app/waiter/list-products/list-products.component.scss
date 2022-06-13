@@ -4,9 +4,15 @@ $enable-shadows: true;
 $prefix: "mo-";
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
 :host{
-  display: flex;
     flex-wrap: nowrap;
     height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
+}
+.container{
+  display: grid;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 245px);
 }

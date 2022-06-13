@@ -1,16 +1,24 @@
 <div>
-  <div *ngIf = "count >0" class="d-flex justify-content-around">
-    <p>{{orden.name}}</p>
-    <button  (click)="decreaseProduct($event)" class="btn btn-danger">-</button>
-    <p>{{count}}</p>
-    <button (click)="increaseProduct($event)" class="btn btn-danger">+</button>
-    <p>${{orden.price*count}}</p>
-    <button (click) = "delete($event)" class = "btn btn-light">🗑️</button>
-  </div>
-  <div class="d-flex flex-column justify-content-around">
-    <p>Huevo: {{orden.huevo>0 ? orden.huevo: 0}}</p>
-    <p>Queso: {{orden.queso>0 ? orden.queso: 0}}</p>
-  </div>
+  <table>
+    <tr>
+      <td class="order-name">{{order.name}}</td>
+      <td><button class="btn btn-danger">-</button>{{order.count}}<button  class="btn btn-danger">+</button></td>
+      <td class="text-center">${{order.price*order.count}}</td>
+      <td><button class = "btn btn-light">🗑️</button></td>
+    </tr>
+    <tr *ngIf = "order.egg>0">
+      <td class="extra-item">{{order.egg}} Egg</td>
+      <td></td>
+      <td class="text-center extra-item">$ {{order.egg}}</td>
+      <td></td>
+    </tr>
+    <tr  *ngIf = "order.cheese>0">
+      <td class="extra-item">{{order.cheese}} Cheese</td>
+      <td></td>
+      <td class="text-center extra-item">$ {{order.cheese}}</td>
+      <td></td>
+    </tr>
+  </table>
 </div>
 
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../services/orden.service';
 
 @Component({
   selector: 'app-waiter',
@@ -7,7 +6,7 @@ import { OrderService } from '../services/orden.service';
   styleUrls: ['./waiter.component.scss']
 })
 export class WaiterComponent implements OnInit {
-    constructor(private ordenService: OrderService) { }
+    constructor() { }
 
   ngOnInit(): void {
   }

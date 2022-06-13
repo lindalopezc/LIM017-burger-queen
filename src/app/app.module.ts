@@ -19,6 +19,7 @@ import { ProductCardComponent } from './waiter/list-products/product-card/produc
 import { OrderSummaryComponent } from './waiter/list-products/order-summary/order-summary.component';
 import { NewOrderComponent } from './waiter/list-products/order-summary/new-order/new-order.component';
 import { LoginComponent } from './login/login.component';
+import { OrderService } from './services/orden.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { LoginComponent } from './login/login.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

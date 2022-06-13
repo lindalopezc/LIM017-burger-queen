@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/interfaces/product';
 
 @Component({
   selector: 'app-new-order',
@@ -6,22 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./new-order.component.scss']
 })
 export class NewOrderComponent implements OnInit {
+  @Input() order: Product = {name:'', url:'', price:0, type:'', count:0 , cheese:0, egg:0};
 
-
-  @Input() orden = {name:'', url:'', price:0, type:'', count: 1, queso:0, huevo:0};
-
-  count = this.orden.count;
-
-  decreaseProduct(event:Event){
-    this.count--;
-  }
-  increaseProduct(event:Event){
-    this.count++;
-  }
-  delete(event:Event){
-    this.count=0;
-  }
-  constructor() { }
 
   ngOnInit(): void {
   }
