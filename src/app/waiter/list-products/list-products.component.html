@@ -1,20 +1,15 @@
 <div class="d-flex">
-  <app-sidebar-waiter></app-sidebar-waiter>
-  <div class="d-flex flex-column align-items-center"> <!--sección de productos-->
-    <h1>Simples</h1>
-    <div class="d-flex">
-      <div *ngFor="let product of products.burguers">
-        <app-product-card [pedidos] = "pedidos" *ngIf="product.type === 'simple'" [product]="product"></app-product-card>
-      </div>
-    </div>
-    <h1>Dobles</h1>
-    <div class="d-flex">
-        <div *ngFor="let product of products.burguers">
-          <app-product-card [pedidos] = "pedidos"  *ngIf="product.type === 'doble'" [product]="product"></app-product-card>
-        </div>
+  <div><!--sidebar-waiter-->
+    <app-sidebar-waiter></app-sidebar-waiter>
+  </div>
+  <div class="container"> <!--sección de productos-->
+    <div *ngFor="let product of products.burguers">
+      <app-product-card [product]="product"></app-product-card>
     </div>
   </div>
-  <app-order-summary></app-order-summary><!--Resumen-->
+  <div style="width:30%"><!--Resumen-->
+    <app-order-summary></app-order-summary>
+  </div>
 </div>
 
 

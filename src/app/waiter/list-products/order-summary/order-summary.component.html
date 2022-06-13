@@ -1,15 +1,16 @@
-<div> <!--Resumen-->
-  <h2>Resumen</h2>
-  <p>{{date}}</p>
-  <p>Mesero: Juan</p>
- <label> Nombre: </label>
-  <input type = "text" [(ngModel)] = "nombreCliente">
-  <p>Cliente: {{nombreCliente}}</p>
-  <p>Mesa: {{mesa}}</p>
-
-  <div *ngFor="let product of products.hamburguesas" class="d-flex flex-column">
-    <app-new-order [orden] = "product"></app-new-order>
+<div class="my-order d-flex flex-column align-items-center bg-white"> <!--Resumen-->
+  <h2 class="text-center">My Order</h2>
+  <div class="d-flex flex-column" style="width:100%">
+      <p> Day: {{date}}</p>
+      <p>Waiter: Juan</p>
+      <p>Client: {{nombreCliente}}</p>
+      <p>Table: {{mesa}}</p>
   </div>
-  <button (click)="createOrden($event,products.hamburguesas)" class="btn btn-success" routerLink="/list-orders">Enviar</button>
+  <div style="width: 100%" *ngFor="let order of orderSummary" class="d-flex flex-column">
+    <app-new-order [order] = "order"></app-new-order>
+  </div>
+  <div class=" div-btn d-flex justify-content-end">
+    <button (click)="createOrden($event,orderSummary)" class="btn btn-success mt-2" routerLink="/list-orders">Enviar</button>
+  </div>
 </div>
 

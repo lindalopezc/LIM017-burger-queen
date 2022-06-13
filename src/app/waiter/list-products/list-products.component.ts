@@ -10,12 +10,12 @@ export class ListProductsComponent implements OnInit {
     burguers:
     [
       {
-        name: 'Beef Burger',
+        name: 'Beef burger',
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
         price: 10,
         type: 'simple',
-        huevo: 0,
-        queso: 0,
+        egg: 0,
+        cheese: 0,
         count: 0,
       },
       {
@@ -23,8 +23,8 @@ export class ListProductsComponent implements OnInit {
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
         price: 10,
         type: 'simple',
-        huevo: 0,
-        queso: 0,
+        egg: 0,
+        cheese: 0,
         count: 0,
       },
       {
@@ -32,8 +32,8 @@ export class ListProductsComponent implements OnInit {
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
         price: 10,
         type: 'simple',
-        huevo: 0,
-        queso: 0,
+        egg: 0,
+        cheese: 0,
         count: 0,
       },
       {
@@ -41,8 +41,8 @@ export class ListProductsComponent implements OnInit {
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
         price: 15,
         type: 'doble',
-        huevo: 0,
-        queso: 0,
+        egg: 0,
+        cheese: 0,
         count: 0,
       },
       {
@@ -50,8 +50,8 @@ export class ListProductsComponent implements OnInit {
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
         price: 15,
         type: 'doble',
-        huevo: 0,
-        queso: 0,
+        egg: 0,
+        cheese: 0,
         count: 0,
       },
       {
@@ -59,8 +59,8 @@ export class ListProductsComponent implements OnInit {
         url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
         price: 15,
         type: 'doble',
-        huevo: 0,
-        queso: 0,
+        egg: 0,
+        cheese: 0,
         count: 0,
       }
     ],
@@ -104,6 +104,8 @@ export class ListProductsComponent implements OnInit {
     }
 
   pedidos=[];
+
+
   constructor() { }
 
   ngOnInit(): void {
