@@ -1,4 +1,7 @@
   <app-sidebar-waiter (ontoggleSideNav)="onToggleSideNav($event)"></app-sidebar-waiter>
-  <router-outlet></router-outlet>
+  <app-body
+    [collapsed]="isSideNavCollapsed"
+    [screenWidth]="screenWidth"
+  ></app-body>
 
 

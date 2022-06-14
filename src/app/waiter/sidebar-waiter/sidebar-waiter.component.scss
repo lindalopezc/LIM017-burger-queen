@@ -97,13 +97,20 @@
        .sidenav-link-text{
         margin-left: 1.5rem;
        }
-
+    }
+  }
+  .sidenav-nav-item:hover{
+    .sidenav-nav-link{
+      background-color: #fff;
+      color:#000;
     }
   }
 }
-.sidenav-nav-item:hover{
-  .sidenav-nav-link:hover{
-    background-color: #fff;
-    color:#000;
+.active{
+  background-color: #fff;
+  .sidenav-link-text,
+  .fa-bars{
+   color: black;
   }
+
 }
