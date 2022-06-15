@@ -21,11 +21,7 @@ import { OrderSummaryComponent } from './waiter/body/list-products/order-summary
 import { NewOrderComponent } from './waiter/body/list-products/order-summary/new-order/new-order.component';
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
-<<<<<<< HEAD
-import { BodyComponent } from './body/body.component';
-=======
 import { BodyComponent } from './waiter/body/body.component';
->>>>>>> f97992988fdfe9af3aa5468c6490fedd4001ca0b
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 <div class="sidenav"[ngClass]="collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
-         <button class="logo" (click)="toggleCollapse()">A</button>
-         <div class="logo-text" @fadeInOut *ngIf="collapsed">Angular</div>
+         <button class="logo" (click)="toggleCollapse()"><img src="../../../assets/hamburguesa-con-queso.png" id="logo"></button>
+         <div class="logo-text" @fadeInOut *ngIf="collapsed">Burger Queen</div>
          <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
         <i class="fa-solid fa-xmark"></i>
          </button>

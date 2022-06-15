@@ -20,7 +20,7 @@ const routes: Routes = [
       component: ListOrdersComponent
     },
     {
-      path: "list-products/",
+      path: "list-products",
       component: ListProductsComponent
     }
   ]},
