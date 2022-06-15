@@ -1,0 +1,11 @@
+// Variable overrides first
+:host{
+  height: 100vh;
+}
+.container{
+display: grid;
+width: 50%;
+align-items: center;
+justify-content: center;
+grid-template-columns: repeat(auto-fill, 245px);
+}

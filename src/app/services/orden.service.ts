@@ -24,7 +24,7 @@ export class firebaseService {
 }
 
 export class OrderService {
- orderSummary: any = []; // este array irá guardando los productos que iran en la cuenta.
+ orderSummary: any = [];
 
  addOrder(order: Product){
   order.count=1;
