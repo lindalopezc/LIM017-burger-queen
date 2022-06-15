@@ -20,6 +20,7 @@ import { OrderSummaryComponent } from './waiter/list-products/order-summary/orde
 import { NewOrderComponent } from './waiter/list-products/order-summary/new-order/new-order.component';
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
+import { BodyComponent } from './body/body.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { OrderService } from './services/orden.service';
     ProductCardComponent,
     OrderSummaryComponent,
     LoginComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,

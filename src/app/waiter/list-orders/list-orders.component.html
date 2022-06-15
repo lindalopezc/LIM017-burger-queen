@@ -1,27 +1,28 @@
 <div class="d-flex">
-  <app-sidebar-waiter></app-sidebar-waiter>
-  <div *ngFor="let order of orders" >
-    <div class="container">
-      <div class="card" style="width: 18rem;">
-        <div class="card-header p-3 mb-2 bg-danger text-white">
-          Pendiente
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Order</h5>
-          <p class="card-text" *ngFor="let product of order.Hamburguesas">{{product.name}}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{order.Cliente}}</li>
-          <li class="list-group-item">{{order.Fecha}}</li>
-          <li class="list-group-item">Table: {{order.Mesa}}</li>
-        </ul>
-        <div class="card-footer text-muted">
-          <button class="btn btn-success">Done!</button>
 
+  <div class="d-grid">
+    <div *ngFor="let order of orders" >
+      <div class="container">
+        <div class="card" style="width: 18rem">
+          <div class="card-header p-3 mb-2 bg-danger text-white">
+            Pendiente
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Order</h5>
+            <p class="card-text" *ngFor="let product of order.Hamburguesas">{{product.name}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{order.Cliente}}</li>
+            <li class="list-group-item">{{order.Fecha}}</li>
+            <li class="list-group-item">Table: {{order.Mesa}}</li>
+          </ul>
+          <div class="card-footer text-muted">
+            <button class="btn btn-success">Done!<i class="fa-solid fa-user"></i></button>
+          </div>
         </div>
+        <h3></h3>
       </div>
-      <h3></h3>
-    </div>
-
+  </div>
   </div>
 </div>
+

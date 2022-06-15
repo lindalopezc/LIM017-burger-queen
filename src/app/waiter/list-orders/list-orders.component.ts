@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'src/app/services/orden.service';
+import { firebaseService } from 'src/app/services/orden.service';
 
 @Component({
   selector: 'app-list-orders',
@@ -8,7 +8,7 @@ import { OrderService } from 'src/app/services/orden.service';
 })
 export class ListOrdersComponent implements OnInit {
   orders: any[];
-  constructor(private orderService: OrderService) { this.orders=[{}]}
+  constructor(private orderService: firebaseService) { this.orders=[{}]}
 
   ngOnInit(): void {
     this.orderService.getOrdens().subscribe(orders=>{
