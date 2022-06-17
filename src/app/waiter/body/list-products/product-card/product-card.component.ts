@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/app/interfaces/product';
+import Product  from 'src/app/interfaces/product';
 import { OrderService } from 'src/app/services/orden.service';
+
 
 @Component({
   selector: 'app-product-card',
@@ -9,18 +10,15 @@ import { OrderService } from 'src/app/services/orden.service';
 })
 export class ProductCardComponent implements OnInit {
 
-  @Input() product: Product = {name:'', url:'', price:0, type:'', count: 0, cheese:0, egg:0};
+  @Input() product!: Product;
 
-  get orderSummary(){
-    return this.orderService.orderSummary;
-  }
-
-  constructor(public orderService: OrderService){}
+    constructor(private orderService: OrderService){}
 
   ngOnInit(): void {
   }
 
-  addOrder(order: Product){
+  addOrder(product: Product){
+    const order = {...product, count: 1}
     this.orderService.addOrder(order);
   }
 
