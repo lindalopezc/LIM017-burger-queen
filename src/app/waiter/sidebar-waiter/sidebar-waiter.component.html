@@ -1,7 +1,7 @@
 <div class="sidenav"[ngClass]="collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
-         <button class="logo" (click)="toggleCollapse()">A</button>
-         <div class="logo-text" @fadeInOut *ngIf="collapsed">Angular</div>
+         <button class="logo" (click)="toggleCollapse()"><img src="../../../assets/hamburguesa-con-queso.png" id="logo"></button>
+         <div class="logo-text" @fadeInOut *ngIf="collapsed">Burger Queen</div>
          <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
         <i class="fa-solid fa-xmark"></i>
          </button>
@@ -10,7 +10,7 @@
          <li class="sidenav-nav-item" *ngFor = "let data of navData">
               <a class="sidenav-nav-link" [routerLink]="[data.routerLink]"
               >
-                   <i class="fa-solid fa-bars"[class]="data.icon"></i>
+                   <i class="fa-solid"[class]="data.icon"></i>
                    <span class="sidenav-link-text" fadeInOut *ngIf="collapsed">
                     {{data.label}}
                   </span>
@@ -18,3 +18,12 @@
          </li>
     </ul>
 </div>
+<!-- <div class="main-containerd-flex">
+  <div class="sidebar"id="side_nav">
+     <div class="header-box">
+         <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2me-2">CL</span><span class="text-white">Coding League</span></h1>
+      </div>
+  </div>
+  <div class="content">
+  </div>
+</div> -->
