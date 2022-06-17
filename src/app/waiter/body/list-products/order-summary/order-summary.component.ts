@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import  Product  from 'src/app/interfaces/product';
 import { firebaseService, OrderService } from 'src/app/services/orden.service';
 
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.scss']
+  styleUrls: ['./order-summary.component.scss'],
 })
 export class OrderSummaryComponent implements OnInit {
 
-  nameMesero = 'Maria Paula'; //Datos que se deben cambiar
+  nameMesero = 'Maria Paula';
   mesa = 1;
   nombreCliente = 'Jaqueline Ramos';
   title = 'LIM017-burger-queen';
@@ -28,11 +29,10 @@ export class OrderSummaryComponent implements OnInit {
     this.firebaseService.addOrderToFirebase(orden); //cambie addOrden por addOrderToFirebase
   }
 
-  get orderSummary(){
-    return this.orderService.orderSummary;
+  orderSummary !: Product[];
+  constructor(private orderService: OrderService){
+    this.orderSummary = this.orderService.getOrderSummary();
   }
-
-  constructor(public orderService: OrderService){}
 
   ngOnInit(): void {
   }
