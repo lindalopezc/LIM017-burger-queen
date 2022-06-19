@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
+import { FormBuilder } from '@angular/forms';
 import { OrderService } from 'src/app/services/orden.service';
 
 @Component({
@@ -10,19 +11,30 @@ import { OrderService } from 'src/app/services/orden.service';
 })
 export class NewOrderComponent implements OnInit {
   @Input() order: Product = {name:'', url:'', price:0, type:'', count:0 , cheese:0, egg:0};
+  items:any;
+  checkoutForm;
 
-  constructor(public orderService: OrderService){}
+  constructor(public orderService: OrderService,  private formBuilder: FormBuilder){
+    this.checkoutForm = this.formBuilder.group({
+      nameProduct: '',
+      cant: 0
+    });
+  }
 
   increaseProduct(event: Event, product:Product){
     product.count++;
   }
-  // decreaseProduct(event: Event, product:Product){
-  //   product.count--;
-  //   if(product.count===0){
-  //     this.orderService.orderSummary.slice([indexOf(product)],1)
-  //   }
-  // }
+
   ngOnInit(): void {
+    this.items = this.orderService.getOrders();
+  }
+
+  onSubmit(customerData:any) {
+    // Process checkout data here
+    this.items = this.orderService.clearCart();
+    this.checkoutForm.reset();
+
+    console.warn('Your order has been submitted', customerData);
   }
 
 }

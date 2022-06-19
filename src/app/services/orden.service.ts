@@ -30,7 +30,13 @@ export class OrderService {
   order.count=1;
   this.orderSummary.push(order);
  }
-
+getOrders(){
+  return this.orderSummary;
+}
+clearCart(){
+  this.orderSummary = [];
+  return this.orderSummary;
+}
  increaseProduct(order: Product){
   order.count++;
  }

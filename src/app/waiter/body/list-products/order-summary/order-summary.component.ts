@@ -29,6 +29,7 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   get orderSummary(){
+    console.log('order summary', this.orderService.orderSummary)
     return this.orderService.orderSummary;
   }
 

@@ -25,7 +25,9 @@ export class ProductCardComponent implements OnInit {
   }
 
   addEgg(event: any){
-    this.product.egg = event.target.value;
+
+    this.product.egg = event.target.value
+    ;
   }
 
   addCheese(event: any){
