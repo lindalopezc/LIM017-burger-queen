@@ -31,7 +31,9 @@ export class NewOrderComponent implements OnInit {
     this.pricePerProduct.emit(-this.order.price);
     return this.orderService.decreaseProduct(index);
   }
-
+  deleteOrder(index: number){
+    this.orderService.deleteOneOrder(index);
+  }
   ngOnInit(): void {
     this.items = this.orderService.getOrderSummary();
   }

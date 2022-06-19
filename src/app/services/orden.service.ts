@@ -9,17 +9,18 @@ import OrderFirebase from '../interfaces/orders-firebase';
   providedIn: 'root'
 })
 
-export class firebaseService {
+export class FirebaseService {
 
   constructor(private firestore: Firestore) { }
 
   addOrderToFirebase(orden: OrderFirebase){
     const ordenRef = collection(this.firestore, 'ordenes');
+    console.log(orden);
     return addDoc(ordenRef, orden)
   }
 
   getOrdens(): Observable<any[]>{
-    const ordenRef = collection(this.firestore, 'orden');
+    const ordenRef = collection(this.firestore, 'ordenes');
     return collectionData(ordenRef, {idField: 'id'}) as Observable<any[]>;
   }
 }
@@ -42,5 +43,9 @@ export class OrderService {
 
  getOrderSummary (){
   return this.orderSummary;
+ }
+
+ deleteOneOrder(index: number){
+  return this.orderSummary.splice(index, 1)
  }
 }
