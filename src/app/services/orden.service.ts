@@ -35,6 +35,10 @@ export class OrderService {
   this.orderSummary[index].count++;
   return this.orderSummary;
  }
+ decreaseProduct(index: number){
+  if(this.orderSummary[index].count>0)
+    this.orderSummary[index].count--;
+ }
 
  getOrderSummary (){
   return this.orderSummary;

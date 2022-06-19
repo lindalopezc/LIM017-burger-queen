@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Order } from 'src/app/interfaces/order';
 import  Product from 'src/app/interfaces/product';
 import { OrderService } from 'src/app/services/orden.service';
 
@@ -8,14 +9,27 @@ import { OrderService } from 'src/app/services/orden.service';
   styleUrls: ['./new-order.component.scss'],
 })
 export class NewOrderComponent implements OnInit {
-  @Input() order !: Product;
+  @Input() order !: Order;
   @Input() index !:number;
   items!: any;
+  @Output() pricePerProduct = new EventEmitter<number>();
 
-  constructor(private orderService: OrderService){}
+  constructor(private orderService: OrderService){
+  }
 
-  increaseProduct(event: Event, index: number){
+  totalPerProduct(){
+    if(this.order.cheese&&this.order.egg)
+      return this.order.price*this.order.count + Number(this.order.egg) + Number(this.order.cheese);
+    return this.order.price*this.order.count;
+  }
+
+  increaseProduct(index: number){
+    this.pricePerProduct.emit(this.order.price);
     return this.orderService.increaseProduct(index);
+  }
+  decreaseProduct(index: number){
+    this.pricePerProduct.emit(-this.order.price);
+    return this.orderService.decreaseProduct(index);
   }
 
   ngOnInit(): void {

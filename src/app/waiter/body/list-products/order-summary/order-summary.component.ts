@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/interfaces/order';
 import  Product  from 'src/app/interfaces/product';
 import { firebaseService, OrderService } from 'src/app/services/orden.service';
 
@@ -14,6 +15,7 @@ export class OrderSummaryComponent implements OnInit {
   nombreCliente = 'Jaqueline Ramos';
   title = 'LIM017-burger-queen';
   date = Date().substring(0,34);
+  total = 0;
 
   firebaseService: any;
   createOrden(event: Event, pedidos : any[]){
@@ -29,12 +31,23 @@ export class OrderSummaryComponent implements OnInit {
     this.firebaseService.addOrderToFirebase(orden); //cambie addOrden por addOrderToFirebase
   }
 
-  orderSummary !: Product[];
+  orderSummary !: Order[];
   constructor(private orderService: OrderService){
     this.orderSummary = this.orderService.getOrderSummary();
   }
 
   ngOnInit(): void {
+
   }
 
+  addPriceToTotal(price: number){
+    this.total+=price
+  }
+  totalPrice(){
+    return this.orderSummary.reduce((previus, current)=>{
+      if(current.cheese&&current.egg)
+        return current.price+previus+Number(current.egg)+Number(current.cheese);
+      return current.price+previus;
+    },this.total)
+  }
 }

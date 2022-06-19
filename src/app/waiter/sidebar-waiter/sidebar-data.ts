@@ -16,7 +16,7 @@ export const sidebarData = [
   },
   {
     routerLink:'/waiter/list-products',
-    icon: 'fa-solid fa-burger-fries',
+    icon: 'bi bi-cart',
     label:'Menu'
   },
   {
