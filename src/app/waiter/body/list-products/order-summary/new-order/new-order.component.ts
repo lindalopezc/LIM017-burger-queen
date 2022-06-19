@@ -1,40 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/app/interfaces/product';
-import { FormBuilder } from '@angular/forms';
+import  Product from 'src/app/interfaces/product';
 import { OrderService } from 'src/app/services/orden.service';
 
 @Component({
   selector: 'app-new-order',
   templateUrl: './new-order.component.html',
   styleUrls: ['./new-order.component.scss'],
-  providers:[OrderService]
 })
 export class NewOrderComponent implements OnInit {
-  @Input() order: Product = {name:'', url:'', price:0, type:'', count:0 , cheese:0, egg:0};
-  items:any;
-  checkoutForm;
+  @Input() order !: Product;
+  @Input() index !:number;
+  items!: any;
 
-  constructor(public orderService: OrderService,  private formBuilder: FormBuilder){
-    this.checkoutForm = this.formBuilder.group({
-      nameProduct: '',
-      cant: 0
-    });
-  }
+  constructor(private orderService: OrderService){}
 
-  increaseProduct(event: Event, product:Product){
-    product.count++;
+  increaseProduct(event: Event, index: number){
+    return this.orderService.increaseProduct(index);
   }
 
   ngOnInit(): void {
-    this.items = this.orderService.getOrders();
-  }
-
-  onSubmit(customerData:any) {
-    // Process checkout data here
-    this.items = this.orderService.clearCart();
-    this.checkoutForm.reset();
-
-    console.warn('Your order has been submitted', customerData);
+    this.items = this.orderService.getOrderSummary();
   }
 
 }

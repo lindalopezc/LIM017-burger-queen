@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
 import { addDoc } from '@firebase/firestore';
 import { Observable } from 'rxjs';
-import { Orden, Product } from '../interfaces/product';
+import { Order } from '../interfaces/order';
+import OrderFirebase from '../interfaces/orders-firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class firebaseService {
 
   constructor(private firestore: Firestore) { }
 
-  addOrderToFirebase(orden: Orden){
+  addOrderToFirebase(orden: OrderFirebase){
     const ordenRef = collection(this.firestore, 'ordenes');
     return addDoc(ordenRef, orden)
   }
@@ -24,20 +25,18 @@ export class firebaseService {
 }
 
 export class OrderService {
- orderSummary: any = [];
+ private orderSummary: Order[] = [];
 
- addOrder(order: Product){
-  order.count=1;
+ addOrder(order: Order){
   this.orderSummary.push(order);
  }
-getOrders(){
+
+ increaseProduct(index: number){
+  this.orderSummary[index].count++;
   return this.orderSummary;
-}
-clearCart(){
-  this.orderSummary = [];
+ }
+
+ getOrderSummary (){
   return this.orderSummary;
-}
- increaseProduct(order: Product){
-  order.count++;
  }
 }

@@ -1,31 +1,27 @@
 <div class="container">
   <div class="card col">
     <div class="card-body d-flex flex-column">
-      <form>
-        <div class = "d-flex justify-content-between">
-
-          <p id="card-text">$ {{product.price}}</p>
-          <p>{{product.type}}</p>
-        </div>
-        <h5 class="card-title text-center">{{product.name}}</h5>
-        <img class="card-img-thumbnail d-flex m-auto" src={{product.url}} alt="Card image cap">
-          <div class="d-flex justify-content-between">
-            <select name ="egg" (change) = "addEgg($event)" class ="select-egg">
-              <option disabled selected >Egg</option>
-              <option select [value] = "0">0</option>
-              <option select [value] = "1">1</option>
-              <option select [value] = "2">2</option>
+      <div class = "d-flex justify-content-between">
+        <p id="card-text">$ {{product.price}}</p>
+        <p>{{product.type}}</p>
+      </div>
+      <h5 class="card-title text-center">{{product.name}}</h5>
+      <img class="card-img-thumbnail d-flex m-auto" src={{product.url}} alt="Card image cap">
+        <form >
+          <select name="egg" (change) = "addEgg($event)" class ="select-egg">
+            <option disabled selected >Egg</option>
+            <option select value = "0">0</option>
+            <option select value = "1">1</option>
+            <option select value = "2">2</option>
             </select>
-            <select name ="cheese" (change) = "addCheese($event)" class ="select-cheese" >
-              <option disabled selected>Cheese</option>
-              <option select [value] = "0">0</option>
-              <option select [value] = "1">1</option>
-              <option select  [value] = "2">2</option>
-            </select>
-          </div>
-          <button (click) = "addOrder(product)" class="btn btn-outline-danger mt-2">Add</button>
-      </form>
-
+          <select name="cheese" (change) = "addCheese($event)" class ="select-cheese">
+            <option disabled selected>Cheese</option>
+            <option select value = "0">0</option>
+            <option select value = "1">1</option>
+            <option select  value = "2">2</option>
+          </select>
+          <button type = "submit" (click) = "addOrder(product)" class="btn btn-outline-danger mt-2">Add</button>
+        </form>
     </div>
   </div>
 </div>
