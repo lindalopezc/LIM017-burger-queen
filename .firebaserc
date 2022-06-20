@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "burger-queen-peru"
+  },
+  "targets": {
+    "burger-queen-peru": {
+      "hosting": {
+        "LIM017-burger-queen": [
+          "burger-queen-peru"
+        ]
+      }
+    }
+  }
+}

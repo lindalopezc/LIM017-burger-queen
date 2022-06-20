@@ -1,0 +1,67 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-container{
+  display: flex;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+.video-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.video-container video{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%,-50%);
+}
+.login-card{
+  width: fit-content;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.logo-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.logo-login{
+  width: 150px;
+  height: auto;
+}
+.btn, input{
+  width: 100%;
+  height: 40px;
+}
+.msg-login{
+  font-size: 11px;
+  line-height: 12px;
+  word-spacing: -0.04em;
+  color: red;
+}
+
+@media(min-width:900px)and (max-width: 1200px){
+.login-card{
+  width: 25%;
+}
+}
+@media(min-width:1200px){
+  .login-card{
+    width: 20%;
+  }
+}
+
