@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
 import { TablesComponent } from './waiter/body/tables/tables.component';
@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
 import { DialogElement } from './angular-material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -52,6 +53,7 @@ import { DialogElement } from './angular-material/dialog';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatGridListModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
