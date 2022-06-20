@@ -26,6 +26,8 @@ import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
 import { DialogElement } from './angular-material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MenuComponent } from './waiter/body/menu/menu.component';
+import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
 
 
 
@@ -44,7 +46,9 @@ import { MatIconModule } from '@angular/material/icon';
     OrderSummaryComponent,
     LoginComponent,
     BodyComponent,
-    DialogElement
+    DialogElement,
+    MenuComponent,
+    BreakfastComponent
   ],
   imports: [
     BrowserModule,
