@@ -10,17 +10,17 @@ export const sidebarData = [
     label:'Tables'
   },
   {
+    routerLink:'/waiter/breakfast',
+    icon: 'fa-solid fa-mug-saucer',
+    label:'Breakfast'
+  },
+  {
     routerLink:'/waiter/list-products',
-    icon: 'fa-thin fa-burger',
-    label:'Hamburguesas'
+    icon: 'bi bi-cart',
+    label:'Menu'
   },
   {
-    routerLink:'/waiter/',
-    icon: 'fa-solid fa-burger-fries',
-    label:'Accompaniments'
-  },
-  {
-    routerLink:'/waiter/list-orders',
+    routerLink:'/waiter/list-orders/',
     icon: 'fa-solid fa-cart-shopping',
     label:'Orders'
   }
