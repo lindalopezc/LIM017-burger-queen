@@ -7,9 +7,12 @@
       <p>Table: {{mesa}}</p>
   </div>
   <div style="width: 100%" *ngFor="let order of orderSummary; index as index" class="d-flex flex-column">
-    <app-new-order [order] = "order" [index] = "index"></app-new-order>
+    <app-new-order [order] = "order" [index] = "index" (pricePerProduct)="addPriceToTotal($event)"></app-new-order>
   </div>
+  <div class="p-3 border bg-light"> TOTAL:  {{totalPrice()}}</div>
+
   <div class=" div-btn d-flex justify-content-end">
     <button (click)="createOrden($event,orderSummary)" class="btn btn-success mt-2" routerLink="/waiter/list-orders">Enviar</button>
   </div>
 </div>
+

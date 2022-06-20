@@ -1,11 +1,18 @@
+<section class="d-flex justify-content-center align-items-center">
+  <button class="btn btn-danger m-5" (click)="typeOfProduct(burguer.value)" value="burguers" #burguer>Burger</button>
+  <button class="btn btn-danger  m-5" (click)="typeOfProduct(accompaniments.value)" value="accompaniments" #accompaniments>Accompaniments</button>
+  <button class="btn btn-danger  m-5" (click)="typeOfProduct(beverages.value)" value="beverages" #beverages>Beverages</button>
+</section>
 <div class="d-flex">
   <div class="container"> <!--sección de productos-->
-    <div *ngFor="let product of products.burguers">
+
+    <div *ngFor="let product of products2[type]">
       <app-product-card [product]="product"></app-product-card>
     </div>
+
   </div>
   <div style="width:30%"><!--Resumen-->
-    <app-order-summary></app-order-summary>
+  <app-order-summary></app-order-summary>
   </div>
 </div>
 
