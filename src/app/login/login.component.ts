@@ -47,14 +47,15 @@ export class LoginComponent implements OnInit {
       .catch(error => {
         if(error.code = 'auth/user-not-found'){
           this.wrongPassword='';
-          this.wrongEmail = 'The email is not registered. Try again'
+          this.wrongEmail = 'The email is not registered. Try again';
         }
         else if (error.code = 'auth/wrong-password'){
           this.wrongEmail = '';
-          this.wrongPassword = 'The password is not correct. Try again'
+          this.wrongPassword = 'The password is not correct. Try again';
         }
         else{
-          console.log(error)
+          this.wrongEmail = error.code
+          this.wrongPassword = '';
         }
       });
   }
