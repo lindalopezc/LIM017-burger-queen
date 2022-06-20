@@ -9,9 +9,17 @@ import { ListProductsComponent } from './waiter/body/list-products/list-products
 import { MenuComponent } from './waiter/body/menu/menu.component';
 import { TablesComponent } from './waiter/body/tables/tables.component';
 import { WaiterComponent } from './waiter/waiter.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'; // para quitar acceso si no se ha logeado correctamente
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch : 'full'},
+  {path:'login', redirectTo: 'home', pathMatch : 'full'},
+  {
+    path: 'waiter', //quito permiso de ingresar a esa ruta
+    component: WaiterComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
+  },
   {path: "waiter", component: WaiterComponent, children:[
     {
       path: "tables",
@@ -20,6 +28,10 @@ const routes: Routes = [
     {
       path: "list-orders",
       component: ListOrdersComponent
+    },
+    {
+      path: "list-products",
+      component: ListProductsComponent
     },
     {
       path: "menu",

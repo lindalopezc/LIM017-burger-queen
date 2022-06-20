@@ -1,6 +1,8 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 import { sidebarData } from './sidebar-data';
+import { Router } from '@angular/router';
 
 interface SideNavToggle{
   screenWidth: number;
@@ -66,16 +68,16 @@ export class SidebarWaiterComponent implements OnInit {
     this.collapsed = false;
     this.ontoggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth})
   }
+
   signOut(){
-    // this.userService.signOut()
-    // .then(()=>{
-    //   console.log('sign out exit')
-    //   this.router.navigate(['/login']);
-    // })
+    this.userService.signOut()
+    .then(()=>{
+      console.log('sign out exit')
+      this.router.navigate(['/login']);
+    })
   }
 
-
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
 
 
