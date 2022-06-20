@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         else{
           //aquí iría la ruta del administrador
         }
+        this.router.navigate(['/waiter/menu']);
       })
       .catch(error => {
         if(error.code = 'auth/user-not-found'){

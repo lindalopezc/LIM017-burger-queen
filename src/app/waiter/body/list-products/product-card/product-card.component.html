@@ -1,5 +1,5 @@
-<div class="container mb-4">
-  <div class="card col">
+<div class="container">
+  <div class="card">
     <div class="card-body d-flex flex-column">
       <div class = "d-flex justify-content-between">
         <p id="card-text">$ {{product.price}}</p>
@@ -7,21 +7,19 @@
       </div>
       <h5 class="card-title text-center">{{product.name}}</h5>
       <img class="card-img-thumbnail d-flex m-auto" src={{product.url}} alt="Card image cap">
-        <form >
-          <select name="egg" (change) = "addEgg($event)" class ="select-egg">
+          <select name="egg" (change) = "addEgg($event)" class ="select-egg" *ngIf="product.type">
             <option disabled selected >Egg</option>
             <option select value = "0">0</option>
             <option select value = "1">1</option>
             <option select value = "2">2</option>
             </select>
-          <select name="cheese" (change) = "addCheese($event)" class ="select-cheese">
+          <select name="cheese" (change) = "addCheese($event)" class ="select-cheese" *ngIf="product.type">
             <option disabled selected>Cheese</option>
             <option select value = "0">0</option>
             <option select value = "1">1</option>
             <option select  value = "2">2</option>
           </select>
           <button type = "submit" (click) = "addOrder(product)" class="btn btn-outline-danger mt-2">Add</button>
-        </form>
     </div>
   </div>
 </div>

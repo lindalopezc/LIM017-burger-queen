@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Order } from 'src/app/interfaces/order';
 import  Product  from 'src/app/interfaces/product';
 import { FirebaseService, OrderService } from 'src/app/services/orden.service';
@@ -11,8 +12,8 @@ import { FirebaseService, OrderService } from 'src/app/services/orden.service';
 export class OrderSummaryComponent implements OnInit {
 
   nameMesero = 'Maria Paula';
-  mesa = 1;
-  nombreCliente = 'Jaqueline Ramos';
+  table = new FormControl('',[]);
+  clientName= new FormControl('',[]);
   title = 'LIM017-burger-queen';
   date = Date().substring(0,34);
   total = 0;
@@ -39,8 +40,8 @@ export class OrderSummaryComponent implements OnInit {
   createOrden(event: Event, orders : Order[]){
     const orden = {
       Mesero: this.nameMesero,
-      Cliente: this.nombreCliente,
-      Mesa: this.mesa,
+      Cliente: this.clientName.value,
+      Mesa: this.table.value,
       Fecha: this.date,
       Hamburguesas: orders,
       Acompanamientos:['papas', 'aros de cebolla'], //esto se debe corregir cuando se adicione la vista de acompañamientos
@@ -48,5 +49,6 @@ export class OrderSummaryComponent implements OnInit {
       total:this.totalPrice()
     };
     this.firebaseService.addOrderToFirebase(orden); //cambie addOrden por addOrderToFirebase
+    this.orderService.clearOrderSummary();
   }
 }

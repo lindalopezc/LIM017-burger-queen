@@ -1,14 +1,42 @@
-<div class="my-order d-flex flex-column align-items-center bg-white p-3"> <!--Resumen-->
+<div class="my-order d-flex flex-column align-items-center bg-white"> <!--Resumen-->
   <h2 class="text-center">My Order</h2>
   <div class="d-flex flex-column" style="width:100%">
-      <p> Day: {{date}}</p>
-      <p>Waiter: Juan</p>
-      <p>Client: {{nombreCliente}}</p>
-      <p>Table: {{mesa}}</p>
+
+    <div class="input-group m-3 w-100">
+      <div class="input-group-prepend">
+        <div class="input-group-text ">Day</div>
+      </div>
+      <div class="input-group-text bg-white">
+        {{date | date:'short'}}
+      </div>
+    </div>
+
+      <div class="input-group m-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Waiter</div>
+        </div>
+        <div class="input-group-text bg-white">
+          Juan
+        </div>
+      </div>
+
+      <div class="input-group m-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Table</div>
+        </div>
+        <input type="text"  placeholder="# Table" class="px-3 border border-grey" [formControl]="table">
+      </div>
+      <div class="input-group m-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Client</div>
+        </div>
+        <input type="text"  placeholder="User name" class="px-3 border border-grey" [formControl]="clientName">
+      </div>
   </div>
   <div style="width: 100%" *ngFor="let order of orderSummary; index as index" class="d-flex flex-column">
     <app-new-order [order] = "order" [index] = "index" (pricePerProduct)="addPriceToTotal($event)"></app-new-order>
   </div>
+  <hr class="vr"/>
   <div class="p-3 border bg-light"> TOTAL:  {{totalPrice()}}</div>
 
   <div class=" div-btn d-flex justify-content-end">
