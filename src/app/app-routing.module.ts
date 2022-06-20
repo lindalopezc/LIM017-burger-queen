@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
 import { ListProductsComponent } from './waiter/body/list-products/list-products.component';
+import { MenuComponent } from './waiter/body/menu/menu.component';
 import { TablesComponent } from './waiter/body/tables/tables.component';
 import { WaiterComponent } from './waiter/waiter.component';
 
@@ -21,8 +22,8 @@ const routes: Routes = [
       component: ListOrdersComponent
     },
     {
-      path: "list-products",
-      component: ListProductsComponent
+      path: "menu",
+      component: MenuComponent
     },
     {
       path: "breakfast",

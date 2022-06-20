@@ -10,12 +10,21 @@
          <li class="sidenav-nav-item" *ngFor = "let data of navData">
               <a class="sidenav-nav-link" [routerLink]="[data.routerLink]"
               >
-                   <mat-icon >{{data.icon}}</mat-icon>
+                   <mat-icon class="p-1">{{data.icon}}</mat-icon>
                    <span class="sidenav-link-text" fadeInOut *ngIf="collapsed">
                     {{data.label}}
                   </span>
               </a>
          </li>
+         <li class="sidenav-nav-item" (click)="signOut"> <!--add btn signout-->
+          <a class="sidenav-nav-link">
+               <i class='fa-solid fa-arrow-right-from-bracket p-3'></i>
+               <span class="sidenav-link-text" fadeInOut *ngIf="collapsed">
+                Sign out
+              </span>
+          </a>
+     </li>
+
     </ul>
 </div>
 <!-- <div class="main-containerd-flex">

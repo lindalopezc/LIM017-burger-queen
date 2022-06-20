@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,7 @@ import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
 import {MatIconModule} from '@angular/material/icon';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
+import { MenuComponent } from './waiter/body/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,14 @@ import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component'
     LoginComponent,
     BodyComponent,
     BreakfastComponent,
+    MenuComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatGridListModule,

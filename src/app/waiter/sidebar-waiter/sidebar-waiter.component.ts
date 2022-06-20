@@ -66,6 +66,13 @@ export class SidebarWaiterComponent implements OnInit {
     this.collapsed = false;
     this.ontoggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth})
   }
+  signOut(){
+    // this.userService.signOut()
+    // .then(()=>{
+    //   console.log('sign out exit')
+    //   this.router.navigate(['/login']);
+    // })
+  }
 
 
   constructor() { }

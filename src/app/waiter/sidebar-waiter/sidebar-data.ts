@@ -15,7 +15,7 @@ export const sidebarData = [
     label:'Breakfast'
   },
   {
-    routerLink:'/waiter/list-products',
+    routerLink:'/waiter/menu',
     icon: 'lunch_dining',
     label:'Menu'
   },

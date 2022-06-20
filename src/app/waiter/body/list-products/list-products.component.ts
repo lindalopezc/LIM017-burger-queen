@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { products } from './products';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-products',
@@ -7,8 +6,9 @@ import { products } from './products';
   styleUrls: ['./list-products.component.scss']
 })
 export class ListProductsComponent implements OnInit {
-  products2 = products;
-  type='burguers';
+  @Input() products: any;
+  @Input() type: string = '';
+
   pedidos=[];
 
 
@@ -18,6 +18,6 @@ export class ListProductsComponent implements OnInit {
   }
 typeOfProduct(value: string){
   this.type = value;
-  console.log(products[value])
+  console.log(this.products)
 }
 }

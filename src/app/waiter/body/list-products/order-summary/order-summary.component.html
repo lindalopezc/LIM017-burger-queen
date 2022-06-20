@@ -7,7 +7,7 @@
         <div class="input-group-text ">Day</div>
       </div>
       <div class="input-group-text bg-white">
-        {{date | date:'medium'}}
+        {{date | date:'short'}}
       </div>
     </div>
 
@@ -24,15 +24,13 @@
         <div class="input-group-prepend">
           <div class="input-group-text">Table</div>
         </div>
-        <div class="input-group-text bg-white">
-          {{mesa}}
-        </div>
+        <input type="text"  placeholder="# Table" class="px-3 border border-grey" [formControl]="table">
       </div>
       <div class="input-group m-3">
         <div class="input-group-prepend">
           <div class="input-group-text">Client</div>
         </div>
-        <input type="text"  placeholder="User name">
+        <input type="text"  placeholder="User name" class="px-3 border border-grey" [formControl]="clientName">
       </div>
   </div>
   <div style="width: 100%" *ngFor="let order of orderSummary; index as index" class="d-flex flex-column">

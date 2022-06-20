@@ -15,7 +15,6 @@ export class FirebaseService {
 
   addOrderToFirebase(orden: OrderFirebase){
     const ordenRef = collection(this.firestore, 'ordenes');
-    console.log(orden);
     return addDoc(ordenRef, orden)
   }
 
