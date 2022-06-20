@@ -1,12 +1,12 @@
 export const sidebarData = [
     {
-    routerLink:'/waiter',
-    icon: 'fal, fa-home',
+    routerLink:'/login',
+    icon: 'fa-solid fa-house',
     label:'Home'
   },
   {
     routerLink:'/waiter/tables/',
-    icon: 'fa-thin fa-tablets',
+    icon: 'fa-solid fa-tablets',
     label:'Tables'
   },
   {
@@ -16,11 +16,11 @@ export const sidebarData = [
   },
   {
     routerLink:'/waiter/list-products',
-    icon: 'bi bi-cart',
+    icon: 'fa-solid fa-burger',
     label:'Menu'
   },
   {
-    routerLink:'/waiter/list-orders/',
+    routerLink:'/waiter/list-orders',
     icon: 'fa-solid fa-cart-shopping',
     label:'Orders'
   }

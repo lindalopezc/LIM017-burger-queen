@@ -4,8 +4,10 @@
 }
 .container{
 display: grid;
-width: 60%;
 align-items: center;
 justify-content: center;
 grid-template-columns: repeat(auto-fill, 245px);
+}
+.order-summary{
+  width: 30%;
 }
