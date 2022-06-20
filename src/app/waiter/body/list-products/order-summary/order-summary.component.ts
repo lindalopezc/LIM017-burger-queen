@@ -49,5 +49,6 @@ export class OrderSummaryComponent implements OnInit {
       total:this.totalPrice()
     };
     this.firebaseService.addOrderToFirebase(orden); //cambie addOrden por addOrderToFirebase
+    this.orderService.clearOrderSummary();
   }
 }

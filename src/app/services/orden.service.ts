@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { addDoc } from '@firebase/firestore';
+import { collection, collectionData, Firestore, limit, query } from '@angular/fire/firestore';
+import { addDoc, orderBy} from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { Order } from '../interfaces/order';
 import OrderFirebase from '../interfaces/orders-firebase';
@@ -20,7 +20,8 @@ export class FirebaseService {
 
   getOrdens(): Observable<any[]>{
     const ordenRef = collection(this.firestore, 'ordenes');
-    return collectionData(ordenRef, {idField: 'id'}) as Observable<any[]>;
+    const  queryRef = query(ordenRef,orderBy('Fecha', 'desc'));
+    return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
 }
 
@@ -46,5 +47,8 @@ export class OrderService {
 
  deleteOneOrder(index: number){
   return this.orderSummary.splice(index, 1)
+ }
+ clearOrderSummary(){
+  this.orderSummary = [];
  }
 }

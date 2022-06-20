@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.formReg.value)
       .then(response => {
-        this.router.navigate(['/waiter/list-products']);
+        this.router.navigate(['/waiter/menu']);
       })
       .catch(error => console.log('error', error));
   }
