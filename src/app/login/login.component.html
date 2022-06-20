@@ -6,17 +6,16 @@
       <div class = "logo-container">
         <img class = "logo-login" src="../../assets/img/logo-bq.png" alt="imagen">
       </div>
-      <form>
-      <div class="form-outline mb-4">
-        <input type="email" class="form-control" />
-        <label class="form-label">Email address</label>
-      </div>
-      <div class="form-outline mb-4">
-        <input type="password" class="form-control" />
-        <label class="form-label">Password</label>
-      </div>
-      <button type="button" class="btn btn-danger">Sign in</button>
+      <form [formGroup]="formReg" (ngSubmit) = "onSubmit()">
+        <div class="form-outline mb-4">
+          <input type="email" class="form-control" formControlName="email"/>
+          <label class="form-label">Email address</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="password" class="form-control" formControlName="password"/>
+          <label class="form-label">Password</label>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Sign in"/>
     </form>
     </div>
-
   </div>

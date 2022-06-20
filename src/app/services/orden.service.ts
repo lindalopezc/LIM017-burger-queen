@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../interfaces/order';
 import OrderFirebase from '../interfaces/orders-firebase';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,18 +26,20 @@ export class firebaseService {
 }
 
 export class OrderService {
- private orderSummary: Order[] = [];
+  private orderSummary: Order[] = [];
 
- addOrder(order: Order){
-  this.orderSummary.push(order);
- }
+  addOrder(order: Order){
+    this.orderSummary.push(order);
+  }
 
- increaseProduct(index: number){
-  this.orderSummary[index].count++;
-  return this.orderSummary;
- }
+  increaseProduct(index: number){
+    this.orderSummary[index].count++;
+    return this.orderSummary;
+  }
 
- getOrderSummary (){
-  return this.orderSummary;
- }
+  getOrderSummary (){
+    return this.orderSummary;
+  }
 }
+
+

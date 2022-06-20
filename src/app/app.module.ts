@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { NewOrderComponent } from './waiter/body/list-products/order-summary/new
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { BodyComponent } from './waiter/body/body.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
