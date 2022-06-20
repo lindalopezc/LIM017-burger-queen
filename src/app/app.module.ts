@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import { NewOrderComponent } from './waiter/body/list-products/order-summary/new
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
+import { DialogElement } from './angular-material/dialog';
+
 
 
 @NgModule({
@@ -40,6 +43,7 @@ import { BodyComponent } from './waiter/body/body.component';
     OrderSummaryComponent,
     LoginComponent,
     BodyComponent,
+    DialogElement
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,7 @@ import { BodyComponent } from './waiter/body/body.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatDialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

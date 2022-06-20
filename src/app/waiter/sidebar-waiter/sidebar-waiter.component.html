@@ -15,8 +15,8 @@
                   </span>
               </a>
          </li>
-         <li class="sidenav-nav-item" (click)="signOut"> <!--add btn signout-->
-          <a class="sidenav-nav-link">
+         <li class="sidenav-nav-item"> <!--add btn signout-->
+          <a class="sidenav-nav-link" (click)="signOut($event)">
                <i class='fa-solid fa-arrow-right-from-bracket p-3'></i>
                <span class="sidenav-link-text" fadeInOut *ngIf="collapsed">
                 Sign out
