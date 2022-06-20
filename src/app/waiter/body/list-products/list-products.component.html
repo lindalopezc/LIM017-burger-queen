@@ -1,18 +1,20 @@
-<section class="d-flex justify-content-center align-items-center">
-  <button class="btn btn-danger m-5" (click)="typeOfProduct(burguer.value)" value="burguers" #burguer>Burger</button>
-  <button class="btn btn-danger  m-5" (click)="typeOfProduct(accompaniments.value)" value="accompaniments" #accompaniments>Accompaniments</button>
-  <button class="btn btn-danger  m-5" (click)="typeOfProduct(beverages.value)" value="beverages" #beverages>Beverages</button>
-</section>
-<div class="d-flex">
-  <div class="container"> <!--sección de productos-->
-
-    <div *ngFor="let product of products2[type]">
-      <app-product-card [product]="product"></app-product-card>
-    </div>
-
-  </div>
-  <div style="width:30%"><!--Resumen-->
-  <app-order-summary></app-order-summary>
+  <div class="container w-100"> <!--sección de productos-->
+  <div class="row">
+      <div class="col-lg-9">
+        <div class="row my-3 align-items-center justify-content-center">
+          <button class="col-lg-3 btn btn-danger m-1" (click)="typeOfProduct(burguer.value)" value="burguers" #burguer>Burger</button>
+          <button class="col-lg-3 btn btn-danger m-1" (click)="typeOfProduct(accompaniments.value)" value="accompaniments" #accompaniments>Accompaniments</button>
+          <button class="col-lg-3 btn btn-danger m-1" (click)="typeOfProduct(beverages.value)" value="beverages" #beverages>Beverages</button>
+        </div>
+        <div class="row gy-3">
+            <div class="col-lg-4" *ngFor="let product of products2[type]">
+              <app-product-card [product]="product" ></app-product-card>
+              </div>
+        </div>
+      </div>
+      <div class="col-lg-3"><!--Resumen-->
+        <app-order-summary></app-order-summary>
+        </div>
   </div>
 </div>
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -22,6 +22,8 @@ import { NewOrderComponent } from './waiter/body/list-products/order-summary/new
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
+import {MatIconModule} from '@angular/material/icon';
+import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +40,16 @@ import { BodyComponent } from './waiter/body/body.component';
     OrderSummaryComponent,
     LoginComponent,
     BodyComponent,
+    BreakfastComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatIconModule,
+    MatGridListModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

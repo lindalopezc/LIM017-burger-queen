@@ -1,9 +1,9 @@
 <div>
   <table>
     <tr>
-      <td class="order-name">{{order.name}}</td>
-      <td><button class="btn btn-danger" (click)="decreaseProduct(index)">-</button>{{order.count}}
-        <button (click)="increaseProduct(index)" class="btn btn-danger">+</button></td>
+      <td class="order-name">{{order.name}} <span *ngIf="order.type">{{order.type}}</span></td>
+      <td><button class="btn btn-danger rounded-circle btn-sm" (click)="decreaseProduct(index)">-</button>{{order.count}}
+        <button (click)="increaseProduct(index)" class="btn btn-danger rounded-circle btn-sm">+</button></td>
       <td class="text-center">${{totalPerProduct()}}</td>
       <td><button class = "btn btn-light" (click)="deleteOrder(index)">🗑️</button></td>
     </tr>
