@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Order } from 'src/app/interfaces/order';
 import  Product  from 'src/app/interfaces/product';
 import { FirebaseService, OrderService } from 'src/app/services/orden.service';
@@ -13,7 +13,8 @@ export class OrderSummaryComponent implements OnInit {
 
   nameMesero = 'Maria Paula';
   table = new FormControl('',[]);
-  clientName= new FormControl('',[]);
+  clientName= new FormControl('',[Validators.required,
+    Validators.minLength(4)]);
   title = 'LIM017-burger-queen';
   date = Date().substring(0,34);
   total = 0;

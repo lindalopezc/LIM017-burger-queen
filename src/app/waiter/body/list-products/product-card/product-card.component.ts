@@ -29,4 +29,7 @@ export class ProductCardComponent implements OnInit {
   addCheese(event: any){
     this.product.cheese = event.target.value;
   }
+  clearSelect(){
+
+  }
 }

@@ -3,5 +3,8 @@ export default interface OrderFirebase {
   Cliente: string | null,
   Mesa: string | null,
   Fecha : string,
-  Hamburguesas: object, Acompanamientos: object, Bebidas: object, total: number
+  Hamburguesas: object,
+  Acompanamientos: object,
+  Bebidas: object,
+  total: number
 }

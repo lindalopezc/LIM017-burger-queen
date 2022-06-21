@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
 import { TablesComponent } from './waiter/body/tables/tables.component';
@@ -22,9 +24,12 @@ import { NewOrderComponent } from './waiter/body/list-products/order-summary/new
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
-import {MatIconModule} from '@angular/material/icon';
-import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
+import { DialogElement } from './angular-material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './waiter/body/menu/menu.component';
+import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
+
+
 
 @NgModule({
   declarations: [
@@ -41,17 +46,17 @@ import { MenuComponent } from './waiter/body/menu/menu.component';
     OrderSummaryComponent,
     LoginComponent,
     BodyComponent,
-    BreakfastComponent,
+    DialogElement,
     MenuComponent,
-
+    BreakfastComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatIconModule,
+    ReactiveFormsModule,
+    MatDialogModule,
     MatGridListModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

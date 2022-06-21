@@ -1,6 +1,6 @@
 <div class="my-order d-flex flex-column align-items-center bg-white"> <!--Resumen-->
   <h2 class="text-center">My Order</h2>
-  <div class="d-flex flex-column" style="width:100%">
+  <form class="d-flex flex-column" style="width:100%">
 
     <div class="input-group m-3 w-100">
       <div class="input-group-prepend">
@@ -32,15 +32,15 @@
         </div>
         <input type="text"  placeholder="User name" class="px-3 border border-grey" [formControl]="clientName">
       </div>
+  </form>
+  <div style="width: 100%" *ngFor="let order of orderSummary; index as index" class="d-flex flex-column m-3">
+    <app-new-order [order] = "order" [index] = "index" (pricePerProduct)="addPriceToTotal($event)" class="m-3"></app-new-order>
   </div>
-  <div style="width: 100%" *ngFor="let order of orderSummary; index as index" class="d-flex flex-column">
-    <app-new-order [order] = "order" [index] = "index" (pricePerProduct)="addPriceToTotal($event)"></app-new-order>
-  </div>
-  <hr class="vr"/>
+
   <div class="p-3 border bg-light"> TOTAL:  {{totalPrice()}}</div>
 
-  <div class=" div-btn d-flex justify-content-end">
-    <button (click)="createOrden($event,orderSummary)" class="btn btn-success mt-2" routerLink="/waiter/list-orders">Enviar</button>
+  <div class=" div-btn d-flex justify-content-center m-3">
+    <button (click)="createOrden($event,orderSummary)" class="btn btn-success mt-2" routerLink="/waiter/list-orders" data-toggle="modal" data-target="#exampleModal">Enviar</button>
   </div>
 </div>
 

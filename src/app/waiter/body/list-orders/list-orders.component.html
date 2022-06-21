@@ -11,8 +11,9 @@
             <p class="card-text" *ngFor="let product of order.Hamburguesas">{{product.name}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{order.Cliente}}</li>
-            <li class="list-group-item">{{order.Fecha}}</li>
+            <li class="list-group-item">Total: {{order.total}}</li>
+            <li class="list-group-item">Client: {{order.Cliente}}</li>
+            <li class="list-group-item">Date: {{order.Fecha}}</li>
             <li class="list-group-item">Table: {{order.Mesa}}</li>
           </ul>
           <div class="card-footer text-muted">
