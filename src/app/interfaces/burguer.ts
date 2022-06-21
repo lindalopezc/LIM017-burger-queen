@@ -1,6 +1,6 @@
 import Product from "./product";
 
-export default interface hamburguesa extends Product
+export default interface burguer extends Product
 {
   type: string,
   cheese: number,

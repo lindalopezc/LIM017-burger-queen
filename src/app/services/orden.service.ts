@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, collectionData, Firestore, limit, query } from '@angular/fire/firestore';
+import { collection, collectionData, doc, Firestore,  query, updateDoc } from '@angular/fire/firestore';
 import { addDoc, orderBy} from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { Order } from '../interfaces/order';
@@ -13,16 +13,25 @@ export class FirebaseService {
 
   constructor(private firestore: Firestore) { }
 
-  addOrderToFirebase(orden: OrderFirebase){
+  async addOrderToFirebase(orden: OrderFirebase){
+    console.log(orden)
     const ordenRef = collection(this.firestore, 'ordenes');
-    return addDoc(ordenRef, orden)
+    const ann = await addDoc(ordenRef, orden)
+    orden.id = ann.id
+    return ann;
   }
 
   getOrdens(): Observable<any[]>{
     const ordenRef = collection(this.firestore, 'ordenes');
-    const  queryRef = query(ordenRef,orderBy('Fecha', 'desc'));
+    const  queryRef = query(ordenRef,orderBy('Date', 'desc'));
     return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
+  updateOrder(order: OrderFirebase, statusValue: string){
+
+    const docRef = doc(this.firestore, "ordenes", String(order.id));
+    const queryRef = this.getOrdens();
+    return updateDoc(docRef,{Status: statusValue})
+   }
 }
 
 export class OrderService {
@@ -48,6 +57,7 @@ export class OrderService {
  deleteOneOrder(index: number){
   return this.orderSummary.splice(index, 1)
  }
+
  clearOrderSummary(){
   this.orderSummary = [];
  }

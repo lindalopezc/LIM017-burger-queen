@@ -1,10 +1,12 @@
+import { Order } from "./order"
+
 export default interface OrderFirebase {
-  Mesero: string,
-  Cliente: string | null,
-  Mesa: string | null,
-  Fecha : string,
-  Hamburguesas: object,
-  Acompanamientos: object,
-  Bebidas: object,
-  total: number
+  id?: string | undefined,
+  Waiter: string,
+  Client: string | null,
+  Table: string | null,
+  Date : string,
+  Products: Order[],
+  Status: string,
+  Total: number
 }

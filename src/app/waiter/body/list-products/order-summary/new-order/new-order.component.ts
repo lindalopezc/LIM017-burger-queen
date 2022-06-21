@@ -18,7 +18,7 @@ export class NewOrderComponent implements OnInit {
   }
 
   totalPerProduct(){
-    if(this.order.cheese&&this.order.egg)
+    if(this.order.cheese||this.order.egg)
       return this.order.price*this.order.count + Number(this.order.egg) + Number(this.order.cheese);
     return this.order.price*this.order.count;
   }
@@ -34,6 +34,7 @@ export class NewOrderComponent implements OnInit {
   deleteOrder(index: number){
     this.orderService.deleteOneOrder(index);
   }
+
   ngOnInit(): void {
     this.items = this.orderService.getOrderSummary();
   }

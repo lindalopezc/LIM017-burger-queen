@@ -3,18 +3,18 @@
     <div *ngFor="let order of orders" >
       <div class="container">
         <div class="card" style="width: 18rem">
-          <div class="card-header p-3 mb-2 bg-danger text-white">
-            Pendiente
+          <div class="card-header p-3 mb-2 text-white" [ngClass]="{'bg-danger': order.Status === 'Pending'}">
+            {{order.Status}}
           </div>
           <div class="card-body">
             <h5 class="card-title">Order</h5>
-            <p class="card-text" *ngFor="let product of order.Hamburguesas">{{product.name}}</p>
+            <p class="card-text" *ngFor="let product of order.Hamburguesas">{{product.Name}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Total: {{order.total}}</li>
-            <li class="list-group-item">Client: {{order.Cliente}}</li>
-            <li class="list-group-item">Date: {{order.Fecha}}</li>
-            <li class="list-group-item">Table: {{order.Mesa}}</li>
+            <li class="list-group-item">Total: {{order.Total}}</li>
+            <li class="list-group-item">Client: {{order.Client}}</li>
+            <li class="list-group-item">Date: {{order.Date}}</li>
+            <li class="list-group-item">Table: {{order.Table}}</li>
           </ul>
           <div class="card-footer text-muted">
             <button class="btn btn-success">Done!</button>
