@@ -21,7 +21,7 @@ export const sidebarData = [
   },
   {
     routerLink:'/waiter/list-orders/',
-    icon: 'border_color',
+    icon: 'assignment',
     label:'Orders'
   }
 ]

@@ -34,6 +34,7 @@ export class NewOrderComponent implements OnInit {
   deleteOrder(index: number){
     this.orderService.deleteOneOrder(index);
   }
+
   ngOnInit(): void {
     this.items = this.orderService.getOrderSummary();
   }

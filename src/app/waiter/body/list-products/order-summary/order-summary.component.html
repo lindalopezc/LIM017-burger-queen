@@ -1,4 +1,4 @@
-<div class="my-order d-flex flex-column align-items-center bg-white"> <!--Resumen-->
+<div class="card my-order d-flex flex-column align-items-center bg-white"> <!--Resumen-->
   <h2 class="text-center">My Order</h2>
   <div class="d-flex flex-column" style="width:100%">
 
@@ -30,7 +30,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text">Client</div>
         </div>
-        <input type="text"  placeholder="User name" class="px-3 border border-grey" [formControl]="clientName">
+        <input type="text"  placeholder="Name Client" class="px-3 border border-grey" [formControl]="nameClient">
       </div>
   </div>
   <div style="width: 100%" *ngFor="let order of orderSummary; index as index" class="d-flex flex-column">
@@ -40,7 +40,7 @@
   <div class="p-3 border bg-light"> TOTAL:  {{totalPrice()}}</div>
 
   <div class=" div-btn d-flex justify-content-end">
-    <button (click)="createOrden($event,orderSummary)" class="btn btn-success mt-2" routerLink="/waiter/list-orders">Enviar</button>
+    <button (click)="createOrder($event,orderSummary)" class="btn btn-success mt-2" routerLink="/waiter/list-orders">Send to kitchen</button>
   </div>
 </div>
 

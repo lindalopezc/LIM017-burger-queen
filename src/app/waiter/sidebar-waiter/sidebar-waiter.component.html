@@ -1,6 +1,6 @@
 <div class="sidenav"[ngClass]="collapsed ? 'sidenav-collapsed':''">
     <div class="logo-container">
-         <button class="logo" (click)="toggleCollapse()"><img src="../../../assets/hamburguesa-con-queso.png" id="logo"></button>
+         <button class="logo" (click)="toggleCollapse()"><img src="../../../assets/img/logo.png" id="logo"></button>
          <div class="logo-text" @fadeInOut *ngIf="collapsed">Burger Queen</div>
          <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
         <i class="fa-solid fa-xmark"></i>
@@ -8,9 +8,8 @@
     </div>
     <ul class="sidenav-nav">
          <li class="sidenav-nav-item" *ngFor = "let data of navData">
-              <a class="sidenav-nav-link" [routerLink]="[data.routerLink]"
-              >
-                   <mat-icon class="p-1">{{data.icon}}</mat-icon>
+              <a class="sidenav-nav-link" [routerLink]="[data.routerLink]">
+                   <mat-icon>{{data.icon}}</mat-icon>
                    <span class="sidenav-link-text" fadeInOut *ngIf="collapsed">
                     {{data.label}}
                   </span>
@@ -18,7 +17,7 @@
          </li>
          <li class="sidenav-nav-item"> <!--add btn signout-->
           <a class="sidenav-nav-link" (click)="signOut($event)">
-               <i class='fa-solid fa-arrow-right-from-bracket p-3'></i>
+               <mat-icon>exit_to_app</mat-icon>
                <span class="sidenav-link-text" fadeInOut *ngIf="collapsed">
                 Sign out
               </span>
