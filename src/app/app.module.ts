@@ -32,6 +32,7 @@ import { DialogElement } from './angular-material/dialog';
 import { MenuComponent } from './waiter/body/menu/menu.component';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
 import { NavbarWaiterComponent } from './waiter/navbar-waiter/navbar-waiter.component';
+import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
 
 
 
@@ -53,7 +54,8 @@ import { NavbarWaiterComponent } from './waiter/navbar-waiter/navbar-waiter.comp
     DialogElement,
     MenuComponent,
     BreakfastComponent,
-    NavbarWaiterComponent
+    NavbarWaiterComponent,
+    OrdersChefComponent
   ],
   imports: [
     BrowserModule,
