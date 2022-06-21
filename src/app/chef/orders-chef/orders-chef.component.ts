@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import OrderFirebase from 'src/app/interfaces/orders-firebase';
+import { FirebaseService } from 'src/app/services/orden.service';
+
 
 @Component({
   selector: 'app-orders-chef',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersChefComponent implements OnInit {
 
-  constructor() { }
+  ordersChef!: OrderFirebase[];
+  constructor(private firebaseService: FirebaseService) {
+
+  }
 
   ngOnInit(): void {
+    this.firebaseService.getOrdens().subscribe(orders=>{
+      this.ordersChef = orders;
+      console.log(this.ordersChef)
+    })
+
+
   }
+  changeStatus(statusValue: string, index: number){
+    this.firebaseService.updateOrder(this.ordersChef[index],statusValue)
 
 }

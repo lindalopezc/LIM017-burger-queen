@@ -1,9 +1,4 @@
 export const sidebarData = [
-    {
-    routerLink:'/waiter',
-    icon: 'home',
-    label:'Home'
-  },
   {
     routerLink:'/waiter/tables/',
     icon: 'table_bar',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Order } from 'src/app/interfaces/order';
 import { FirebaseService, OrderService } from 'src/app/services/orden.service';
 
@@ -17,6 +17,7 @@ export class OrderSummaryComponent implements OnInit {
   date = Date().substring(0,34);
   total = 0;
   orderSummary !: Order[];
+  index=0;
 
   constructor(
     private orderService: OrderService,
@@ -33,20 +34,20 @@ export class OrderSummaryComponent implements OnInit {
   }
   totalPrice(){
     return this.orderSummary.reduce((previus, current)=>{
-      if(current.cheese&&current.egg)
+
         return current.price+previus+Number(current.egg)+Number(current.cheese);
-      return current.price+previus;
+
     },this.total)
   }
   createOrder(event: Event, orders : Order[]){
+    this.index++;
     const order = {
       Waiter: this.nameWaiter,
       Client: this.nameClient.value,
       Table: this.table.value,
       Date: this.date,
-      Burguers: orders,
-      Accompaniments:['fries potatoes', 'onion rings'], //esto se debe corregir cuando se adicione la vista de acompañamientos
-      Beverages: ['soda', 'water'],
+      Products: orders,
+      Status: 'Pending',
       Total:this.totalPrice()
     };
     this.firebaseService.addOrderToFirebase(order); //cambie addOrden por addOrderToFirebase
