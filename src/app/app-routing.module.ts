@@ -1,5 +1,5 @@
 
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChefComponent } from './chef/chef.component';
 import { LoginComponent } from './login/login.component';
@@ -9,42 +9,47 @@ import { ListProductsComponent } from './waiter/body/list-products/list-products
 import { MenuComponent } from './waiter/body/menu/menu.component';
 import { TablesComponent } from './waiter/body/tables/tables.component';
 import { WaiterComponent } from './waiter/waiter.component';
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'; // para quitar acceso si no se ha logeado correctamente
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { map } from 'rxjs';
 
+const onlyChef= () => map((user: any) => !!user && /chef.bq.com/.test(user.email));
+const onlyWaiter= () => map((user: any) => !!user && /waiter.bq.com/.test(user.email));
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch : 'full'},
-  {path:'login', redirectTo: 'home', pathMatch : 'full'},
-  {
-    path: 'waiter', //quito permiso de ingresar a esa ruta
-    component: WaiterComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['/login']))
-  },
-  {path: "waiter", component: WaiterComponent, children:[
+  {path: '', redirectTo: 'login', pathMatch : 'full'},
+  {path: 'home', redirectTo: 'login', pathMatch : 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'chef', component: ChefComponent, ...canActivate(onlyChef)},
+  {path: 'waiter', component: WaiterComponent, children:[
     {
       path: "tables",
-      component: TablesComponent
+      component: TablesComponent,
+      ...canActivate(onlyWaiter)
     },
     {
       path: "list-orders",
-      component: ListOrdersComponent
+      component: ListOrdersComponent,
+      ...canActivate(onlyWaiter)
     },
     {
       path: "list-products",
-      component: ListProductsComponent
+      component: ListProductsComponent,
+      ...canActivate(onlyWaiter)
     },
     {
       path: "menu",
-      component: MenuComponent
+      component: MenuComponent,
+      ...canActivate(onlyWaiter)
     },
     {
       path: "breakfast",
-      component: BreakfastComponent
+      component: BreakfastComponent,
+      ...canActivate(onlyWaiter)
     },
-  ]},
-  {path: 'home', component: LoginComponent },
-  {path: 'chef', component: ChefComponent },
-  {path: '**', redirectTo: 'home', pathMatch : 'full'}
+  ],
+  ...canActivate(onlyWaiter)
+},
+  {path: '**', redirectTo: 'login', pathMatch : 'full'}
 ];
 
 @NgModule({

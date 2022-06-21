@@ -3,7 +3,7 @@ export const products: { [key: string]: any } = {
   [
     {
       name: 'Beef burger',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
+      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BurguerConQueso_500_540_0.png',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -11,7 +11,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Chicken burguer',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
+      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BurguerConQueso_500_540_0.png',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -19,7 +19,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Veggie burger',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/HamburguesaConQueso_500_540_0.png',
+      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BurguerConQueso_500_540_0.png',
       price: 10,
       type: 'simple',
       egg: 0,
