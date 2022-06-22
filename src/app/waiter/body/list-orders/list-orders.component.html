@@ -3,7 +3,7 @@
     <div *ngFor="let order of orders; index as index" >
       <div class="container" *ngIf="order.Status !== 'Served'">
         <div class="card" style="width: 18rem">
-          <div class="card-header p-3 mb-2 text-white"
+          <div class="card-header p-3 mb-2 text-black"
           [ngClass]="{'bg-danger': order.Status === 'Pending','bg-success': order.Status === 'Ready', 'bg-info': order.Status === 'Served'}"
           >
             {{order.Status}}
