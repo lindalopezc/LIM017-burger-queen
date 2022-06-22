@@ -1,13 +1,11 @@
 
 .sidenav{
-  background: #263238;
   transition:all .5s ease;
   position:fixed;
   z-index:1;
   top:0;
   width:5;
   height:100vh;
-  box-shadow:0.063rem 0 1.25rem 0 #8690a3;
 
   .logo-container{
     display:flex;
@@ -16,7 +14,7 @@
     width:100%;
 
     .logo{
-      background:#fff;
+      background: transparent;
       text-align:center;
       width:3rem;
       min-width:3rem;
@@ -90,13 +88,13 @@
   }
   .sidenav-nav-item:hover{
     .sidenav-nav-link{
-      background-color: #fff;
-      color:#000;
+      background-color: #DC3545;
+      color:#fff;
     }
   }
 }
 .active{
-  background-color: #9FE6A0;
+  background-color: #fff;
   .sidenav-link-text,
   .fa-bars{
    color: black;

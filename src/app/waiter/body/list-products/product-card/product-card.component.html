@@ -7,6 +7,7 @@
       </div>
       <h2 class="card-title text-center">{{product.name}}</h2>
       <img class="card-img-thumbnail d-flex m-auto" src={{product.url}} alt="Card image cap">
+      <div class="d-flex justify-content-around">
           <select name="egg" (change) = "addEgg($event)" class ="select-egg" *ngIf="product.type">
             <option disabled selected >Egg</option>
             <option select value = "0">0</option>
@@ -19,6 +20,7 @@
             <option select value = "1">1</option>
             <option select  value = "2">2</option>
           </select>
+        </div>
           <button type = "submit" (click) = "addOrder(product)" class="btn btn-outline-danger mt-2">Add</button>
     </div>
   </div>

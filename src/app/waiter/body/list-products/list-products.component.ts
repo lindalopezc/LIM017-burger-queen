@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-list-products',
@@ -16,8 +17,12 @@ export class ListProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-typeOfProduct(value: string){
-  this.type = value;
-  console.log(this.products)
-}
+  typeOfProduct(value: string){
+    this.type = value;
+    console.log(this.products)
+  }
+  @ViewChild(MatDrawer) drawer: MatDrawer | undefined;
+  onToggleCart() {
+    this.drawer?.toggle();
+  }
 }

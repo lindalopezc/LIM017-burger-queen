@@ -11,7 +11,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Chicken burguer',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BurguerConQueso_500_540_0.png',
+      url: 'https://images.pexels.com/photos/5474836/pexels-ph…jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       price: 10,
       type: 'simple',
       egg: 0,

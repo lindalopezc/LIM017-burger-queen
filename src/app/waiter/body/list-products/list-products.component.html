@@ -1,22 +1,38 @@
-  <div class="container w-100"> <!--sección de productos-->
-  <div class="row">
-      <div class="col-lg-9">
-        <div  class="row my-3 align-items-center justify-content-center" *ngIf="type!== 'breakfasts'">
-          <button class="col-lg-3 btn btn-danger m-1" (click)="typeOfProduct(burguer.value)" value="burguers" #burguer>Burger</button>
-          <button class="col-lg-3 btn btn-danger m-1" (click)="typeOfProduct(accompaniments.value)" value="accompaniments" #accompaniments>Accompaniments</button>
-          <button class="col-lg-3 btn btn-danger m-1" (click)="typeOfProduct(beverages.value)" value="beverages" #beverages>Beverages</button>
-        </div>
-        <div class="row gy-3">
-            <div class="col-lg-4" *ngFor="let product of products[type]">
-              <app-product-card [product]="product" ></app-product-card>
+<mat-drawer-container autosize>
+  <mat-drawer class="content-cart" mode="side" position="end">
+    <mat-toolbar class="drawer-color">
+      <mat-toolbar-row class="justify-content-between">
+        <h1>Order Summary</h1>
+        <button mat-icon-button (click)="onToggleCart()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div>
+      <app-order-summary></app-order-summary>
+    </div>
+  </mat-drawer>
+  <div>
+    <app-navbar-waiter (toggleCart)="onToggleCart()"></app-navbar-waiter>
+    <div class="container w-100">
+      <div class="row"> <!--sección de productos-->
+          <div class="d-flex flex-column align-items-center">
+            <h1 *ngIf = "type == 'breakfasts'">BREAKFASTS</h1>
+            <div  class="filters row my-3" *ngIf="type!== 'breakfasts'">
+              <button class="size-card col-lg-3 btn btn-outline-warning m-1" (click)="typeOfProduct(burguer.value)" value="burguers" #burguer>🍔Burgers</button>
+              <button class="size-card col-lg-3 btn btn-outline-warning m-1" (click)="typeOfProduct(accompaniments.value)" value="accompaniments" #accompaniments>🍟Accompaniments</button>
+              <button class="size-card col-lg-3 btn btn-outline-warning m-1" (click)="typeOfProduct(beverages.value)" value="beverages" #beverages>🥤Beverages</button>
             </div>
-        </div>
+            <div class = "products row my-3">
+              <div class = "product-card" *ngFor="let product of products[type]">
+                <app-product-card [product]="product" ></app-product-card>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="col-lg-3"><!--Resumen-->
-        <app-order-summary></app-order-summary>
-        </div>
+    </div>
   </div>
-</div>
+</mat-drawer-container>
 
 
 
