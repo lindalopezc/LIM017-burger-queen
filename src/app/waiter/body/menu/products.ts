@@ -54,7 +54,7 @@ export const products: { [key: string]: any } = {
   [
     {
       name: 'French fries',
-      url:'https://www.nicepng.com/png/full/346-3464316_papas-fritas-burger-king-fries.png',
+      url:'https://cdn.shopify.com/s/files/1/0580/3245/5858/products/French-Fries-Large.jpg?v=1635460961',
       price: 5,
     },
     {
