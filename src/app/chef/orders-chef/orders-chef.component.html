@@ -1,6 +1,6 @@
 <div class="d-flex">
       <div *ngFor="let order of ordersChef; index as index" >
-        <div class="container">
+        <div class="container" *ngIf="order.Status !== 'Ready'">
           <div class="card" style="width: 18rem">
             <h2 class="card-header p-3 mb-2" [ngClass]="{'bg-light text-black': order.Status === 'Pending'}">
               {{order.Status}}
@@ -14,7 +14,12 @@
               <li class="list-group-item">Table: {{order.Table}}</li>
             </ul>
             <div class="card-footer text-muted">
-              <button class="btn btn-success"  (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Received">Received</button>
+              <button [ngClass]="{'btn btn-success': order.Status==='Pending'}" *ngIf="order.Status==='Pending'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Received" >Received</button>
+              <button [ngClass]="{'btn btn-warning': order.Status==='Received'}" *ngIf="order.Status==='Received'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Preparing" >Preparing</button>
+              <button [ngClass]="{'btn btn-success': order.Status==='Preparing'}" *ngIf="order.Status==='Preparing'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Ready" >Ready!</button>
             </div>
           </div>
           <h3></h3>

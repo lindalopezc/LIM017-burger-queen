@@ -22,7 +22,7 @@ export class OrdersChefComponent implements OnInit {
 
   }
   changeStatus(statusValue: string, index: number){
-    this.firebaseService.updateOrder(this.ordersChef[index],statusValue)
+    return this.firebaseService.updateOrder(this.ordersChef[index],statusValue)
   }
 
 }
