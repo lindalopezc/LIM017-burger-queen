@@ -18,4 +18,7 @@ export class ListOrdersComponent implements OnInit {
     })
   }
 
+  changeStatus(index:number, status: string){
+    return this.firebaseService.updateOrder(this.orders[index],status);
+  }
 }
