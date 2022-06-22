@@ -1,6 +1,6 @@
 <div class="d-flex">
       <div *ngFor="let order of ordersChef; index as index" >
-        <div class="container" *ngIf="order.Status !== 'Ready'">
+        <div class="container" *ngIf="order.Status !== 'Ready' && order.Status !== 'Served'">
           <div class="card" style="width: 18rem">
             <h2 class="card-header p-3 mb-2" [ngClass]="{'bg-light text-black': order.Status === 'Pending'}">
               {{order.Status}}
