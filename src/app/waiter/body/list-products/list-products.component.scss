@@ -1,10 +1,3 @@
-// .products-cards{
-//   display: grid;
-//   width: 100%;
-//   align-items: center;
-//   justify-content: center;
-//   grid-template-columns: repeat(auto-fill, 250px);
-// }
 .content-cart {
   width: 250px;
 }
@@ -13,20 +6,39 @@
   background: #343A40 ;
   color:white;
 }
+.size-title{
+  margin-top: 20px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
 .filters{
   width: 90%;
   justify-content: center;
   .size-card{
     min-width: 156px;
     max-width: 270px;
+    font-weight: 500;
+    color:#343A40;
+  }
+  .size-card:hover{
+    color:#fff;
   }
 }
 .products{
   justify-content: center;
   .product-card{
     min-width: 160px;
-    max-width: 320px;
+    max-width: 315px;
   }
 }
-
+@media(min-width:900px) {
+  .size-card{
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .size-title{
+    font-weight: 500;
+    font-size: 25px;
+  }
+}
 
