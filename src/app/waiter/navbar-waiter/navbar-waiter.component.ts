@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-waiter',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarWaiterComponent implements OnInit {
 
-  constructor() { }
+  @Output() toggleCart = new EventEmitter();
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  handleClickCart(event:Event) {
+    this.toggleCart.next(event);
   }
 
 }

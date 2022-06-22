@@ -6,9 +6,14 @@ table{
   }
   .order-name{
     font-weight: bold;
-    width: 40%;
+    width: 30%;
   }
   .extra-item{
     font-size: 13px;
   }
+}
+.delete-icon{
+  border-style: none;
+  background: transparent;
+  color: gray;
 }

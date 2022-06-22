@@ -1,10 +1,32 @@
-// Variable overrides first
-
-// .container{
+// .products-cards{
 //   display: grid;
 //   width: 100%;
 //   align-items: center;
 //   justify-content: center;
-//   grid-template-columns: repeat(auto-fill, 35%);
+//   grid-template-columns: repeat(auto-fill, 250px);
 // }
+.content-cart {
+  width: 250px;
+}
+
+.drawer-color{
+  background: #343A40 ;
+  color:white;
+}
+.filters{
+  width: 90%;
+  justify-content: center;
+  .size-card{
+    min-width: 156px;
+    max-width: 270px;
+  }
+}
+.products{
+  justify-content: center;
+  .product-card{
+    min-width: 160px;
+    max-width: 320px;
+  }
+}
+
 

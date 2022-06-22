@@ -8,7 +8,11 @@
         <button (click)="increaseProduct(index)" class="btn btn-danger rounded-circle btn-sm">+</button>
       </td>
       <td class="text-center">${{totalPerProduct()}}</td>
-      <td><button class = "btn btn-light" (click)="deleteOrder(index)">🗑️</button></td>
+      <td>
+        <button class = "delete-icon" (click)="deleteOrder(index)">
+        <mat-icon>delete</mat-icon>
+        </button>
+      </td>
     </tr>
     <tr *ngIf = "order.egg>0">
       <td class="extra-item">{{order.egg}} Egg</td>
