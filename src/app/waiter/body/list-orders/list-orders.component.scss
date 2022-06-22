@@ -1,6 +1,20 @@
+.header{
+background: #343A40;
+}
 .d-grid{
   margin-top: 5%;
   width: 100%;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 300px);
+}
+.size-title{
+  margin-top: 20px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+@media(min-width:900px) {
+  .size-title{
+    font-size: 25px;
+  }
 }

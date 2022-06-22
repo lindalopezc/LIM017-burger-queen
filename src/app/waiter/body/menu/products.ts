@@ -3,7 +3,7 @@ export const products: { [key: string]: any } = {
   [
     {
       name: 'Beef burger',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BurguerConQueso_500_540_0.png',
+      url: '../../../../assets/img/beef.png',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -11,7 +11,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Chicken burguer',
-      url: 'https://images.pexels.com/photos/5474836/pexels-ph…jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      url: '../../../../assets/img/chicken.png',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -19,7 +19,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Veggie burger',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BurguerConQueso_500_540_0.png',
+      url: '../../../../assets/img/veggie.png',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -27,7 +27,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Beef burger',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
+      url: '../../../../assets/img/beef-doble.png',
       price: 15,
       type: 'doble',
       egg: 0,
@@ -35,7 +35,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Chicken burguer',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
+      url: '../../../../assets/img/chicken-doble.png',
       price: 15,
       type: 'doble',
       egg: 0,
@@ -43,7 +43,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Veggie burger',
-      url: 'http://bk-latam-prod.s3.amazonaws.com/sites/burgerking.com.pe/files/BK_Web_MegaStackerX2_500x540.png',
+      url: '../../../../assets/img/veggie-doble.png',
       price: 15,
       type: 'doble',
       egg: 0,
@@ -54,7 +54,7 @@ export const products: { [key: string]: any } = {
   [
     {
       name: 'French fries',
-      url:'https://www.nicepng.com/png/full/346-3464316_papas-fritas-burger-king-fries.png',
+      url:'https://cdn.shopify.com/s/files/1/0580/3245/5858/products/French-Fries-Large.jpg?v=1635460961',
       price: 5,
     },
     {

@@ -1,23 +1,24 @@
-<div class="d-flex">
+<mat-toolbar class="header"></mat-toolbar>
+<div class="d-flex flex-column align-items-center">
+  <p class = "size-title">Orders</p>
   <div class="d-grid">
     <div *ngFor="let order of orders; index as index" >
       <div class="container" *ngIf="order.Status !== 'Served'">
         <div class="card" style="width: 18rem">
-          <div class="card-header p-3 mb-2 text-black"
-          [ngClass]="{'bg-danger': order.Status === 'Pending','bg-success': order.Status === 'Ready', 'bg-info': order.Status === 'Served'}"
-          >
-            {{order.Status}}
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Order</h5>
-            <p class="card-text" *ngFor="let product of order.Products">{{product.name}}</p>
+          <div class="d-flex justify-content-between card-header p-3 mb-2 text-white"
+             [ngClass]="{'bg-danger': order.Status === 'Pending','bg-success': order.Status === 'Ready', 'bg-info': order.Status === 'Served',
+            'bg-light': order.Status === 'Received', 'bg-warning': order.Status === 'Preparing'}">
+            <p>{{order.Status}}</p>
+            <p>Table: {{order.Table}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Total: {{order.Total}}</li>
-            <li class="list-group-item">Client: {{order.Client}}</li>
             <li class="list-group-item">Date: {{order.Date}}</li>
-            <li class="list-group-item">Table: {{order.Table}}</li>
+            <li class="list-group-item">Client: {{order.Client}}</li>
+            <li class="list-group-item">Total: {{order.Total}}</li>
           </ul>
+          <div class="card-body">
+            <p class="card-text" *ngFor="let product of order.Products">{{product.name}}</p>
+          </div>
           <div class="card-footer text-muted">
             <button class="btn btn-success" (click)="changeStatus(index, statusButton.value)"  value="Served" #statusButton *ngIf="order.Status === 'Ready'">Served!</button>
           </div>
