@@ -1,5 +1,13 @@
 .header{
-background: #343A40;
+  background: #343A40;
+}
+.example-spacer{
+  color: #fff;
+}
+.exit-app{
+  background: transparent;
+  border-style: none;
+  color:#fff;
 }
 .d-grid{
   margin-top: 5%;
@@ -11,6 +19,9 @@ background: #343A40;
   margin-top: 20px;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
+}
+.logo{
+  width:3rem;
 }
 
 @media(min-width:900px) {

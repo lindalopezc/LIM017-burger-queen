@@ -28,7 +28,10 @@ export class LoginComponent implements OnInit {
   wrongEmail !: string;
   wrongPassword !: string;
 
-  onSubmit() { //login
+  onSubmit() {
+    this.wrongPassword = '';
+    this.wrongEmail = '';
+
     this.userService.login(this.formReg.value)
       .then(response => {
         const email: any = response.user.email;
@@ -36,27 +39,24 @@ export class LoginComponent implements OnInit {
 
         if(/waiter.bq.com/.test(email)){
           this.router.navigate(['/waiter/menu']);
+          console.log('si pasó')
         }
         else if(/chef.bq.com/.test(email)){
           this.router.navigate(['/chef']);
         }
-        else{
-          //aquí iría la ruta del administrador
-        }
       })
       .catch(error => {
-        if(error.code = 'auth/user-not-found'){
-          this.wrongPassword='';
+
+        if(error.code === 'auth/user-not-found'){
           this.wrongEmail = 'The email is not registered. Try again';
         }
-        else if (error.code = 'auth/wrong-password'){
-          this.wrongEmail = '';
+        else if (error.code === 'auth/wrong-password'){
           this.wrongPassword = 'The password is not correct. Try again';
         }
         else{
           this.wrongEmail = error.code
-          this.wrongPassword = '';
         }
+        this.formReg.reset();
       });
   }
 

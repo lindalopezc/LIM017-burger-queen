@@ -1,14 +1,19 @@
 table{
   width: 100%;
   td{
-    width: 20%;
+    font-size: 15px;
     margin-bottom: 10px;
   }
   .order-name{
-  width: 40%;
-  font-weight: bold;
+    font-weight: bold;
+    width: 30%;
   }
   .extra-item{
     font-size: 13px;
   }
+}
+.delete-icon{
+  border-style: none;
+  background: transparent;
+  color: gray;
 }

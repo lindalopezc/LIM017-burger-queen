@@ -14,7 +14,11 @@ export class ListOrdersComponent implements OnInit {
   ngOnInit(): void {
     this.firebaseService.getOrdens().subscribe(orders=>{
       this.orders = orders;
+      console.log(orders)
     })
   }
 
+  changeStatus(index:number, status: string){
+    return this.firebaseService.updateOrder(this.orders[index],status);
+  }
 }

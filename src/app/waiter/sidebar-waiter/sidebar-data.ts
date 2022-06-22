@@ -1,27 +1,22 @@
 export const sidebarData = [
-    {
-    routerLink:'/login',
-    icon: 'fa-solid fa-house',
-    label:'Home'
-  },
   {
     routerLink:'/waiter/tables/',
-    icon: 'fa-solid fa-tablets',
+    icon: 'table_bar',
     label:'Tables'
   },
   {
     routerLink:'/waiter/breakfast',
-    icon: 'fa-solid fa-mug-saucer',
+    icon: 'free_breakfast',
     label:'Breakfast'
   },
   {
-    routerLink:'/waiter/list-products',
-    icon: 'fa-solid fa-burger',
+    routerLink:'/waiter/menu',
+    icon: 'lunch_dining',
     label:'Menu'
   },
   {
-    routerLink:'/waiter/list-orders',
-    icon: 'fa-solid fa-cart-shopping',
+    routerLink:'/waiter/list-orders/',
+    icon: 'assignment',
     label:'Orders'
   }
 ]

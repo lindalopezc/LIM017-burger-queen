@@ -1,13 +1,44 @@
-// Variable overrides first
-:host{
-  height: 100vh;
+.content-cart {
+  width: 250px;
 }
-.container{
-display: grid;
-align-items: center;
-justify-content: center;
-grid-template-columns: repeat(auto-fill, 245px);
+
+.drawer-color{
+  background: #343A40 ;
+  color:white;
 }
-.order-summary{
-  width: 30%;
+.size-title{
+  margin-top: 20px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
+.filters{
+  width: 90%;
+  justify-content: center;
+  .size-card{
+    min-width: 156px;
+    max-width: 270px;
+    font-weight: 500;
+    color:#343A40;
+  }
+  .size-card:hover{
+    color:#fff;
+  }
+}
+.products{
+  justify-content: center;
+  .product-card{
+    min-width: 160px;
+    max-width: 315px;
+  }
+}
+@media(min-width:900px) {
+  .size-card{
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .size-title{
+    font-weight: 500;
+    font-size: 25px;
+  }
+}
+

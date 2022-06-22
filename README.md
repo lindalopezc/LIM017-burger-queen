@@ -35,7 +35,7 @@ los que trabajes.
 
 ## 2. Resumen del proyecto
 
-Un pequeño restaurante de hamburguesas, que está creciendo, necesita una
+Un pequeño restaurante de Burguers, que está creciendo, necesita una
 interfaz en la que puedan tomar pedidos usando una _tablet_, y enviarlos
 a la cocina para que se preparen ordenada y eficientemente (a través de un
 _backend_ del que nos darán detalles más adelante).
@@ -67,9 +67,9 @@ Esta es la información que tenemos del cliente:
 >
 > | Ítem                      |Precio|
 > |---------------------------|------|
-> |**Hamburguesas**           |   **$**   |
-> |Hamburguesa simple         |    10|
-> |Hamburguesa doble          |    15|
+> |**Burguers**           |   **$**   |
+> |Burguer simple         |    10|
+> |Burguer doble          |    15|
 > |**Acompañamientos**        |   **$**   |
 > |Papas fritas               |     5|
 > |Aros de cebolla            |     5|
@@ -79,7 +79,7 @@ Esta es la información que tenemos del cliente:
 > |Bebida/gaseosa 500ml       |     7|
 > |Bebida/gaseosa 750ml       |     10|
 >
-> **Importante:** Los clientes pueden escoger entre hamburguesas de res,
+> **Importante:** Los clientes pueden escoger entre Burguers de res,
 > de pollo, o vegetariana. Además, por $ 1 adicional, pueden agregarle queso
 > o huevo.
 >

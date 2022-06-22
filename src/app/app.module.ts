@@ -10,6 +10,12 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule} from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
@@ -25,9 +31,12 @@ import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/orden.service';
 import { BodyComponent } from './waiter/body/body.component';
 import { DialogElement } from './angular-material/dialog';
-import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './waiter/body/menu/menu.component';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
+import { NavbarWaiterComponent } from './waiter/navbar-waiter/navbar-waiter.component';
+import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
+
+
 
 
 
@@ -48,7 +57,9 @@ import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component'
     BodyComponent,
     DialogElement,
     MenuComponent,
-    BreakfastComponent
+    BreakfastComponent,
+    NavbarWaiterComponent,
+    OrdersChefComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +69,12 @@ import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component'
     ReactiveFormsModule,
     MatDialogModule,
     MatGridListModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatBadgeModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

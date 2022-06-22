@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Order } from 'src/app/interfaces/order';
-import  Product  from 'src/app/interfaces/product';
 import { FirebaseService, OrderService } from 'src/app/services/orden.service';
 
 @Component({
@@ -10,15 +10,18 @@ import { FirebaseService, OrderService } from 'src/app/services/orden.service';
 })
 export class OrderSummaryComponent implements OnInit {
 
-  nameMesero = 'Maria Paula';
-  mesa = 1;
-  nombreCliente = 'Jaqueline Ramos';
+  nameWaiter = 'Juan';
+  table = new FormControl('',[]);
+  nameClient = new FormControl('',[]);
   title = 'LIM017-burger-queen';
   date = Date().substring(0,34);
   total = 0;
   orderSummary !: Order[];
+  index=0;
 
-  constructor(private orderService: OrderService, private firebaseService: FirebaseService){
+  constructor(
+    private orderService: OrderService,
+    private firebaseService: FirebaseService){
     this.orderSummary = this.orderService.getOrderSummary();
   }
 
@@ -31,22 +34,26 @@ export class OrderSummaryComponent implements OnInit {
   }
   totalPrice(){
     return this.orderSummary.reduce((previus, current)=>{
-      if(current.cheese&&current.egg)
-        return current.price+previus+Number(current.egg)+Number(current.cheese);
-      return current.price+previus;
+      let total=0;
+      if(current.egg)
+      { return current.price+previus+Number(current.egg)+Number(current.cheese);}
+      else
+        return current.price+previus;
+
     },this.total)
   }
-  createOrden(event: Event, orders : Order[]){
-    const orden = {
-      Mesero: this.nameMesero,
-      Cliente: this.nombreCliente,
-      Mesa: this.mesa,
-      Fecha: this.date,
-      Hamburguesas: orders,
-      Acompanamientos:['papas', 'aros de cebolla'], //esto se debe corregir cuando se adicione la vista de acompañamientos
-      Bebidas: ['gaseosa', 'agua'],
-      total:this.totalPrice()
+  createOrder(event: Event, orders : Order[]){
+    this.index++;
+    const order = {
+      Waiter: this.nameWaiter,
+      Client: this.nameClient.value,
+      Table: this.table.value,
+      Date: this.date,
+      Products: orders,
+      Status: 'Pending',
+      Total:this.totalPrice()
     };
-    this.firebaseService.addOrderToFirebase(orden); //cambie addOrden por addOrderToFirebase
+    this.firebaseService.addOrderToFirebase(order); //cambie addOrden por addOrderToFirebase
+    this.orderService.clearOrderSummary();
   }
 }
