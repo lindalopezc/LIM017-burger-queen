@@ -17,8 +17,5 @@ describe('OrdersChefComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', () => {
-    component.changeStatus('Pending', 4).then(e=>expect(e).toBe())
 
-  });
 });
