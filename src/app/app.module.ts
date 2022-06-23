@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFirestore,getFirestore, enableIndexedDbPersistence } from '@angular/fire/firestore';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
@@ -77,7 +77,7 @@ import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
     MatBadgeModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]
