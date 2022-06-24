@@ -11,6 +11,7 @@ export class BreakfastComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

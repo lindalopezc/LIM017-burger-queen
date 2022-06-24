@@ -77,7 +77,10 @@ import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
     MatBadgeModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => {
+      const firestore = getFirestore();
+      enableIndexedDbPersistence(firestore);
+      return firestore; }),
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]
