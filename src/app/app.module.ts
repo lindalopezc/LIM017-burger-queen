@@ -28,7 +28,7 @@ import { ProductCardComponent } from './waiter/body/list-products/product-card/p
 import { OrderSummaryComponent } from './waiter/body/list-products/order-summary/order-summary.component';
 import { NewOrderComponent } from './waiter/body/list-products/order-summary/new-order/new-order.component';
 import { LoginComponent } from './login/login.component';
-import { OrderService } from './services/orden.service';
+import { OrderService } from './services/order.service';
 import { BodyComponent } from './waiter/body/body.component';
 import { DialogElement } from './angular-material/dialog';
 import { MenuComponent } from './waiter/body/menu/menu.component';
@@ -79,7 +79,7 @@ import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [OrderService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

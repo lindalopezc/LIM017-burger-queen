@@ -1,6 +1,6 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { sidebarData } from './sidebar-data';
 import { Router } from '@angular/router';
 
@@ -70,7 +70,7 @@ export class SidebarWaiterComponent implements OnInit {
   }
 
   signOut(event: Event){
-    this.userService.signOut()
+    this.FirebaseService.signOut()
     .then(()=>{
       console.log('sign out exit')
       this.router.navigate(['/login']);
@@ -78,7 +78,7 @@ export class SidebarWaiterComponent implements OnInit {
     .catch((error)=> console.log(error));
   }
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private FirebaseService: FirebaseService, private router: Router) { }
 
 
 
