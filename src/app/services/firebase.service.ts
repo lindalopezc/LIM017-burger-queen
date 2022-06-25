@@ -36,7 +36,6 @@ export class FirebaseService {
     const  queryRef = query(ordenRef,orderBy('Date', 'desc'));
     return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
-
   updateOrder(order: OrderFirebase, statusValue: string):Promise<any>{
 
     const docRef = doc(this.firestore, "ordenes", String(order.id));
