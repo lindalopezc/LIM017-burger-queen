@@ -22,21 +22,24 @@
               <p>Table: {{order.Table}}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Date: {{order.Date}}</li>
+              <li class="list-group-item">Date: {{order.Date | date:'short'}}</li>
             </ul>
             <div class="card-body">
-              <p class="card-text" *ngFor="let product of order.Products">{{product.name}}</p>
+              <p class="card-text" *ngFor="let product of order.Products">▪️ {{product.count}} {{product.name}}
+                <ng-container *ngIf = "product.type"> / {{product.type}}</ng-container>
+                <ng-container *ngIf = "product.egg > 0"> / egg: {{product.egg}}</ng-container>
+                <ng-container *ngIf = "product.cheese > 0"> / cheese : {{product.cheese}}</ng-container></p>
             </div>
-            <div class="card-footer text-muted">
-              <button [ngClass]="{'btn btn-success': order.Status==='Pending'}" *ngIf="order.Status==='Pending'"
-              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Received" >Received</button>
-              <button [ngClass]="{'btn btn-warning': order.Status==='Received'}" *ngIf="order.Status==='Received'"
-              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Preparing" >Preparing</button>
-              <button [ngClass]="{'btn btn-success': order.Status==='Preparing'}" *ngIf="order.Status==='Preparing'"
-              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Ready" >Ready!</button>
+            <div class="d-flex justify-content-between align-items-center card-footer text-muted">
+              <button class = "btn btn-success" *ngIf="order.Status==='Pending'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Received">Received</button>
+              <button class = "btn btn-warning" *ngIf="order.Status==='Received'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Preparing">Preparing</button>
+              <button class="btn btn-success" *ngIf="order.Status==='Preparing'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Ready">Ready!</button>
+              <cd-timer class = "text-black" format="hms" #basicTimer [startTime]=" timerForEachOrder[index]" *ngIf="order.Status==='Preparing'"></cd-timer>
             </div>
           </div>
-          <h3></h3>
         </div>
     </div>
   </div>

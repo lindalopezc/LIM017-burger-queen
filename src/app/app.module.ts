@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CdTimerModule } from 'angular-cd-timer';
 
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
@@ -75,6 +76,7 @@ import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
     MatToolbarModule,
     MatCardModule,
     MatBadgeModule,
+    CdTimerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

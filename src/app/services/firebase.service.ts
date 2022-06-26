@@ -19,27 +19,33 @@ export class FirebaseService {
   login({email, password}:any){
     return signInWithEmailAndPassword(this.auth, email, password);
   }
+
   signOut(){
     return signOut(this.auth);
   }
 
-  async addOrderToFirebase(orden: OrderFirebase){
-    console.log(orden)
+  async addOrderToFirebase(order: OrderFirebase){
     const ordenRef = collection(this.firestore, 'ordenes');
-    const ann = await addDoc(ordenRef, orden)
-    orden.id = ann.id
+    const ann = await addDoc(ordenRef, order);
+    order.id = ann.id;
     return ann;
   }
 
-  getOrdens(): Observable<any[]>{
+  getOrders(): Observable<any[]>{
     const ordenRef = collection(this.firestore, 'ordenes');
     const  queryRef = query(ordenRef,orderBy('Date', 'desc'));
     return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
-  updateOrder(order: OrderFirebase, statusValue: string):Promise<any>{
 
+  updateStatusOrder(order: OrderFirebase, statusValue: string):Promise<any>{
     const docRef = doc(this.firestore, "ordenes", String(order.id));
-    const queryRef = this.getOrdens();
+    const queryRef = this.getOrders();
     return updateDoc(docRef,{Status: statusValue})
-   }
+  }
+
+  updateTimerOrder(order: OrderFirebase, timer: number):Promise<any>{
+    const docRef = doc(this.firestore, "ordenes", String(order.id));
+    const queryRef = this.getOrders();
+    return updateDoc(docRef,{Timer: timer})
+  }
 }

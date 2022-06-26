@@ -14,11 +14,11 @@ export class OrderSummaryComponent implements OnInit {
   nameWaiter = 'Juan';
   table = new FormControl('',[]);
   nameClient = new FormControl('',[]);
-  title = 'LIM017-burger-queen';
-  date = Date().substring(0,34);
-  total = 0;
+  title: string = 'LIM017-burger-queen';
+  date: number= Date.now();
+  total: number = 0;
   orderSummary !: Order[];
-  index=0;
+  index: number = 0;
 
   constructor(
     private orderService: OrderService,
@@ -26,23 +26,21 @@ export class OrderSummaryComponent implements OnInit {
     this.orderSummary = this.orderService.getOrderSummary();
   }
 
-  ngOnInit(): void {
-
-  }
-
   addPriceToTotal(price: number){
-    this.total+=price
+    this.total += price
   }
+
   totalPrice(){
     return this.orderSummary.reduce((previus, current)=>{
-      let total=0;
-      if(current.egg)
-      { return current.price+previus+Number(current.egg)+Number(current.cheese);}
+      let total = 0;
+      if(current.egg){
+        return current.price + previus + Number(current.egg) + Number(current.cheese);
+      }
       else
-        return current.price+previus;
-
+        return current.price + previus;
     },this.total)
   }
+
   createOrder(event: Event, orders : Order[]){
     this.index++;
     const order = {
@@ -52,9 +50,12 @@ export class OrderSummaryComponent implements OnInit {
       Date: this.date,
       Products: orders,
       Status: 'Pending',
-      Total:this.totalPrice()
+      Total:this.totalPrice(),
+      Timer: 0,
     };
-    this.firebaseService.addOrderToFirebase(order); //cambie addOrden por addOrderToFirebase
+    this.firebaseService.addOrderToFirebase(order);
     this.orderService.clearOrderSummary();
   }
+
+  ngOnInit(): void {}
 }

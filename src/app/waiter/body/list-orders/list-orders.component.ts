@@ -12,14 +12,12 @@ export class ListOrdersComponent implements OnInit {
   constructor(private firebaseService: FirebaseService) { this.orders=[{}]}
 
   ngOnInit(): void {
-    this.firebaseService.getOrdens().subscribe(orders => {
+    this.firebaseService.getOrders().subscribe(orders => {
       this.orders = orders;
     })
   }
 
   changeStatus(index:number, status: string): Promise<any>{
-    return this.firebaseService.updateOrder(this.orders[index],status);
+    return this.firebaseService.updateStatusOrder(this.orders[index],status);
   }
-
-
 }

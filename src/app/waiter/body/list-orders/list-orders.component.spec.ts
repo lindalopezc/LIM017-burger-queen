@@ -10,11 +10,11 @@ describe('ListOrdersComponent', () => {
   let fixture: ComponentFixture<ListOrdersComponent>;
   let firebaseService: FirebaseService;
   const firebaseServiceStub = {
-    updateOrder(order: OrderFirebase, status: string){
+    updateStatusOrder(order: OrderFirebase, status: string){
       order.Status = status;
       return order.Status
     },
-    getOrdens(): Observable<any[]>{
+    getOrders(): Observable<any[]>{
       return of([{
         "Products": [
             {
@@ -65,13 +65,13 @@ describe('ListOrdersComponent', () => {
     expect(component).toBeTruthy();
   });
   it('List orders', () => {
-    spyOn(firebaseService,'getOrdens').and.callThrough()
+    spyOn(firebaseService,'getOrders').and.callThrough()
     expect(component.orders.length).toEqual(1);
   });
   it('Update status of the orders', ()=>{
 
   const statusChange = 'Served';
-    spyOn(firebaseService, 'updateOrder').and.callThrough();
+    spyOn(firebaseService, 'updateStatusOrder').and.callThrough();
     component.changeStatus(0,'Served')
       expect(component.orders[0].Status).toBe(statusChange);
   })
