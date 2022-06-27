@@ -13,13 +13,7 @@ import { CdTimerComponent, TimeInterface } from 'angular-cd-timer';
 export class OrdersChefComponent implements OnInit {
   @ViewChild('basicTimer') timer!: TimeInterface;
   ordersChef!: OrderFirebase[];
-<<<<<<< HEAD
-  constructor(private firebaseService: FirebaseService,
-    private userService: FirebaseService,
-    private router: Router) {
-=======
   timerForEachOrder: Array<number> = Array(10);
->>>>>>> e3de697ba36d0b218784c128c88145646ab03db9
 
   constructor(private firebaseService: FirebaseService,
     private router: Router) {}

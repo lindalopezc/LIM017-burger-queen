@@ -17,13 +17,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
-<<<<<<< HEAD
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select'
-=======
 import { CdTimerModule } from 'angular-cd-timer';
 
->>>>>>> e3de697ba36d0b218784c128c88145646ab03db9
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
 import { TablesComponent } from './waiter/body/tables/tables.component';
@@ -88,13 +83,9 @@ import {provideStorage, getStorage} from '@angular/fire/storage'
     MatToolbarModule,
     MatCardModule,
     MatBadgeModule,
-<<<<<<< HEAD
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-=======
-    CdTimerModule,
->>>>>>> e3de697ba36d0b218784c128c88145646ab03db9
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => {

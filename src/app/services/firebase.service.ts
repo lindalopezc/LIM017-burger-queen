@@ -36,14 +36,6 @@ export class FirebaseService {
     const  queryRef = query(ordenRef,orderBy('Date', 'desc'));
     return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
-<<<<<<< HEAD
-  updateOrder(order: OrderFirebase, statusValue: string):Promise<any>{
-
-    const docRef = doc(this.firestore, "ordenes", String(order.id));
-
-    return updateDoc(docRef,{Status: statusValue})
-   }
-=======
 
   updateStatusOrder(order: OrderFirebase, statusValue: string):Promise<any>{
     const docRef = doc(this.firestore, "ordenes", String(order.id));
@@ -56,5 +48,4 @@ export class FirebaseService {
     const queryRef = this.getOrders();
     return updateDoc(docRef,{Timer: timer});
   }
->>>>>>> e3de697ba36d0b218784c128c88145646ab03db9
 }

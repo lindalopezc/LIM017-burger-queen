@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { FormControl, FormGroup } from '@angular/forms';
-=======
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
->>>>>>> e3de697ba36d0b218784c128c88145646ab03db9
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 
@@ -15,23 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-<<<<<<< HEAD
-  formReg!: FormGroup;
-
-  constructor(
-    private userService: FirebaseService,
-    private router: Router,
-    // public dialog: MatDialog,
-  ) {
-    this.formReg = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    })
-  }
-
-=======
   form: FormGroup = new FormGroup({});
->>>>>>> e3de697ba36d0b218784c128c88145646ab03db9
   wrongEmail !: string;
   wrongPassword !: string;
 
