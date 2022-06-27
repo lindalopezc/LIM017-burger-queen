@@ -37,7 +37,7 @@
               (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Preparing">Preparing</button>
               <button class="btn btn-success" *ngIf="order.Status==='Preparing'"
               (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Ready">Ready!</button>
-              <cd-timer class = "text-black" format="hms" #basicTimer [startTime]=" timerForEachOrder[index]" *ngIf="order.Status==='Preparing'"></cd-timer>
+              <cd-timer class = "text-dark" format="hms" #basicTimer [startTime]="order.Timer" (onTick)="updateTimer(basicTimer, index)" *ngIf="order.Status==='Preparing'"></cd-timer>
             </div>
           </div>
         </div>

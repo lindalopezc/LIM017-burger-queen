@@ -46,6 +46,6 @@ export class FirebaseService {
   updateTimerOrder(order: OrderFirebase, timer: number):Promise<any>{
     const docRef = doc(this.firestore, "ordenes", String(order.id));
     const queryRef = this.getOrders();
-    return updateDoc(docRef,{Timer: timer})
+    return updateDoc(docRef,{Timer: timer});
   }
 }
