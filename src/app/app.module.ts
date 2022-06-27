@@ -42,8 +42,8 @@ import { AdminComponent } from './admin/admin.component';
 import { NewProductComponent } from './admin/new-product/new-product.component';
 import { ListProductsAdminComponent } from './admin/list-products-admin/list-products-admin.component';
 import {provideStorage, getStorage} from '@angular/fire/storage'
-
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
