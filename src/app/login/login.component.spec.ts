@@ -11,13 +11,18 @@ describe('LoginComponent', () => {
       declarations: [ LoginComponent ]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    let email = component.form.controls['email'];
+    let password = component.form.controls['password'];
+    email.setValue('');
+    password.setValue('');
+
+    expect(component.form.invalid).toBeTruthy();
   });
 });

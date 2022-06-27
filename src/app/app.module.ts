@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFirestore,getFirestore, enableIndexedDbPersistence } from '@angular/fire/firestore';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
@@ -16,6 +16,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CdTimerModule } from 'angular-cd-timer';
 
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
@@ -28,7 +29,7 @@ import { ProductCardComponent } from './waiter/body/list-products/product-card/p
 import { OrderSummaryComponent } from './waiter/body/list-products/order-summary/order-summary.component';
 import { NewOrderComponent } from './waiter/body/list-products/order-summary/new-order/new-order.component';
 import { LoginComponent } from './login/login.component';
-import { OrderService } from './services/orden.service';
+import { OrderService } from './services/order.service';
 import { BodyComponent } from './waiter/body/body.component';
 import { DialogElement } from './angular-material/dialog';
 import { MenuComponent } from './waiter/body/menu/menu.component';
@@ -75,11 +76,12 @@ import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
     MatToolbarModule,
     MatCardModule,
     MatBadgeModule,
+    CdTimerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [OrderService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

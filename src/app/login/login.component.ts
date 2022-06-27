@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { UserService } from '../services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
-// import { MatDialog } from '@angular/material/dialog';
-// import { DialogElement } from '../angular-material/dialog';
+
 
 @Component({
   selector: 'app-login',
@@ -12,34 +11,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  formReg!: FormGroup;
-
-  constructor(
-    private userService: UserService,
-    private router: Router,
-    // public dialog: MatDialog,
-  ) {
-    this.formReg = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    })
-  }
-
+  form: FormGroup = new FormGroup({});
   wrongEmail !: string;
   wrongPassword !: string;
+
+  constructor(
+    private FirebaseService: FirebaseService,
+    private router: Router,
+    private formLogin: FormBuilder,
+  ) {
+    this.form = this.formLogin.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
 
   onSubmit() {
     this.wrongPassword = '';
     this.wrongEmail = '';
 
-    this.userService.login(this.formReg.value)
+    this.FirebaseService.login(this.form.value)
       .then(response => {
         const email: any = response.user.email;
-        const userName : any = response.user.displayName;
 
         if(/waiter.bq.com/.test(email)){
           this.router.navigate(['/waiter/menu']);
-          console.log('si pasó')
         }
         else if(/chef.bq.com/.test(email)){
           this.router.navigate(['/chef']);
@@ -56,7 +52,7 @@ export class LoginComponent implements OnInit {
         else{
           this.wrongEmail = error.code
         }
-        this.formReg.reset();
+        this.form.reset();
       });
   }
 

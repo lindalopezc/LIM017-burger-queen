@@ -5,8 +5,9 @@ export default interface OrderFirebase {
   Waiter: string,
   Client: string | null,
   Table: string | null,
-  Date : string,
+  Date : number,
   Products: Order[],
   Status: string,
-  Total: number
+  Total: number,
+  Timer :number,
 }
