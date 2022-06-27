@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { UserService } from '../services/user.service';
+import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 // import { MatDialog } from '@angular/material/dialog';
 // import { DialogElement } from '../angular-material/dialog';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   formReg!: FormGroup;
 
   constructor(
-    private userService: UserService,
+    private userService: FirebaseService,
     private router: Router,
     // public dialog: MatDialog,
   ) {

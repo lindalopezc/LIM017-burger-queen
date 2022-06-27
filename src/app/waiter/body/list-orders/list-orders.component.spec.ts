@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, EMPTY, of } from 'rxjs';
 import OrderFirebase from 'src/app/interfaces/orders-firebase';
-import { FirebaseService } from 'src/app/services/orden.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 import { ListOrdersComponent } from './list-orders.component';
 

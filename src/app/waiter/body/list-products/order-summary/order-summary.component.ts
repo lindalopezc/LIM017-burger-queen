@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Order } from 'src/app/interfaces/order';
-import { FirebaseService, OrderService } from 'src/app/services/orden.service';
+import { FirebaseService} from 'src/app/services/firebase.service';
+import { OrderService } from 'src/app/services/orden.service';
 
 @Component({
   selector: 'app-order-summary',
