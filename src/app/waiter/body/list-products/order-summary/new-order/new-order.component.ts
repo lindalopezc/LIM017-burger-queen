@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order } from 'src/app/interfaces/order';
 import  Product from 'src/app/interfaces/product';
-import { OrderService } from 'src/app/services/orden.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-new-order',

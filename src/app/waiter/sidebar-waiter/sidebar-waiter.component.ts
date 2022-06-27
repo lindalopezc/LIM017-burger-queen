@@ -70,7 +70,7 @@ export class SidebarWaiterComponent implements OnInit {
   }
 
   signOut(event: Event){
-    this.userService.signOut()
+    this.FirebaseService.signOut()
     .then(()=>{
       console.log('sign out exit')
       this.router.navigate(['/login']);
@@ -78,7 +78,7 @@ export class SidebarWaiterComponent implements OnInit {
     .catch((error)=> console.log(error));
   }
 
-  constructor(private userService: FirebaseService, private router: Router) { }
+  constructor(private FirebaseService: FirebaseService, private router: Router) { }
 
 
 
