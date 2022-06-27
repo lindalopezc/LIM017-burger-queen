@@ -36,6 +36,7 @@ import { MenuComponent } from './waiter/body/menu/menu.component';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
 import { NavbarWaiterComponent } from './waiter/navbar-waiter/navbar-waiter.component';
 import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -80,6 +81,12 @@ import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
