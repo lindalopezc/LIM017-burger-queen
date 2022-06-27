@@ -67,7 +67,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     OrdersChefComponent,
     AdminComponent,
     NewProductComponent,
-    ListProductsAdminComponent
+    ListProductsAdminComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -86,6 +87,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    CdTimerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => {
