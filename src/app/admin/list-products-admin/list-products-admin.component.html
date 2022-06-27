@@ -1,0 +1,38 @@
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">
+          <select >
+          <option selected>Type</option>
+          <option value="1">Burger</option>
+          <option value="2">Accompaniments</option>
+          <option value="3">Beverages</option>
+        </select>
+      </th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Url</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{product.typeProduct}}</td>
+        <td>
+          {{product.name}} <br>
+          <span *ngIf="product.type">{{product.type}}</span>
+        </td>
+        <td>{{product.price}}</td>
+
+        <td><img src={{product.url}} class="productImg"></td>
+        <td><button class="btn btn-danger" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-circle-minus"></i></button></td>
+        <td><button class="btn btn-info" (click)="openDialogToUpdate(product, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+

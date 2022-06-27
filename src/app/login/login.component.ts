@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
         else if(/chef.bq.com/.test(email)){
           this.router.navigate(['/chef']);
         }
+        else if(/admin.bq.com/.test(email)){
+          this.router.navigate(['/admin']);
+        }
       })
       .catch(error => {
 

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { MatInputModule } from '@angular/material/input';
 import { provideFirestore,getFirestore, enableIndexedDbPersistence } from '@angular/fire/firestore';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -37,9 +38,12 @@ import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component'
 import { NavbarWaiterComponent } from './waiter/navbar-waiter/navbar-waiter.component';
 import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
-
-
+import { AdminComponent } from './admin/admin.component';
+import { NewProductComponent } from './admin/new-product/new-product.component';
+import { ListProductsAdminComponent } from './admin/list-products-admin/list-products-admin.component';
+import {provideStorage, getStorage} from '@angular/fire/storage'
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -61,7 +65,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MenuComponent,
     BreakfastComponent,
     NavbarWaiterComponent,
-    OrdersChefComponent
+    OrdersChefComponent,
+    AdminComponent,
+    NewProductComponent,
+    ListProductsAdminComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -77,16 +85,23 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatToolbarModule,
     MatCardModule,
     MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     CdTimerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => {
+      const firestore = getFirestore();
+      enableIndexedDbPersistence(firestore);
+      return firestore; }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    provideStorage(()=>getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
