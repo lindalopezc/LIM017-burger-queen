@@ -1,1 +1,47 @@
-<app-orders-chef></app-orders-chef>
+<mat-toolbar class="header">
+  <mat-toolbar-row>
+    <div class="container d-flex justify-content-between">
+      <span class="example-spacer">
+        <img class ="logo" src="../../../assets/img/logo.png" alt = "img">
+        Burguer Queen</span>
+      <button  class = "exit-app" (click)="signOut($event)">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="d-flex flex-column align-items-center">
+  <p class = "size-title">Orders</p>
+  <div class="d-grid">
+      <div *ngFor="let order of ordersChef; index as index" >
+        <div class="container orders-cards" *ngIf="order.Status !== 'Ready' && order.Status !== 'Served'">
+          <div class="card" style="width: 18rem">
+            <div class="d-flex justify-content-between card-header p-3 mb-2" [ngClass]="{'bg-danger text-white': order.Status === 'Pending',
+          'bg-warning':order.Status === 'Preparing'}">
+              <p>{{order.Status}}</p>
+              <p>Table: {{order.Table}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Date: {{order.Date | date:'short'}}</li>
+            </ul>
+            <div class="card-body">
+              <p class="card-text" *ngFor="let product of order.Products">▪️ {{product.count}} {{product.name}}
+                <ng-container *ngIf = "product.type"> / {{product.type}}</ng-container>
+                <ng-container *ngIf = "product.egg > 0"> / egg: {{product.egg}}</ng-container>
+                <ng-container *ngIf = "product.cheese > 0"> / cheese : {{product.cheese}}</ng-container></p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center card-footer text-muted">
+              <button class = "btn btn-success" *ngIf="order.Status==='Pending'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Received">Received</button>
+              <button class = "btn btn-warning" *ngIf="order.Status==='Received'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Preparing">Preparing</button>
+              <button class="btn btn-success" *ngIf="order.Status==='Preparing'"
+              (click)="changeStatus(btnStatus.value, index)" #btnStatus value="Ready">Ready!</button>
+              <cd-timer class = "text-dark" format="hms" #basicTimer [startTime]="order.Timer" (onTick)="updateTimer(basicTimer, index)" *ngIf="order.Status==='Preparing'"></cd-timer>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

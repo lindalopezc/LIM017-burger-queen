@@ -7,7 +7,6 @@ import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component'
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
 import { ListProductsComponent } from './waiter/body/list-products/list-products.component';
 import { MenuComponent } from './waiter/body/menu/menu.component';
-import { TablesComponent } from './waiter/body/tables/tables.component';
 import { WaiterComponent } from './waiter/waiter.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { map } from 'rxjs';
@@ -25,11 +24,6 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, ...canActivate(onlyAdmin)},
   {path: 'chef', component: ChefComponent, ...canActivate(onlyChef)},
   {path: 'waiter', component: WaiterComponent, children:[
-    {
-      path: "tables",
-      component: TablesComponent,
-      ...canActivate(onlyWaiter)
-    },
     {
       path: "list-orders",
       component: ListOrdersComponent,

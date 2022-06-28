@@ -21,10 +21,8 @@ import { CdTimerModule } from 'angular-cd-timer';
 
 import { WaiterComponent } from './waiter/waiter.component';
 import { ListOrdersComponent } from './waiter/body/list-orders/list-orders.component';
-import { TablesComponent } from './waiter/body/tables/tables.component';
 import { ChefComponent } from './chef/chef.component';
 import { SidebarWaiterComponent } from './waiter/sidebar-waiter/sidebar-waiter.component';
-import { SidebarChefComponent } from './chef/sidebar-chef/sidebar-chef.component';
 import { ListProductsComponent } from './waiter/body/list-products/list-products.component';
 import { ProductCardComponent } from './waiter/body/list-products/product-card/product-card.component';
 import { OrderSummaryComponent } from './waiter/body/list-products/order-summary/order-summary.component';
@@ -32,11 +30,9 @@ import { NewOrderComponent } from './waiter/body/list-products/order-summary/new
 import { LoginComponent } from './login/login.component';
 import { OrderService } from './services/order.service';
 import { BodyComponent } from './waiter/body/body.component';
-import { DialogElement } from './angular-material/dialog';
 import { MenuComponent } from './waiter/body/menu/menu.component';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';
 import { NavbarWaiterComponent } from './waiter/navbar-waiter/navbar-waiter.component';
-import { OrdersChefComponent } from './chef/orders-chef/orders-chef.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AdminComponent } from './admin/admin.component';
 import { NewProductComponent } from './admin/new-product/new-product.component';
@@ -52,20 +48,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     WaiterComponent,
     NewOrderComponent,
     ListOrdersComponent,
-    TablesComponent,
     ChefComponent,
     SidebarWaiterComponent,
-    SidebarChefComponent,
     ListProductsComponent,
     ProductCardComponent,
     OrderSummaryComponent,
     LoginComponent,
     BodyComponent,
-    DialogElement,
     MenuComponent,
     BreakfastComponent,
     NavbarWaiterComponent,
-    OrdersChefComponent,
     AdminComponent,
     NewProductComponent,
     ListProductsAdminComponent,

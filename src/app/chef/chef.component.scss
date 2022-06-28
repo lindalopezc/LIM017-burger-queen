@@ -1,0 +1,34 @@
+.header{
+  background: #343A40;
+}
+.example-spacer{
+  color: #fff;
+}
+.exit-app{
+  background: transparent;
+  border-style: none;
+  color:#fff;
+}
+.d-grid{
+  margin-top: 5%;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
+}
+.size-title{
+  margin-top: 20px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.logo{
+  width:3rem;
+}
+.orders-cards{
+  margin-bottom: 20px;
+}
+
+@media(min-width:900px) {
+  .size-title{
+    font-size: 25px;
+  }
+}
