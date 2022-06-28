@@ -8,7 +8,6 @@ interface SideNavToggle {
 @Component({
   selector: 'app-waiter',
   templateUrl: './waiter.component.html',
-  styleUrls: ['./waiter.component.scss']
 })
 export class WaiterComponent implements OnInit {
   title= 'sidenav';

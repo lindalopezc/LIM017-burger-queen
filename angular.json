@@ -29,10 +29,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+<<<<<<< HEAD
               "src/manifest.webmanifest",
               "src/manifest.webmanifest",
               "src/manifest.webmanifest",
               "src/manifest.webmanifest",
+=======
+>>>>>>> 082769f369671ca95bece519e1ed7aa69b08851e
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -106,10 +109,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+<<<<<<< HEAD
               "src/manifest.webmanifest",
               "src/manifest.webmanifest",
               "src/manifest.webmanifest",
               "src/manifest.webmanifest",
+=======
+>>>>>>> 082769f369671ca95bece519e1ed7aa69b08851e
               "src/manifest.webmanifest"
             ],
             "styles": [
