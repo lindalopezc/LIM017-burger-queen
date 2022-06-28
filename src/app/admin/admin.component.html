@@ -1,0 +1,29 @@
+<div>
+  <nav class="navbar navbar-expand-lg header">
+    <div class="container d-flex justify-content-between">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <mat-icon >menu</mat-icon>
+      </button>
+      <span class="example-spacer">
+        <img class ="logo" src="https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Flogo.png?alt=media&token=34723594-298b-465c-8f56-bf640bcea824" alt = "img">
+        Burguer Queen</span>
+      <button  class = "exit-app" (click)="signOut($event)">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/admin/products">Products <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/users">Users</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class = "d-flex justify-content-center align-items-center">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

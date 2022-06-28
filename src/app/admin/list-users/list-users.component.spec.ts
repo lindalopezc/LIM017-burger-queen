@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChefComponent } from './chef.component';
+import { ListUsersComponent } from './list-users.component';
 
-describe('ChefComponent', () => {
-  let component: ChefComponent;
-  let fixture: ComponentFixture<ChefComponent>;
+describe('ListUsersComponent', () => {
+  let component: ListUsersComponent;
+  let fixture: ComponentFixture<ListUsersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChefComponent ]
+      declarations: [ ListUsersComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChefComponent);
+    fixture = TestBed.createComponent(ListUsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

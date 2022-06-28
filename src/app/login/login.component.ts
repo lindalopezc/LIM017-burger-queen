@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
-  wrongEmail !: string;
-  wrongPassword !: string;
+  wrongEmail: string = '';
+  wrongPassword: string = '';
 
   constructor(
     private FirebaseService: FirebaseService,
@@ -27,22 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.wrongPassword = '';
-    this.wrongEmail = '';
-
     this.FirebaseService.login(this.form.value)
-      .then(response => {
-        const email: any = response.user.email;
-
-        if(/waiter.bq.com/.test(email)){
-          this.router.navigate(['/waiter/menu']);
-        }
-        else if(/chef.bq.com/.test(email)){
-          this.router.navigate(['/chef']);
-        }
-      })
       .catch(error => {
-
         if(error.code === 'auth/user-not-found'){
           this.wrongEmail = 'The email is not registered. Try again';
         }

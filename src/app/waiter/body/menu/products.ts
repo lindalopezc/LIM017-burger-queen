@@ -3,7 +3,7 @@ export const products: { [key: string]: any } = {
   [
     {
       name: 'Beef burger',
-      url: '../../../../assets/img/beef.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fbeef.png?alt=media&token=1c1c87e9-f85d-4f95-8b2c-70b728827d5c',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -11,7 +11,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Chicken burguer',
-      url: '../../../../assets/img/chicken.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fchicken.png?alt=media&token=f2cd008a-ae0f-4c13-8642-4092d7342376',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -19,7 +19,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Veggie burger',
-      url: '../../../../assets/img/veggie.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fveggie.png?alt=media&token=e5f42264-5738-4bf2-bba8-16a2c739509c',
       price: 10,
       type: 'simple',
       egg: 0,
@@ -27,7 +27,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Beef burger',
-      url: '../../../../assets/img/beef-doble.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fbeef-doble.png?alt=media&token=32115980-35b7-4fd8-ba98-87579842dc3c',
       price: 15,
       type: 'doble',
       egg: 0,
@@ -35,7 +35,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Chicken burguer',
-      url: '../../../../assets/img/chicken-doble.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fchicken-doble.png?alt=media&token=fe1f0835-8227-4061-b1c8-3f4bd4b5a713',
       price: 15,
       type: 'doble',
       egg: 0,
@@ -43,7 +43,7 @@ export const products: { [key: string]: any } = {
     },
     {
       name: 'Veggie burger',
-      url: '../../../../assets/img/veggie-doble.png',
+      url: 'https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fveggie-doble.png?alt=media&token=e623d036-82c8-4ddf-aae4-af77c0358372',
       price: 15,
       type: 'doble',
       egg: 0,

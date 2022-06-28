@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChefComponent } from './chef.component';
+import { NewUserComponent } from './new-user.component';
 
-describe('ChefComponent', () => {
-  let component: ChefComponent;
-  let fixture: ComponentFixture<ChefComponent>;
+describe('NewUserComponent', () => {
+  let component: NewUserComponent;
+  let fixture: ComponentFixture<NewUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChefComponent ]
+      declarations: [ NewUserComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChefComponent);
+    fixture = TestBed.createComponent(NewUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

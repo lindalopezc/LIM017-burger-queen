@@ -1,0 +1,66 @@
+<h1 mat-dialog-title *ngIf="!data.isUpdating">Add a new product </h1>
+<h1 mat-dialog-title *ngIf="data.isUpdating">Update the product </h1>
+<div mat-dialog-content>
+  <p>Fill the follow fields</p>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select me</mat-label>
+    <mat-select [(ngModel)]="data.product.typeProduct">
+      <mat-option value="Burger">Burguer</mat-option>
+      <mat-option value="Accompaniments">Accompaniments</mat-option>
+      <mat-option value="Beverages">Beverages</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.product.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="data.product.price">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf="data.product.typeProduct === 'Burger'">
+    <mat-label>Select me</mat-label>
+    <mat-select [(ngModel)]="data.product.type">
+      <mat-option value="Simple">Simple</mat-option>
+      <mat-option value="Doble">Doble</mat-option>
+    </mat-select>
+    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <div class="myfilebrowser">
+
+      <mat-toolbar>
+
+        <!-- Readonly Input to show File names -->
+        <input matInput [(ngModel)]="fileName" readonly name="memberContactNo" />
+
+        <!-- Browse Button -->
+        <button mat-flat-button color="primary">
+          Browse
+        </button>
+
+      </mat-toolbar>
+
+      <!-- Fetch selected filed on change -->
+      <input type="file" #UploadFileInput id="fileUpload" (change)="fileChangeEvent($event)" name="fileUpload"
+        multiple="multiple" accept="image/*" />
+
+    </div>
+
+</mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" (click)="createProduct()" cdkFocusInitial *ngIf="!data.isUpdating">Add</button>
+  <button mat-button [mat-dialog-close]="data" (click)="updateProductAdmin()" *ngIf="data.isUpdating">Update</button>
+</div>
+
