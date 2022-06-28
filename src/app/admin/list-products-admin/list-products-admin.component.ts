@@ -26,7 +26,6 @@ export class ListProductsAdminComponent implements OnInit {
   }
 
   openDialogToUpdate(product: Product, isUpdating: string){
-    console.log(product)
     const dialogRef = this.dialog.open(NewProductComponent, {
       width: '250px',
       data: {product, isUpdating: isUpdating},
