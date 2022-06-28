@@ -1,3 +1,17 @@
+.size-title{
+  margin-top: 20px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
 .productImg{
   width: 100px;
 }
+.add-product{
+  align-self: flex-start;
+}
+@media(min-width:900px) {
+  .size-title{
+    font-size: 25px;
+  }
+}
+

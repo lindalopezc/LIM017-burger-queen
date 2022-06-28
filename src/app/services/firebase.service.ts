@@ -79,7 +79,7 @@ export class FirebaseService {
   }
   getUsers(): Observable<any[]>{
     const ordenRef = collection(this.firestore, 'users');
-    const  queryRef = query(ordenRef,orderBy('userName', 'desc'));
+    const  queryRef = query(ordenRef,orderBy('userName', 'asc'));
     return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
   deleteUserFirestore(user: any){
