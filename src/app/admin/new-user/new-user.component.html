@@ -1,0 +1,33 @@
+<h1 mat-dialog-title *ngIf="!data.isUpdating">Add a new user </h1>
+<h1 mat-dialog-title *ngIf="data.isUpdating">Update the user </h1>
+<div mat-dialog-content>
+  <p>Fill the follow fields</p>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select me</mat-label>
+    <mat-select [(ngModel)]="data.user.type">
+      <mat-option value="Chef">Chef</mat-option>
+      <mat-option value="Waiter">Waiter</mat-option>
+    </mat-select>
+
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="data.user.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.user.email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" class="example-right-align"  [(ngModel)]="data.user.password">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" (click)="createUser(data.user.name, data.user.email, data.user.password, data.user.type)" cdkFocusInitial *ngIf="!data.isUpdating">Add</button>
+  <button mat-button [mat-dialog-close]="data" (click)="updateUser()" *ngIf="data.isUpdating">Update</button>
+</div>

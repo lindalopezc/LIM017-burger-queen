@@ -40,6 +40,8 @@ import { ListProductsAdminComponent } from './admin/list-products-admin/list-pro
 import {provideStorage, getStorage} from '@angular/fire/storage'
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { NewUserComponent } from './admin/new-user/new-user.component';
+import { ListUsersComponent } from './admin/list-users/list-users.component';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AdminComponent,
     NewProductComponent,
     ListProductsAdminComponent,
+    NewUserComponent,
+    ListUsersComponent,
 
   ],
   imports: [

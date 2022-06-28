@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { collection, collectionData, doc, Firestore,  query, updateDoc } from '@angular/fire/firestore';
+import { Auth, createUserWithEmailAndPassword, deleteUser, getAuth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { collection, collectionData, deleteDoc, doc, Firestore,  query, updateDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { addDoc, orderBy} from '@firebase/firestore';
 import { Observable } from 'rxjs';
@@ -15,8 +15,21 @@ export class FirebaseService {
      private firestore: Firestore,
      private router: Router){ }
 
-  register({ email, password }: any){
-   return createUserWithEmailAndPassword(this.auth, email, password);
+  register({ name, email, password, type }: any){
+    console.log(email, 'email')
+   return createUserWithEmailAndPassword(this.auth, email, password).then(response=>{
+    console.log('response', response)
+    const user={
+      userId : response.user.uid,
+      userName : name,
+      userEmail : response.user.email,
+      userType : type,
+      userPassword: password,
+    }
+    const ordenRef = collection(this.firestore, 'users');
+    addDoc(ordenRef,user);
+
+   });
   }
 
   login({email, password}:any){
@@ -63,5 +76,16 @@ export class FirebaseService {
     const docRef = doc(this.firestore, "ordenes", String(order.id));
     const queryRef = this.getOrders();
     return updateDoc(docRef,{Timer: timer});
+  }
+  getUsers(): Observable<any[]>{
+    const ordenRef = collection(this.firestore, 'users');
+    const  queryRef = query(ordenRef,orderBy('userName', 'desc'));
+    return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
+  }
+  deleteUserFirestore(user: any){
+
+    const docRef = doc(this.firestore, "users", String(user.id));
+    deleteDoc(docRef);
+
   }
 }
