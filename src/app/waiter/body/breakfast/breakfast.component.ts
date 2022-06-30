@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductFirebaseService } from 'src/app/services/product-firebase.service';
 import { breakfasts } from './data-breakfast';
 
 @Component({
@@ -7,10 +8,14 @@ import { breakfasts } from './data-breakfast';
 })
 export class BreakfastComponent implements OnInit {
   breakfastProducts = breakfasts;
-  constructor() { }
+  constructor(private productFirebase: ProductFirebaseService) { }
 
   ngOnInit(): void {
 
+    this.productFirebase.getProducts().subscribe((products)=>{
+      this.breakfastProducts['breakfasts'] = products.filter(product=>product.typeProduct === 'Breakfast');
+
+    })
   }
 
 }
