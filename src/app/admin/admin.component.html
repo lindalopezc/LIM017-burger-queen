@@ -1,11 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
-
-      <a class="navbar-brand text-white">
-        <img src="../../../assets/img/logo.png" alt="logo" width="30" height="24" class="d-inline-block align-text-top" id="logo">
-      </a>
-
-      <a class="navbar-brand">Admin</a>
-  <div class="collapse navbar-collapse" id="navbarNav">
+    <a class="navbar-brand text-white">
+      <img src="../../../assets/img/logo.png" alt="logo" width="30" height="24" class="d-inline-block align-text-top" id="logo">
+    </a>
+    <a class="navbar-brand text-white title">Burguer Queen</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link  text-white" routerLink="/admin/products">Products <span class="sr-only">(current)</span></a>
@@ -14,19 +12,17 @@
         <a class="nav-link  text-white" routerLink="/admin/users">Users</a>
       </li>
       <li class="nav-nav-item"> <!--add btn signout-->
-
-   </li>
+      </li>
     </ul>
-
-  </div>
-  <div class="d-flex">
-    <a class="nav-nav-link" (click)="signOut($event)" title="Sign-out">
-      <mat-icon>exit_to_app</mat-icon>
-    </a>
-  </div>
-  <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon" ></span>
-  </button>
+    </div>
+    <div>
+      <a class="nav-nav-link" (click)="signOut($event)" title="Sign-out">
+        <mat-icon class = "text-white">exit_to_app</mat-icon>
+      </a>
+    </div>
+     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon" ></span>
+     </button>
 </nav>
 <router-outlet></router-outlet>
 

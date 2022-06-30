@@ -6,7 +6,7 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
 
   beforeEach(()=>{{
-    component = new LoginComponent();
+    // component = new LoginComponent();
   }})
   // let fixture: ComponentFixture<LoginComponent>;
   // beforeEach(async () => {
