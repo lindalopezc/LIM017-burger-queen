@@ -1,31 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import Product from '../interfaces/product';
-import { MatDialog } from '@angular/material/dialog';
-import { NewProductComponent } from './new-product/new-product.component';
-import { NewUserComponent } from './new-user/new-user.component';
+import { FirebaseService } from '../services/firebase.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  newProduct: Product = {name:'', url:'',  price:0, type:'', cheese:0, egg:0};
-  user = {name:'', email:'', password: '', type: ''}
-  constructor(public dialog: MatDialog) {}
+
+
+  constructor(private authFirebase: FirebaseService, private router: Router) {}
 
   ngOnInit(): void {
   }
 
-  openDialogToCreateProduct(){
-      const dialogRef = this.dialog.open(NewProductComponent, {
-        width: '50%',
-        data: this.newProduct,
-      });
-    }
-  openDialogToCreateUser(){
-    const dialogRef = this.dialog.open(NewUserComponent, {
-      width: '50%',
-      data: {user:this.user,isUpdating: false},
-    });
+  signOut(event: Event){
+    this.authFirebase.signOut()
+    .then(()=>{
+      console.log('sign out exit')
+      this.router.navigate(['/login']);
+    })
+    .catch((error)=> console.log(error));
   }
+
 }

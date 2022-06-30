@@ -1,26 +1,33 @@
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Job</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users; index as i">
-      <th scope="row">{{i+1}}</th>
-      <td>
-        {{user.userName}}
-      </td>
-      <td>
-        {{user.userEmail}}
-      </td>
-      <td>{{user.userType}}</td>
-      <td><button class="btn btn-danger" (click)="deleteUser(user)" #create><i class="fa-solid fa-circle-minus"></i></button></td>
-      <td><button class="btn btn-info" (click)="openDialogToUpdate(user, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
-    </tr>
-  </tbody>
-</table>
+<div  class="container d-flex justify-content-center m-2">
+  <button class="btn btn-dark" id="btnNewUser" (click)="openDialogToCreateUser()">Add new  User</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-light table-striped table-hover ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Job</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>
+          {{user.userName}}
+        </td>
+        <td>
+          {{user.userEmail}}
+        </td>
+        <td>{{user.userType}}</td>
+        <td><button class="btn btn-danger" (click)="deleteUser(user)" #create><i class="fa-solid fa-circle-minus"></i></button></td>
+        <td><button class="btn btn-info" (click)="openDialogToUpdateUser(user, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -11,12 +11,14 @@ import { NewProductComponent } from '../new-product/new-product.component';
 })
 export class ListProductsAdminComponent implements OnInit {
   products!: Product[];
-  constructor(private productFirebase: ProductFirebaseService, public dialog: MatDialog) { }
+  newProduct: Product = {name:'', url:'',  price:0, type:'', cheese:0, egg:0};
+  constructor(private productFirebase: ProductFirebaseService, public dialog: MatDialog) {
+
+  }
 
   ngOnInit(): void {
 
       this.productFirebase.getProducts().subscribe((products)=>{
-        console.log(products)
         this.products = products
       })
 
@@ -33,5 +35,10 @@ export class ListProductsAdminComponent implements OnInit {
    dialogRef.afterClosed().subscribe(result=>{
     });
   }
-
+  openDialogToCreateProduct(){
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      width: '50%',
+      data: this.newProduct,
+    });
+  }
 }
