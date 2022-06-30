@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductFirebaseService } from 'src/app/services/product-firebase.service';
-import { products } from './products';
+import {products}  from './products';
 
 @Component({
   selector: 'app-menu',
@@ -11,10 +11,13 @@ export class MenuComponent implements OnInit {
   constructor(private productFirebase: ProductFirebaseService) { }
 
   ngOnInit(): void {
+
     this.productFirebase.getProducts().subscribe((products)=>{
-      this.menu['burguers'].push(...products.filter(product=>product.typeProduct === 'Burger'));
-      this.menu['beverages'].push(...products.filter(product=>product.typeProduct === 'Beverages'))
-      this.menu['accompaniments'].push(...products.filter(product=>product.typeProduct === 'Accompaniments'))
+      this.menu['burguers'] = products.filter(product=>product.typeProduct === 'Burger');
+      this.menu['beverages']=products.filter(product=>product.typeProduct === 'Beverages');
+      this.menu['accompaniments']=products.filter(product=>product.typeProduct === 'Accompaniments')
+
     })
   }
+
 }
