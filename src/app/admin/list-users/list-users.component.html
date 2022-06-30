@@ -1,15 +1,21 @@
-<div class="d-flex flex-column align-items-center list-users">
-  <p class = "size-title">Users</p><br>
-  <button class="btn btn-outline-danger add-user" (click)="openDialogToCreateUser()">Add new User</button><br>
-  <table class="table table-striped">
+
+<div  class="container d-flex justify-content-center m-2">
+  <button class="btn btn-dark" id="btnNewUser" (click)="openDialogToCreateUser()">Add new  User</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-light table-striped table-hover ">
+
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Job</th>
-        <th></th>
-        <th></th>
+
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+
       </tr>
     </thead>
     <tbody>
@@ -22,10 +28,10 @@
           {{user.userEmail}}
         </td>
         <td>{{user.userType}}</td>
-        <td><button class="btn btn-outline-secondary" (click)="deleteUser(user)" #create><i class="fa-solid fa-eraser"></i></button></td>
-        <td><button class="btn btn-outline-warning" (click)="openDialogToUpdate(user, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+        <td><button class="btn btn-danger" (click)="deleteUser(user)" #create><i class="fa-solid fa-circle-minus"></i></button></td>
+        <td><button class="btn btn-info" (click)="openDialogToUpdateUser(user, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
       </tr>
     </tbody>
   </table>
-
 </div>
+

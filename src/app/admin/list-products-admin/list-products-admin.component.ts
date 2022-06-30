@@ -13,12 +13,14 @@ export class ListProductsAdminComponent implements OnInit {
   products!: Product[];
   newProduct: Product = {name:'', url:'',  price:0, type:'', cheese:0, egg:0};
 
-  constructor(private productFirebase: ProductFirebaseService, public dialog: MatDialog) { }
+  constructor(private productFirebase: ProductFirebaseService, public dialog: MatDialog) {
+
+  }
+
 
   ngOnInit(): void {
 
       this.productFirebase.getProducts().subscribe((products)=>{
-        console.log(products)
         this.products = products
       })
 

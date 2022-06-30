@@ -10,7 +10,8 @@ import { NewUserComponent } from '../new-user/new-user.component';
 })
 export class ListUsersComponent implements OnInit {
   users!:any
-  user = {name:'', email:'', password: '', type: ''}
+  user!: any;
+
   constructor(private firebaseService: FirebaseService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -23,14 +24,19 @@ export class ListUsersComponent implements OnInit {
     this.firebaseService.deleteUserFirestore(user);
   }
 
-  openDialogToCreateUser(){
+  openDialogToUpdateUser(user: any, updateValue: any ){
     const dialogRef = this.dialog.open(NewUserComponent, {
-      width: '50%',
-      data: {user:this.user,isUpdating: false},
+      width: '250px',
+      data: {user, isUpdating: updateValue},
+    });
+   dialogRef.afterClosed().subscribe(result=>{
     });
   }
+  openDialogToCreateUser(){
 
-  openDialogToUpdate(product: any, updateValue: any ){
-
+    const dialogRef = this.dialog.open(NewUserComponent, {
+      width: '50%',
+      data: {user: this.user},
+    });
   }
 }

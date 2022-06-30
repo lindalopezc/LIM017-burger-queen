@@ -11,10 +11,14 @@ export class NewUserComponent implements OnInit {
   email: string = '';
   password: string = '';
   constructor(public dialogRef: MatDialogRef<NewUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private firebaseService: FirebaseService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private firebaseService: FirebaseService) {
+      if(this.data.isUpdating!=="true" )
+        this.data.user ={userId:'', userName:'', userType:'', userPassword:'', userEmail: ''};
+     }
 
   ngOnInit(): void {
   }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -23,5 +27,6 @@ export class NewUserComponent implements OnInit {
   }
   updateUser(){
 
+    this.firebaseService.updateUserFirestore(this.data.user.userId, this.data.user)
   }
 }

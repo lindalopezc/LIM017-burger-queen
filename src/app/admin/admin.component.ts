@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { FirebaseService } from '../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -9,16 +10,18 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private firebaseService: FirebaseService,
-    private router: Router) {}
+  constructor(private authFirebase: FirebaseService, private router: Router) {}
 
   ngOnInit(): void {
   }
-  signOut(event:Event){
-    this.firebaseService.signOut()
+
+  signOut(event: Event){
+    this.authFirebase.signOut()
     .then(()=>{
+      console.log('sign out exit');
       this.router.navigate(['/login']);
     })
     .catch((error)=> console.log(error));
   }
+
 }
