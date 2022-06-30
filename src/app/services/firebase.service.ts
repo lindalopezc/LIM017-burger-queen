@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, deleteUser, getAuth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { collection, collectionData, deleteDoc, doc, Firestore,  query, updateDoc } from '@angular/fire/firestore';
+import { collection, collectionData, deleteDoc, doc, Firestore,  query, setDoc, updateDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { addDoc, orderBy} from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import OrderFirebase from '../interfaces/orders-firebase';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,9 +25,9 @@ export class FirebaseService {
       userType : type,
       userPassword: password,
     }
-    const ordenRef = collection(this.firestore, 'users');
-    addDoc(ordenRef,user);
-
+    //const ordenRef = collection(this.firestore, 'users');
+    //addDoc(ordenRef,user);
+    setDoc(doc(this.firestore, "users", response.user.uid),user)
    });
   }
 
@@ -87,6 +86,14 @@ export class FirebaseService {
   deleteUserFirestore(user: any){
     const docRef = doc(this.firestore, "users", String(user.id));
     deleteDoc(docRef);
-
+  }
+  updateUserFirestore(id: string | undefined, user: any){
+    const docRef = doc(this.firestore, "products", String(id));
+    return updateDoc(docRef, {
+      userName: user.userName,
+      userPassword: user.userPassword,
+      userType: user.userType,
+      userEmail: user.userEmail
+    })
   }
 }
