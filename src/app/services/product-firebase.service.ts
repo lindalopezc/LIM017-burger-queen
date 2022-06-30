@@ -15,8 +15,9 @@ export class ProductFirebaseService {
         product = {name:product.name, url:product.url,  price:product.price, typeProduct: product.typeProduct};
       }
     const cityRef = doc(collection(this.firestore, 'products'));
-      setDoc(cityRef, product);
+      setDoc(cityRef, product).then(e=>console.log('holi boli',e));
   }
+
   getProducts(): Observable<any[]>{
     const refProducts = collection(this.firestore, 'products');
     const  queryRef = query(refProducts,orderBy('listProduc', 'desc'));
