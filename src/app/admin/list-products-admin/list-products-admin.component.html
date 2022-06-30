@@ -1,3 +1,4 @@
+
 <div  class="container d-flex justify-content-center m-2">
   <button type="button" class="btn btn-dark" (click)="openDialogToCreateProduct()">Add new Product</button>
 </div>
@@ -18,18 +19,13 @@
       <tr *ngFor="let product of products; index as i">
         <th scope="row">{{i+1}}</th>
         <td>{{product.typeProduct}}</td>
-        <td>
-          {{product.name}} <br>
-          <span *ngIf="product.type">{{product.type}}</span>
-        </td>
+        <td>{{product.name}} <br> <span *ngIf="product.type">{{product.type}}</span></td>
         <td>{{product.price}}</td>
-
         <td><img src={{product.url}} class="productImg"></td>
-        <td><button class="btn btn-danger" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-circle-minus"></i></button></td>
-        <td><button class="btn btn-info" (click)="openDialogToUpdate(product, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+        <td><button class="btn btn-outline-warning" (click)="openDialogToUpdate(product, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+        <td><button class="btn btn-outline-secondary" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-eraser"></i></button></td>
       </tr>
-
-
     </tbody>
   </table>
 </div>
+

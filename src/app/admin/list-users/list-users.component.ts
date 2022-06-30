@@ -11,6 +11,7 @@ import { NewUserComponent } from '../new-user/new-user.component';
 export class ListUsersComponent implements OnInit {
   users!:any
   user!: any;
+
   constructor(private firebaseService: FirebaseService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class ListUsersComponent implements OnInit {
   deleteUser(user: any){
     this.firebaseService.deleteUserFirestore(user);
   }
+
   openDialogToUpdateUser(user: any, updateValue: any ){
     const dialogRef = this.dialog.open(NewUserComponent, {
       width: '250px',
@@ -36,6 +38,5 @@ export class ListUsersComponent implements OnInit {
       width: '50%',
       data: {user: this.user},
     });
-
   }
 }

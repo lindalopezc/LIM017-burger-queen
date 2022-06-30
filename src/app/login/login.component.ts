@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from '../services/firebase.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private FirebaseService: FirebaseService,
-    private router: Router,
     private formLogin: FormBuilder,
   ) {
     this.form = this.formLogin.group({
