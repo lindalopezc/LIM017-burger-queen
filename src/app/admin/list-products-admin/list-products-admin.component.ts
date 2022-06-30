@@ -18,7 +18,6 @@ export class ListProductsAdminComponent implements OnInit {
   ngOnInit(): void {
 
       this.productFirebase.getProducts().subscribe((products)=>{
-        console.log(products)
         this.products = products
       })
 

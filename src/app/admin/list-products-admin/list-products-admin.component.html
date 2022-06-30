@@ -27,8 +27,8 @@
         <td>{{product.name}} <br> <span *ngIf="product.type">{{product.type}}</span></td>
         <td>{{product.price}}</td>
         <td><img src={{product.url}} class="productImg"></td>
-        <td><button class="btn btn-outline-secondary" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-eraser"></i></button></td>
         <td><button class="btn btn-outline-warning" (click)="openDialogToUpdate(product, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+        <td><button class="btn btn-outline-secondary" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-eraser"></i></button></td>
       </tr>
     </tbody>
   </table>

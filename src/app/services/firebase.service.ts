@@ -44,7 +44,7 @@ export class FirebaseService {
         this.router.navigate(['/chef']);
       }
       else if(/admin.bq.com/.test(email)){
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/admin/products']);
       }
     })
   }
@@ -77,13 +77,14 @@ export class FirebaseService {
     const queryRef = this.getOrders();
     return updateDoc(docRef,{Timer: timer});
   }
+
   getUsers(): Observable<any[]>{
     const ordenRef = collection(this.firestore, 'users');
     const  queryRef = query(ordenRef,orderBy('userName', 'asc'));
     return collectionData(queryRef, {idField: 'id'}) as Observable<any[]>;
   }
-  deleteUserFirestore(user: any){
 
+  deleteUserFirestore(user: any){
     const docRef = doc(this.firestore, "users", String(user.id));
     deleteDoc(docRef);
 

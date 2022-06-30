@@ -15,15 +15,11 @@
     <tbody>
       <tr *ngFor="let user of users; index as i">
         <th scope="row">{{i+1}}</th>
-        <td>
-          {{user.userName}}
-        </td>
-        <td>
-          {{user.userEmail}}
-        </td>
+        <td>{{user.userName}}</td>
+        <td>{{user.userEmail}}</td>
         <td>{{user.userType}}</td>
-        <td><button class="btn btn-outline-secondary" (click)="deleteUser(user)" #create><i class="fa-solid fa-eraser"></i></button></td>
         <td><button class="btn btn-outline-warning" (click)="openDialogToUpdate(user, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+        <td><button class="btn btn-outline-secondary" (click)="deleteUser(user)" #create><i class="fa-solid fa-eraser"></i></button></td>
       </tr>
     </tbody>
   </table>
