@@ -1,13 +1,13 @@
 // import { TestBed } from '@angular/core/testing';
 
-// import { ProductFirebaseService } from './product-firebase.service';
+// import { ProductUserFirebaseService } from './product-firebase.service';
 
-// describe('ProductFirebaseService', () => {
-//   let service: ProductFirebaseService;
+// describe('ProductUserFirebaseService', () => {
+//   let service: ProductUserFirebaseService;
 
 //   beforeEach(() => {
 //     TestBed.configureTestingModule({});
-//     service = TestBed.inject(ProductFirebaseService);
+//     service = TestBed.inject(ProductUserFirebaseService);
 //   });
 
 //   it('should be created', () => {

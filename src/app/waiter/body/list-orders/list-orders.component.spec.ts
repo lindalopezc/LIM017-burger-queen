@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, EMPTY, of } from 'rxjs';
 import OrderFirebase from 'src/app/interfaces/orders-firebase';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { UserFirebaseService } from 'src/app/services/user-firebase.service';
 
 import { ListOrdersComponent } from './list-orders.component';
 
 describe('ListOrdersComponent', () => {
   let component: ListOrdersComponent;
   let fixture: ComponentFixture<ListOrdersComponent>;
-  let firebaseService: FirebaseService;
+  let firebaseService: UserFirebaseService;
   const firebaseServiceStub = {
     updateStatusOrder(order: OrderFirebase, status: string){
       order.Status = status;
@@ -50,7 +50,7 @@ describe('ListOrdersComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ ListOrdersComponent ],
-      providers: [{ provide: FirebaseService, useValue: firebaseServiceStub }],
+      providers: [{ provide: UserFirebaseService, useValue: firebaseServiceStub }],
     })
     .compileComponents();
 
@@ -58,7 +58,7 @@ describe('ListOrdersComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    firebaseService = TestBed.inject(FirebaseService)
+    firebaseService = TestBed.inject(UserFirebaseService)
   });
 
   it('should create', () => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductFirebaseService } from 'src/app/services/product-firebase.service';
+import { ProductUserFirebaseService } from 'src/app/services/product-firebase.service';
 import {products}  from './products';
 
 @Component({
@@ -8,7 +8,7 @@ import {products}  from './products';
 })
 export class MenuComponent implements OnInit {
   menu = products;
-  constructor(private productFirebase: ProductFirebaseService) { }
+  constructor(private productFirebase: ProductUserFirebaseService) { }
 
   ngOnInit(): void {
 

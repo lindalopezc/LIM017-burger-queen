@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { UserFirebaseService } from 'src/app/services/user-firebase.service';
 import { NewUserComponent } from '../new-user/new-user.component';
 
 @Component({
@@ -12,16 +12,15 @@ export class ListUsersComponent implements OnInit {
   users!:any
   user!: any;
 
-  constructor(private firebaseService: FirebaseService, public dialog: MatDialog) { }
+  constructor(private UserFirebaseService: UserFirebaseService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.firebaseService.getUsers().subscribe((usersFirestore)=>{
-      console.log(usersFirestore)
+    this.UserFirebaseService.getUsers().subscribe((usersFirestore)=>{
       this.users=usersFirestore;
     })
   }
   deleteUser(user: any){
-    this.firebaseService.deleteUserFirestore(user);
+    this.UserFirebaseService.deleteUserFirestore(user);
   }
 
   openDialogToUpdateUser(user: any, updateValue: any ){
@@ -33,7 +32,6 @@ export class ListUsersComponent implements OnInit {
     });
   }
   openDialogToCreateUser(){
-
     const dialogRef = this.dialog.open(NewUserComponent, {
       width: '50%',
       data: {user: this.user},

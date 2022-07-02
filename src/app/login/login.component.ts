@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FirebaseService } from '../services/firebase.service';
+import { UserFirebaseService } from '../services/user-firebase.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   wrongPassword: string = '';
 
   constructor(
-    private FirebaseService: FirebaseService,
+    private UserFirebaseService: UserFirebaseService,
     private formLogin: FormBuilder,
   ) {
     this.form = this.formLogin.group({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.FirebaseService.login(this.form.value)
+    this.UserFirebaseService.login(this.form.value)
       .catch(error => {
         if(error.code === 'auth/user-not-found'){
           this.wrongEmail = 'The email is not registered. Try again';

@@ -1,12 +1,17 @@
 
-.table{
-  margin: 2%;
+.table-responsive{
   width: 90%;
-  border-radius: 2rem;
-  box-shadow: 1px 1px 57px 1px rgba(0, 0, 0, 0.385);
--webkit-box-shadow: 1px 1px 57px 1px rgba(0,0,0,0.385);
--moz-box-shadow: 1px 1px 57px 1px rgba(0,0,0,0.385);
 }
+.table{
+  border-radius: 5rem;
+  border-style: solid gray;
+}
+
+td, th{
+vertical-align: middle;
+text-align-last: center;
+}
+
 button.btn.btn-dark {
   background: #900;
   color: white;

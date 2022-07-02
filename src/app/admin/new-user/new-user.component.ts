@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { UserFirebaseService } from 'src/app/services/user-firebase.service';
 
 @Component({
   selector: 'app-new-user',
@@ -11,7 +11,7 @@ export class NewUserComponent implements OnInit {
   email: string = '';
   password: string = '';
   constructor(public dialogRef: MatDialogRef<NewUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private firebaseService: FirebaseService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private UserFirebaseService: UserFirebaseService) {
       if(this.data.isUpdating!=="true" )
         this.data.user ={userId:'', userName:'', userType:'', userPassword:'', userEmail: ''};
      }
@@ -23,10 +23,10 @@ export class NewUserComponent implements OnInit {
     this.dialogRef.close();
   }
   createUser(name: string, email: string, password: string,  type: string){
-    this.firebaseService.register({name, email , password, type})
+    this.UserFirebaseService.register({name, email , password, type})
   }
   updateUser(){
 
-    this.firebaseService.updateUserFirestore(this.data.user.userId, this.data.user)
+    this.UserFirebaseService.updateUserFirestore(this.data.user.userId, this.data.user)
   }
 }

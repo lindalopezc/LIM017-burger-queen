@@ -28,7 +28,6 @@ import { ProductCardComponent } from './waiter/body/list-products/product-card/p
 import { OrderSummaryComponent } from './waiter/body/list-products/order-summary/order-summary.component';
 import { NewOrderComponent } from './waiter/body/list-products/order-summary/new-order/new-order.component';
 import { LoginComponent } from './login/login.component';
-import { OrderService } from './services/order.service';
 import { BodyComponent } from './waiter/body/body.component';
 import { MenuComponent } from './waiter/body/menu/menu.component';
 import { BreakfastComponent } from './waiter/body/breakfast/breakfast.component';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import Product from 'src/app/interfaces/product';
-import { ProductFirebaseService } from 'src/app/services/product-firebase.service';
+import { ProductUserFirebaseService } from 'src/app/services/product-firebase.service';
 import { NewProductComponent } from '../new-product/new-product.component';
 
 @Component({
@@ -13,7 +13,7 @@ export class ListProductsAdminComponent implements OnInit {
   products!: Product[];
   newProduct: Product = {name:'', url:'',  price:0, type:'', cheese:0, egg:0};
 
-  constructor(private productFirebase: ProductFirebaseService, public dialog: MatDialog) {
+  constructor(private productFirebase: ProductUserFirebaseService, public dialog: MatDialog) {
 
   }
 
