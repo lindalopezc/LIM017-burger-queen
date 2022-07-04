@@ -11,10 +11,8 @@ export class BreakfastComponent implements OnInit {
   constructor(private productFirebase: ProductFirebaseService) { }
 
   ngOnInit(): void {
-
     this.productFirebase.getProducts().subscribe((products)=>{
       this.breakfastProducts['breakfasts'] = products.filter(product=>product.typeProduct === 'Breakfast');
-
     })
   }
 

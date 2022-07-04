@@ -1,28 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white d-flex justify-content-between">
+  <div class="d-flex">
     <a class="navbar-brand text-white">
       <img src="../../../assets/img/logo.png" alt="logo" width="30" height="24" class="d-inline-block align-text-top" id="logo">
     </a>
-    <a class="navbar-brand text-white title">Burguer Queen</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link  text-white" routerLink="/admin/products">Products <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link  text-white" routerLink="/admin/users">Users</a>
-      </li>
-      <li class="nav-nav-item"> <!--add btn signout-->
-      </li>
-    </ul>
-    </div>
-    <div>
-      <a class="nav-nav-link" (click)="signOut($event)" title="Sign-out">
-        <mat-icon class = "text-white">exit_to_app</mat-icon>
-      </a>
-    </div>
-     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="navbar-toggler-icon" ></span>
-     </button>
+    <a class="navbar-brand text-white title m-3">Burguer Queen</a>
+  </div>
+  <div class="d-flex flex-row navbar-nav">
+    <a class="nav-link text-white m-3" routerLink="/admin/products">Products <span class="sr-only">(current)</span></a>
+    <a class="nav-link  text-white m-3" routerLink="/admin/users">Users</a>
+    <a class="nav-nav-link m-3" (click)="signOut($event)" title="Sign-out">
+      <mat-icon class = "text-white">exit_to_app</mat-icon>
+    </a>
+  </div>
 </nav>
 <router-outlet></router-outlet>
 

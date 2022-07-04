@@ -1,14 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable, EMPTY, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import OrderFirebase from 'src/app/interfaces/orders-firebase';
-import { FirebaseService } from 'src/app/services/firebase.service';
-
+import { OrdersFirebaseService } from 'src/app/services/orders-firebase.service';
 import { ListOrdersComponent } from './list-orders.component';
 
 describe('ListOrdersComponent', () => {
   let component: ListOrdersComponent;
   let fixture: ComponentFixture<ListOrdersComponent>;
-  let firebaseService: FirebaseService;
+  let ordersFirebase : OrdersFirebaseService;
   const firebaseServiceStub = {
     updateStatusOrder(order: OrderFirebase, status: string){
       order.Status = status;
@@ -50,7 +49,7 @@ describe('ListOrdersComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ ListOrdersComponent ],
-      providers: [{ provide: FirebaseService, useValue: firebaseServiceStub }],
+      providers: [{ provide: OrdersFirebaseService, useValue: firebaseServiceStub }],
     })
     .compileComponents();
 
@@ -58,20 +57,20 @@ describe('ListOrdersComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    firebaseService = TestBed.inject(FirebaseService)
+    ordersFirebase = TestBed.inject(OrdersFirebaseService)
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
   it('List orders', () => {
-    spyOn(firebaseService,'getOrders').and.callThrough()
+    spyOn(ordersFirebase,'getOrders').and.callThrough()
     expect(component.orders.length).toEqual(1);
   });
   it('Update status of the orders', ()=>{
 
   const statusChange = 'Served';
-    spyOn(firebaseService, 'updateStatusOrder').and.callThrough();
+    spyOn(ordersFirebase, 'updateStatusOrder').and.callThrough();
     component.changeStatus(0,'Served')
       expect(component.orders[0].Status).toBe(statusChange);
   })

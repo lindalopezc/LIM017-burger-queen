@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Order } from 'src/app/interfaces/order';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { UserFirebaseService } from 'src/app/services/user-firebase.service';
 import { OrderService } from 'src/app/services/order.service';
+import { OrdersFirebaseService } from 'src/app/services/orders-firebase.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -21,7 +22,8 @@ export class OrderSummaryComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
-    private firebaseService: FirebaseService){
+    private UserFirebaseService: UserFirebaseService,
+    private ordersFirebase: OrdersFirebaseService){
     this.orderSummary = this.orderService.getOrderSummary();
   }
 
@@ -30,15 +32,14 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   totalPrice(){
+    console.log(this.orderSummary)
     return this.orderSummary.reduce((previus, current)=>{
-      let total = 0;
-      if(current.egg){
-        return current.price + previus + Number(current.egg) + Number(current.cheese);
-      }
-      else
-        return current.price + previus;
+
+        return current.price + previus + Number(current.egg)*current.count + Number(current.cheese)*current.count;
+
     },this.total)
   }
+
 
   createOrder(event: Event, orders : Order[]){
     this.index++;
@@ -52,7 +53,7 @@ export class OrderSummaryComponent implements OnInit {
       Total:this.totalPrice(),
       Timer: 0,
     };
-    this.firebaseService.addOrderToFirebase(order);
+    this.ordersFirebase.addOrderToFirebase(order);
     this.orderService.clearOrderSummary();
   }
 

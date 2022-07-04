@@ -8,21 +8,22 @@ import { Order } from '../interfaces/order';
 export class OrderService {
  private orderSummary: Order[] = [];
 
+ getOrderSummary (){
+  return this.orderSummary;
+ }
+
  addOrder(order: Order){
   this.orderSummary.push(order);
  }
 
- increaseProduct(index: number){
+ increaseProduct(index: number):void{
   this.orderSummary[index].count++;
-  return this.orderSummary;
- }
- decreaseProduct(index: number){
-  if(this.orderSummary[index].count>0)
-    this.orderSummary[index].count--;
  }
 
- getOrderSummary (){
-  return this.orderSummary;
+ decreaseProduct(index: number){
+  if(this.orderSummary[index].count > 0){
+    this.orderSummary[index].count--;
+  }
  }
 
  deleteOneOrder(index: number){
@@ -32,4 +33,5 @@ export class OrderService {
  clearOrderSummary(){
   this.orderSummary = [];
  }
+
 }

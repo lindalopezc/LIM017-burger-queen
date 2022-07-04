@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import OrderFirebase from 'src/app/interfaces/orders-firebase';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { UserFirebaseService } from 'src/app/services/user-firebase.service';
 import { Router } from '@angular/router';
-import { CdTimerComponent, TimeInterface } from 'angular-cd-timer';
+import { TimeInterface } from 'angular-cd-timer';
+import { OrdersFirebaseService } from '../services/orders-firebase.service';
 
 @Component({
   selector: 'app-chef',
@@ -15,11 +16,12 @@ export class ChefComponent implements OnInit {
   ordersChef!: OrderFirebase[];
   timerForEachOrder: Array<number> = Array(10);
 
-  constructor(private firebaseService: FirebaseService,
-    private router: Router) {}
+  constructor(private UserFirebaseService: UserFirebaseService,
+    private router: Router,
+    private ordersFirebase: OrdersFirebaseService) {}
 
   ngOnInit(): void {
-    this.firebaseService.getOrders().subscribe(orders => {
+    this.ordersFirebase.getOrders().subscribe(orders => {
       this.timerForEachOrder.length = orders.length;
       this.ordersChef = orders;
     })
@@ -28,7 +30,7 @@ export class ChefComponent implements OnInit {
   changeStatus(statusValue: string, index: number){
     this.upDateAllTimersOrders()
     .then(()=>{
-      this.firebaseService.updateStatusOrder(this.ordersChef[index], statusValue);
+      this.ordersFirebase.updateStatusOrder(this.ordersChef[index], statusValue);
     })
   }
 
@@ -39,17 +41,16 @@ export class ChefComponent implements OnInit {
   upDateAllTimersOrders(){
     this.ordersChef.forEach((order, index)=>{
       if(this.timerForEachOrder[index]){
-        this.firebaseService.updateTimerOrder(order, this.timerForEachOrder[index]);
+        this.ordersFirebase.updateTimerOrder(order, this.timerForEachOrder[index]);
       }
     });
     return Promise.all(this.ordersChef);
   }
 
   signOut(event:Event){
-    this.firebaseService.signOut()
+    this.UserFirebaseService.signOut()
     .then(()=>{
       this.router.navigate(['/login']);
     })
-    .catch((error)=> console.log(error));
   }
 }

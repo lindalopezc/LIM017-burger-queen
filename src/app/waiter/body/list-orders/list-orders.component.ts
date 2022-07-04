@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { OrdersFirebaseService } from 'src/app/services/orders-firebase.service';
 
 @Component({
   selector: 'app-list-orders',
@@ -9,15 +9,15 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 
 export class ListOrdersComponent implements OnInit {
   orders: any[];
-  constructor(private firebaseService: FirebaseService) { this.orders=[{}]}
+  constructor(private orderFirebase : OrdersFirebaseService) {this.orders=[{}]}
 
   ngOnInit(): void {
-    this.firebaseService.getOrders().subscribe(orders => {
+    this.orderFirebase.getOrders().subscribe(orders => {
       this.orders = orders;
     })
   }
 
   changeStatus(index:number, status: string): Promise<any>{
-    return this.firebaseService.updateStatusOrder(this.orders[index],status);
+    return this.orderFirebase.updateStatusOrder(this.orders[index],status);
   }
 }
