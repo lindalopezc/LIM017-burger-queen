@@ -32,15 +32,14 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   totalPrice(){
+    console.log(this.orderSummary)
     return this.orderSummary.reduce((previus, current)=>{
-      let total = 0;
-      if(current.egg){
-        return current.price + previus + Number(current.egg) + Number(current.cheese);
-      }
-      else
-        return current.price + previus;
+
+        return current.price + previus + Number(current.egg)*current.count + Number(current.cheese)*current.count;
+
     },this.total)
   }
+
 
   createOrder(event: Event, orders : Order[]){
     this.index++;
