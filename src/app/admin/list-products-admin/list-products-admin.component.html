@@ -1,33 +1,32 @@
-<div  class="container d-flex justify-content-center m-2">
-  <button type="button" class="btn btn-dark" (click)="openDialogToCreateProduct()">Add new Product</button>
-</div>
-<div class="table-responsive d-flex flex-column align-items-center">
-  <div class="form-outline mb-4">
-    <input type="search" class="form-control" id="datatable-search-input">
-    <label class="form-label" for="datatable-search-input">Search</label>
+<div class = "d-flex flex-column align-items-center">
+  <div  class="container d-flex justify-content-end m-2">
+    <button type="button" class="btn btn-dark" (click)="openDialogToCreateProduct()">Add new Product</button>
   </div>
-  <table class="table table-light table-striped table-hover ">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Type</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Image</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products; index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{product.typeProduct}}</td>
-        <td>{{product.name}} <br> <span *ngIf="product.type">{{product.type}}</span></td>
-        <td>{{product.price}}</td>
-        <td><img src={{product.url}} class="productImg"></td>
-        <td><button class="btn btn-outline-dark" (click)="openDialogToUpdate(product, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
-        <td><button class="btn btn-outline-danger" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-eraser"></i></button></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive d-flex flex-column justify-content-center">
+      <table class="table table-light table-striped table-hover ">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Type</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Image</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{product.typeProduct}}</td>
+          <td>{{product.name}} <br> <span *ngIf="product.type">{{product.type}}</span></td>
+          <td>{{product.price}}</td>
+          <td><img src={{product.url}} class="productImg"></td>
+          <td><button class="btn btn-outline-dark" (click)="openDialogToUpdate(product, update.value )" #update value="true"><i class="fa-solid fa-pen"></i></button></td>
+          <td><button class="btn btn-outline-danger" (click)="deleteProductAdmin(product)" #create><i class="fa-solid fa-eraser"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
