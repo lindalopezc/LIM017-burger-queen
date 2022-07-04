@@ -1,5 +1,5 @@
 .content-cart {
-  width: 250px;
+  width: 315px;
 }
 
 .drawer-color{
@@ -9,6 +9,7 @@
 .size-title{
   margin-top: 20px;
   font-weight: 500;
+  font-size: 20px;
   font-family: "Poppins", sans-serif;
 }
 .filters{
@@ -31,14 +32,14 @@
     max-width: 315px;
   }
 }
-@media(min-width:900px) {
+@media (min-width:900px) {
   .size-card{
     font-weight: 700;
     font-size: 20px;
   }
   .size-title{
     font-weight: 500;
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
