@@ -1,34 +1,31 @@
-# Burger Queen
+# 🍔Burger Queen
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
+* [1. Introducción](#1-introduccion)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Pistas, tips y lecturas complementarias](#6-pistas-tips-y-lecturas-complementarias)
+* [3. Historias de usuario](#3-historias-de-usuario)
 
 ***
 
-## 1. Introducción
+## 1. 📎Introducción
 
 Este proyecto consiste en la creación de una interfaz web para un restaurante, 
-el cual hemos llamado: "Burger Queen". El objetivo del desarrollo de este proyecto
+el cual hemos llamado: "Burger Queen". El objetivo de este proyecto
 es el uso del framework Angular que logre mantener la interfaz y el estado sincronizados**, es decir
 cada cambio sobre el estado se va a ir reflejando en la interfaz (por ejemplo,
 cada vez que agregamos un _producto_ a un _pedido_, la interfaz debe actualizar
 la lista del pedido y el total).
 
-## 2. Resumen del proyecto
+## 2. 📎Resumen del proyecto
 
 Un pequeño restaurante de Burguers, que está creciendo, necesita una
 interfaz en la que puedan tomar pedidos usando una _tablet_, y enviarlos
 a la cocina para que se preparen ordenada y eficientemente.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
+![burger-queen](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Flogo.png?alt=media&token=34723594-298b-465c-8f56-bf640bcea824)
 
-## Requerimientos de la empresa
+### 🖋️Requerimientos de la empresa
 
 Esta es la información que tenemos del cliente:
 
@@ -64,22 +61,22 @@ Esta es la información que tenemos del cliente:
 > |Bebida/gaseosa 750ml       |     10|
 >
 > **Importante:** Los clientes pueden escoger entre Burguers de res,
-> de pollo, o vegetariana. Además, por $ 1 adicional, pueden agregarle queso
-> o huevo.
+> de pollo, o vegetariana. Además, por $ 1 adicional, pueden agregarle queso 🧀
+> o huevo 🍳.
 >
 > Nuestros clientes son bastante indecisos, por lo que es muy común que cambien
->el su pedido varias veces antes de finalizarlo.
+> su pedido varias veces antes de finalizarlo.
 
-La interfaz debe mostrar los dos menús (desayuno y resto del día), cada uno
-con todos sus _productos_. El usuario debe poder ir eligiendo qué _productos_
-agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el
-costo total.
+> La interfaz debe mostrar los dos menús (desayuno y resto del día), cada uno
+> con todos sus _productos_. El usuario debe poder ir eligiendo qué _productos_
+> agregar y la interfaz debe ir mostrando el _resumen del pedido_ con el 
+> costo total.
 
-![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
+## 3. Desarrollo del proyecto
 
-## 3. Historias de usuario
+### 3.1 📝Historias de usuario
 
-#### [Historia de usuario 1] Mesero/a debe poder tomar pedido de cliente
+#### 📍[Historia de usuario 1] Mesero/a debe poder tomar pedido de cliente
 
 Yo como meserx quiero tomar el pedido de un cliente para no depender de mi mala
 memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y
@@ -107,7 +104,7 @@ Lo acordado que debe ocurrir para decir que la historia está terminada.
 
 ***
 
-#### [Historia de usuario 2] Jefe de cocina debe ver los pedidos
+#### 📍[Historia de usuario 2] Jefe de cocina debe ver los pedidos
 
 Yo como jefx de cocina quiero ver los pedidos de los clientes en orden y
 marcar cuáles están listos para saber qué se debe cocinar y avisar a lxs meserxs
@@ -129,7 +126,7 @@ que un pedido está listo para servirlo a un cliente.
 
 ***
 
-#### [Historia de usuario 3] Meserx debe ver pedidos listos para servir
+#### 📍[Historia de usuario 3] Meserx debe ver pedidos listos para servir
 
 Yo como meserx quiero ver los pedidos que están preparados para entregarlos
 rápidamente a los clientes que las hicieron.
@@ -149,5 +146,28 @@ rápidamente a los clientes que las hicieron.
   terminado. Todo esto para poder tener estadísticas en el futuro.
 
 ***
+
+### 3.2 📝 Resultado final
+
+#### 3.2.1 Vista meser@
+#### 3.2.2 Vista chef
+#### 3.2.1 Vista administrador@
+
+## 4. Tecnologías utilizadas:
+* Angular
+* TypeScript
+* JavaScript
+* HTML
+* CSS / SCSS
+* Bootstrap
+* Jasmine
+* Karma
+* Firebase
+* Git and GitHub
+
+## 5. Creadoras
+
+📍Linda López 
+📍Jaqueline Ramos 
 
 
