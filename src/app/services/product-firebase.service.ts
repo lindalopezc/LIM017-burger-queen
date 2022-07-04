@@ -7,7 +7,10 @@ import Product from '../interfaces/product';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductUserFirebaseService {
+export class ProductFirebaseService {
+  static createProduct(arg0: never[]): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private firestore: Firestore){}
 
   async createProduct(product: any){

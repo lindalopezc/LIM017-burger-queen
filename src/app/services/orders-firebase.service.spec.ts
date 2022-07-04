@@ -1,16 +1,13 @@
-import { TestBed } from '@angular/core/testing';
-
 import { OrdersFirebaseService } from './orders-firebase.service';
+import { Firestore } from '@angular/fire/firestore';
 
 describe('OrdersFirebaseService', () => {
   let service: OrdersFirebaseService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(OrdersFirebaseService);
-  });
-
-  it('should be created', () => {
+   it('should be created', () => {
+    const firestoreFake = {};
+    service = new OrdersFirebaseService(firestoreFake as Firestore);
     expect(service).toBeTruthy();
   });
+
 });

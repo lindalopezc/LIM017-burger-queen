@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { collection, collectionData, deleteDoc, doc, Firestore,  query, setDoc, updateDoc } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
 import { orderBy} from '@firebase/firestore';
 import { Observable } from 'rxjs';
 
@@ -12,8 +11,7 @@ import { Observable } from 'rxjs';
 
 export class UserFirebaseService {
   constructor(private auth: Auth,
-     private firestore: Firestore,
-     private router: Router){}
+     private firestore: Firestore){}
 
   async register({ name, email, password, type }: any){
    const response = await createUserWithEmailAndPassword(this.auth, email, password);
@@ -29,14 +27,7 @@ export class UserFirebaseService {
 
   async login({email, password}:any){
     const response = await signInWithEmailAndPassword(this.auth, email, password);
-    const emailUser: any = response.user.email;
-    if (/waiter.bq.com/.test(emailUser)) {
-      this.router.navigate(['/waiter/menu']);
-    } else if (/chef.bq.com/.test(emailUser)) {
-      this.router.navigate(['/chef']);
-    } else if (/admin.bq.com/.test(emailUser)) {
-      this.router.navigate(['/admin/products']);
-    }
+    return response;
   }
 
   signOut(): Promise<any>{

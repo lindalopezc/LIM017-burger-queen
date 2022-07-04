@@ -1,16 +1,13 @@
-// import { TestBed } from '@angular/core/testing';
+import { Firestore } from '@angular/fire/firestore';
+import { ProductFirebaseService } from './product-firebase.service';
 
-// import { ProductUserFirebaseService } from './product-firebase.service';
+describe('ProductFirebaseService', () => {
+  let service: ProductFirebaseService;
 
-// describe('ProductUserFirebaseService', () => {
-//   let service: ProductUserFirebaseService;
+  it('should be created', () => {
+    const firestoreFake = {};
+    service = new ProductFirebaseService(firestoreFake as Firestore);
+    expect(service).toBeTruthy();
+  });
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(ProductUserFirebaseService);
-//   });
-
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+});

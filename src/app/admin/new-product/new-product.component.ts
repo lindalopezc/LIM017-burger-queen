@@ -1,7 +1,7 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { getDownloadURL, list, listAll, ref, Storage, uploadBytes} from '@angular/fire/storage';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProductUserFirebaseService } from 'src/app/services/product-firebase.service';
+import { ProductFirebaseService } from 'src/app/services/product-firebase.service';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -12,7 +12,7 @@ export class NewProductComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<NewProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private productFirebase: ProductUserFirebaseService,
+    private productFirebase: ProductFirebaseService,
     private storage: Storage
   ) {
       if(this.data.isUpdating!=="true" )

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductUserFirebaseService } from 'src/app/services/product-firebase.service';
+import { ProductFirebaseService } from 'src/app/services/product-firebase.service';
 import { breakfasts } from './data-breakfast';
 
 @Component({
@@ -8,7 +8,7 @@ import { breakfasts } from './data-breakfast';
 })
 export class BreakfastComponent implements OnInit {
   breakfastProducts = breakfasts;
-  constructor(private productFirebase: ProductUserFirebaseService) { }
+  constructor(private productFirebase: ProductFirebaseService) { }
 
   ngOnInit(): void {
     this.productFirebase.getProducts().subscribe((products)=>{

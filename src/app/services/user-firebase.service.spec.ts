@@ -1,19 +1,13 @@
-// import { TestBed } from '@angular/core/testing';
+import { Auth } from '@angular/fire/auth';
+import { Firestore } from '@angular/fire/firestore';
+import { UserFirebaseService } from './user-firebase.service';
 
-// import { UserFirebaseService } from './firebase.service';
-
-// describe('UserFirebaseService', () => {
-//   service: UserFirebaseService;
-
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       providers:[Auth]
-//     })
-//     // TestBed.configureTestingModule({});
-//     // service = TestBed.inject(UserFirebaseService);
-//   });
-
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+describe('UserFirebaseService', () => {
+  let service: UserFirebaseService;
+  it('should be created', () => {
+    const firestoreFake = {};
+    const authFake = {};
+    service = new UserFirebaseService(authFake as Auth, firestoreFake as Firestore );
+    expect(service).toBeTruthy();
+  });
+});

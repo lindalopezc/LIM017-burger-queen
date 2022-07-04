@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, collectionData, deleteDoc, doc, Firestore,  query, setDoc, updateDoc } from '@angular/fire/firestore';
+import { collection, collectionData, doc, Firestore,  query, updateDoc } from '@angular/fire/firestore';
 import { addDoc, orderBy} from '@firebase/firestore';
 import OrderFirebase from '../interfaces/orders-firebase';
 import { Observable } from 'rxjs';

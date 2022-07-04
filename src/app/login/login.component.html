@@ -3,10 +3,10 @@
       <video src="https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fburguer.mp4?alt=media&token=77137de4-264e-4dc1-8be6-99fe98b6afcd" autoplay muted loop plays-inline></video>
   </div>
   <div class="login-card d-flex flex-column">
-      <div class = "logo-container">
-        <img class = "logo-login" src="https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Flogo.png?alt=media&token=34723594-298b-465c-8f56-bf640bcea824" alt="imagen">
-      </div>
       <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+        <div class = "logo-container">
+          <img class = "logo-login" src="https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Flogo.png?alt=media&token=34723594-298b-465c-8f56-bf640bcea824" alt="imagen">
+        </div>
         <div class="form-outline mb-4">
           <input id ="email" type="email" class="form-control" formControlName="email"/>
           <label for = "email" class="form-label">Email address</label>
