@@ -39,7 +39,7 @@ export class ListProductsAdminComponent implements OnInit {
   }
   openDialogToCreateProduct(){
     const dialogRef = this.dialog.open(NewProductComponent, {
-      width: '50%',
+      width: '250px',
       data: this.newProduct,
     });
   }

@@ -33,7 +33,7 @@ export class ListUsersComponent implements OnInit {
   }
   openDialogToCreateUser(){
     const dialogRef = this.dialog.open(NewUserComponent, {
-      width: '50%',
+      width: '250px',
       data: {user: this.user},
     });
   }
