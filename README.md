@@ -23,7 +23,7 @@ Un pequeño restaurante de Burguers, que está creciendo, necesita una
 interfaz en la que puedan tomar pedidos usando una _tablet_, y enviarlos
 a la cocina para que se preparen ordenada y eficientemente.
 
-![burger-queen](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fpexels-edward-eyer-687824.jpg?alt=media&token=e43d32a8-20f2-4b39-872c-2b0c429fffa0)
+![burger-queen](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fistockphoto-1295387240-612x612.jpg?alt=media&token=f2cd20cb-2cd2-494b-9110-37ad0135ab62)
 
 ### 🖋️Requerimientos de la empresa
 
