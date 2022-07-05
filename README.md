@@ -2,11 +2,11 @@
 
 ## Índice
 
-* [1. Introducción](#1-introduccion)
+* [1. Introducción](#1-introducción)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
 * [3. Desarrollo del proyecto](#3-desarrollo-del-proyecto)
 * [4. Resultado final](#4-resultado-final)
-* [5. Tecnologías utilizadas](#5-tecnologias-utilizadas)
+* [5. Tecnologías utilizadas](#5-tecnologías-utilizadas)
 * [6. Creadoras](#6-creadoras)
 
 ***
