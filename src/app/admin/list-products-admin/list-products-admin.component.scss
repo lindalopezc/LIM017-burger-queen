@@ -20,3 +20,16 @@ button.btn.btn-dark {
 .productImg{
 max-width: 100px;
 }
+
+.size-title{
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+@media(min-width:900px) {
+  .size-title{
+    font-size: 25px;
+  }
+}

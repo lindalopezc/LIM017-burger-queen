@@ -10,6 +10,16 @@ nav{
 .title{
   display: none;
 }
+nav{
+  background: #343A40;
+}
+.exit-icon{
+  cursor: pointer;
+}
+.nav-link:hover{
+background: #DC3545;
+border-radius: 0.25rem;
+}
 
 @media (min-width:500px) {
   .title{
