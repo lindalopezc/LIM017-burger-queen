@@ -18,9 +18,11 @@ export class NewOrderComponent implements OnInit {
   }
 
   totalPerProduct(){
-    return this.order.price*this.order.count+Number(this.order.egg)*this.order.count + Number(this.order.cheese)*this.order.count;
-  }
+    if(this.order.egg || this.order.cheese)
+      return this.order.price*this.order.count+Number(this.order.egg)*this.order.count + Number(this.order.cheese)*this.order.count;
 
+    return this.order.price*this.order.count;
+    }
 
   increaseProduct(index: number){
     this.pricePerProduct.emit(this.order.price);
