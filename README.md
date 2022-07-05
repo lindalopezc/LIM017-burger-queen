@@ -6,7 +6,7 @@
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
 * [3. Desarrollo del proyecto](#3-desarrollo-del-proyecto)
 * [4. Resultado final](#4-resultado-final)
-* [5. Tecnologías usadas](#5-tecnologias-usadas)
+* [5. Tecnologías utilizadas](#5-tecnologias-utilizadas)
 * [6. Creadoras](#6-creadoras)
 
 ***
@@ -153,7 +153,7 @@ rápidamente a los clientes que las hicieron.
 Se desarrolló un prototipo considerando las siguientes vistas: waiter,chef y admin.
 Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/proto/zujgLB9m5sHkRWqnAaO502/Burger-Queen?node-id=27%3A387&scaling=scale-down&page-id=0%3A1&starting-point-node-id=26%3A147&show-proto-sidebar=1).
 
-## 4. 📝 Resultado final
+## 4. 📝Resultado final
 ### 4.1 Vista waiter
 ![waiter](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fwaitergif.gif?alt=media&token=263be269-044b-4739-b5f7-786f0fadf1b9)
 #### 4.2 Vista chef
@@ -161,7 +161,7 @@ Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/prot
 #### 4.3 Vista admin
 ![admin](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fadmingif.gif?alt=media&token=971e7f88-2b00-4a07-b5f1-672e2933ce90)
 
-## 5. Tecnologías utilizadas:
+## 5. 🔧Tecnologías utilizadas:
 * Angular
 * TypeScript
 * JavaScript
@@ -173,7 +173,7 @@ Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/prot
 * Firebase
 * Git and GitHub
 
-## 6. Creadoras 💛
+## 6. Creadoras
 
 * 📍[Linda López](https://github.com/lindalopezc)
 * 📍[Jaqueline Ramos](https://github.com/JaquelineRocio)
