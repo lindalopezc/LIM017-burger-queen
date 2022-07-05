@@ -155,11 +155,11 @@ Puede visualizar el proyecto en el [siguiente enlace](https://www.figma.com/prot
 
 ## 4. 📝Resultado final
 ### 4.1 Vista waiter
-![waiter](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fwaitergif.gif?alt=media&token=263be269-044b-4739-b5f7-786f0fadf1b9)
-<!-- ### Vista chef
-![chef](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fchefgif.gif?alt=media&token=40bd652f-99f9-4052-a5dc-bc9b8e4ff5cb) -->
-<!-- ### 4.3 Vista admin
-![admin](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fadmingif.gif?alt=media&token=971e7f88-2b00-4a07-b5f1-672e2933ce90) -->
+![waiter](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fwaitergif%20(1).gif?alt=media&token=3246deaa-dfbc-43a1-ae11-000f7b95fe58)
+### Vista chef
+![chef](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fchefgif%20(1).gif?alt=media&token=487c1e7a-6422-43fc-b03a-09e33d37aaa8)
+### 4.3 Vista admin
+![admin](https://firebasestorage.googleapis.com/v0/b/burger-queen-peru.appspot.com/o/images%2Fadmingif%20(1).gif?alt=media&token=2f91e114-42ae-4c51-905f-b3f8f3d8327d)
 
 ## 5. 🔧Tecnologías utilizadas:
 * Angular
