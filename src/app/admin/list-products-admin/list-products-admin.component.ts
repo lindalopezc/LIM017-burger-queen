@@ -13,20 +13,18 @@ export class ListProductsAdminComponent implements OnInit {
   products!: Product[];
   newProduct: Product = {name:'', url:'',  price:0, type:'', cheese:0, egg:0};
 
-  constructor(private productFirebase: ProductFirebaseService, public dialog: MatDialog) {
-
-  }
-
+  constructor(
+    private productFirebase: ProductFirebaseService,
+    public dialog: MatDialog){}
 
   ngOnInit(): void {
-
-      this.productFirebase.getProducts().subscribe((products)=>{
-        this.products = products
-      })
-
+    this.productFirebase.getProducts().subscribe((products) => {
+    this.products = products
+    })
   }
+
   deleteProductAdmin(product: Product){
-    this.productFirebase.deleteProduct(product);
+    return this.productFirebase.deleteProduct(product);
   }
 
   openDialogToUpdate(product: Product, isUpdating: string){
@@ -34,9 +32,8 @@ export class ListProductsAdminComponent implements OnInit {
       width: '250px',
       data: {product, isUpdating: isUpdating},
     });
-   dialogRef.afterClosed().subscribe(result=>{
-    });
   }
+
   openDialogToCreateProduct(){
     const dialogRef = this.dialog.open(NewProductComponent, {
       width: '250px',

@@ -22,7 +22,6 @@ export class OrderSummaryComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
-    private UserFirebaseService: UserFirebaseService,
     private ordersFirebase: OrdersFirebaseService){
     this.orderSummary = this.orderService.getOrderSummary();
   }
@@ -41,8 +40,6 @@ export class OrderSummaryComponent implements OnInit {
       },this.total)
     return this.total = 0;
   }
-
-
 
   createOrder(event: Event, orders : Order[]){
     this.index++;

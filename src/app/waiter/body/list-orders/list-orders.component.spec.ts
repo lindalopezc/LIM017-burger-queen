@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
 import OrderFirebase from 'src/app/interfaces/orders-firebase';
@@ -9,9 +10,11 @@ describe('ListOrdersComponent', () => {
   let fixture: ComponentFixture<ListOrdersComponent>;
   let ordersFirebase : OrdersFirebaseService;
   const firebaseServiceStub = {
-    updateStatusOrder(order: OrderFirebase, status: string){
+    updateStatusOrder(order: OrderFirebase, status: string): Promise<any>{
       order.Status = status;
-      return order.Status
+      return new Promise ( (resolve) => {
+        resolve(order.Status);
+      })
     },
     getOrders(): Observable<any[]>{
       return of([{
@@ -50,6 +53,7 @@ describe('ListOrdersComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ListOrdersComponent ],
       providers: [{ provide: OrdersFirebaseService, useValue: firebaseServiceStub }],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
 
@@ -67,11 +71,13 @@ describe('ListOrdersComponent', () => {
     spyOn(ordersFirebase,'getOrders').and.callThrough()
     expect(component.orders.length).toEqual(1);
   });
-  it('Update status of the orders', ()=>{
+  it('Update status of the orders', (doneFn)=>{
 
   const statusChange = 'Served';
     spyOn(ordersFirebase, 'updateStatusOrder').and.callThrough();
-    component.changeStatus(0,'Served')
+    component.changeStatus(0,'Served').then(() => {
       expect(component.orders[0].Status).toBe(statusChange);
+      doneFn();
+    })
   })
 });
