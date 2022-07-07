@@ -15,7 +15,7 @@
 
 Este proyecto consiste en la creación de una interfaz web para un restaurante, 
 el cual hemos llamado: "Burger Queen". El objetivo de este proyecto
-es el uso del framework Angular que logre mantener la interfaz y el estado sincronizados, es decir
+es el uso del framework _Angular_ que permita mantener la interfaz y el estado sincronizados, es decir
 cada cambio sobre el estado se va a ir reflejando en la interfaz (por ejemplo,
 cada vez que agregamos un _producto_ a un _pedido_, la interfaz debe actualizar
 la lista del pedido y el total).
