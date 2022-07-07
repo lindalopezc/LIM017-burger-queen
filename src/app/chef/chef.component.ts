@@ -18,7 +18,7 @@ export class ChefComponent implements OnInit {
 
   constructor(private UserFirebaseService: UserFirebaseService,
     private router: Router,
-    private ordersFirebase: OrdersFirebaseService) {}
+    private ordersFirebase: OrdersFirebaseService){}
 
   ngOnInit(): void {
     this.ordersFirebase.getOrders().subscribe(orders => {

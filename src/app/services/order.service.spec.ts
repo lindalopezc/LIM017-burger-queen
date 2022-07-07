@@ -45,7 +45,7 @@ describe('OrdenService', () => {
     expect(service.getOrderSummary()[0].count).toBe(4);
   })
 
-  it('should delet an order', () => {
+  it('should delet one order', () => {
     service.addOrder(order);
     service.deleteOneOrder(0);
     expect(service.getOrderSummary().length).toBe(0);

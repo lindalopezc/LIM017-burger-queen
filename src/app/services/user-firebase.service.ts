@@ -43,6 +43,7 @@ export class UserFirebaseService {
   deleteUserFirestore(user: any){
     const docRef = doc(this.firestore, "users", String(user.id));
     deleteDoc(docRef);
+    return 'user deleted';
   }
 
   updateUserFirestore(id: string | undefined, user: any): Promise<any>{

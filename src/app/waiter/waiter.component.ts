@@ -9,21 +9,20 @@ interface SideNavToggle {
   selector: 'app-waiter',
   templateUrl: './waiter.component.html',
 })
+
 export class WaiterComponent implements OnInit {
   title= 'sidenav';
 
-  isSideNavCollapsed=false;
-  screenWidth=0;
+  isSideNavCollapsed = false;
+  screenWidth = 0;
 
-  onToggleSideNav(data:SideNavToggle):void{
-  this.screenWidth=data.screenWidth;
-  this.isSideNavCollapsed = data.collapsed;
-}
-
+  onToggleSideNav(data:SideNavToggle):void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

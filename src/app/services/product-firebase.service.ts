@@ -44,5 +44,6 @@ export class ProductFirebaseService {
   deleteProduct(product: Product){
     const docRef = doc(this.firestore, 'products', String(product.id));
     deleteDoc(docRef);
+    return 'product deleted';
   }
 }
